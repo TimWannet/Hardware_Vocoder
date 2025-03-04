@@ -50,3 +50,10 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Vscode
+.pio
+Software/.vscode/ipch
+Software/.vscode/c_cpp_properties.json
+Software/.vscode/extensions.json
+Software/.vscode/launch.json
