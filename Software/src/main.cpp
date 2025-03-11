@@ -29,11 +29,12 @@ AudioControlSGTL5000 sgtl5000_1;
 
 AudioConnection      patchCord1(modulatorInput, modulatorQueue); // Connect modulator input to queue
 AudioConnection      patchCord2(carrierInput, carrierQueue);
-// AudioConnection      patchCord3(carrierInput, 1, audioOutput, 0); // Monitor left line-in to output
+AudioConnection      patchCord3(carrierInput, 0, audioOutput, 0); // Pass carrier (left)
+AudioConnection      patchCord4(carrierInput, 1, audioOutput, 1); // Pass carrier (right)
 
-bool MOD_FLAG = false;
-bool CAR_FLAG = false;
-
+bool MOD_FLAG  = false;
+bool CAR_FLAG  = false;
+bool Test_MODE = false;
 // Buffers
 float inputBuffer_modulator[FFT_SIZE]; // Modulator input buffer
 float inputBuffer_carrier[FFT_SIZE]; // Carrier input buffer
@@ -109,7 +110,7 @@ void setup()
 
   sgtl5000_1.enable();
   sgtl5000_1.inputSelect(AUDIO_INPUT_LINEIN);  // Set carrier to Line-In
-  sgtl5000_1.volume(0.8);  // Set output volume
+  sgtl5000_1.volume(0.5);  // Set output volume
   sgtl5000_1.lineInLevel(5); // Adjust line input gain
 
   modulatorQueue.begin();
@@ -141,14 +142,18 @@ void setup()
  */
 void loop()
 {
-  Serial.print("Modulator Blocks: ");
-  Serial.println(modulatorQueue.available());
-  Serial.print("Carrier Blocks: ");
-  Serial.println(carrierQueue.available());
+  if(Test_MODE)
+  {
+    Serial.print("Modulator Blocks: ");
+    Serial.println(modulatorQueue.available());
+    Serial.print("Carrier Blocks: ");
+    Serial.println(carrierQueue.available());
+  }
   delay(10);
   if (modulatorQueue.available() >= 4 && MOD_FLAG == false)  // Wait for 4 blocks
   {
-    Serial.println("Reading Modulator");
+    if(Test_MODE)
+      Serial.println("Reading Modulator");
     // delay(1000);
     int16_t *modulatorData;
     modulatorData = modulatorQueue.readBuffer();
@@ -156,9 +161,11 @@ void loop()
     // Read Modulator samples
     for (int block = 0; block < 4; block++) 
     {
-        Serial.print("Processing block: ");
-        Serial.println(block);
-        
+        if(Test_MODE)
+        {
+          Serial.print("Processing block: ");
+          Serial.println(block);
+        }
         for (int i = 0; i < 128; i++) 
         {
             inputBuffer_modulator[block * 128 + i] = (float32_t)modulatorData[i] / 32768.0f;
@@ -167,12 +174,14 @@ void loop()
     // modulatorQueue.freeBuffer();
     modulatorQueue.clear();
     MOD_FLAG = true;
-    Serial.println("Finished reading Modulator");
+    if(Test_MODE)
+      Serial.println("Finished reading Modulator");
   }
 
   if (carrierQueue.available() >= 4 && CAR_FLAG == false)  // Wait for 4 blocks
   {
-    Serial.println("Reading Carrier");
+    if(Test_MODE)
+      Serial.println("Reading Carrier");
     // delay(1000);
     int16_t *carrierData;
     carrierData = carrierQueue.readBuffer();
@@ -180,9 +189,12 @@ void loop()
     // Read Carrier samples
     for (int block = 0; block < 4; block++)
     {
-        Serial.print("Processing block: ");
-        Serial.println(block);
-        
+        if(Test_MODE)
+        {
+          Serial.print("Processing block: ");
+          Serial.println(block);
+        }
+
         for (int i = 0; i < 128; i++)
         {
             inputBuffer_carrier[block * 128 + i] = carrierData[i] / 32768.0f;
@@ -191,7 +203,8 @@ void loop()
     // carrierQueue.freeBuffer();
     carrierQueue.clear();
     CAR_FLAG = true;
-    Serial.println("Finished reading Carrier");
+    if(Test_MODE)
+      Serial.println("Finished reading Carrier");
   }
 
   if (modulatorQueue.available() >= 4 && MOD_FLAG == true && CAR_FLAG == false)  // Wait for 4 blocks
@@ -206,7 +219,8 @@ void loop()
 
   if(MOD_FLAG && CAR_FLAG)
   {
-    Serial.println("Processing FFT");
+    if(Test_MODE)
+      Serial.println("Processing FFT");
     // Apply window
     applyHannWindow(inputBuffer_modulator, FFT_SIZE);
     applyHannWindow(inputBuffer_carrier, FFT_SIZE);
