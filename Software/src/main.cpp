@@ -18,10 +18,12 @@ AudioControlSGTL5000  sgtl5000_1;
 int16_t CarrierBuffer[FFT_SIZE];
 int16_t modulatorBuffer[FFT_SIZE];
 
-float fftBuffer[FFT_SIZE * 2]; // Complex FFT buffer (real + imaginary)
+float fftBuffer[FFT_SIZE * 2];
 float modulatorFFT[FFT_SIZE * 2];
-float magnitude[FFT_SIZE];
-float phase[FFT_SIZE];
+float modMagnitude[FFT_SIZE];
+float carMagnitude[FFT_SIZE];
+float modPhase[FFT_SIZE];
+float carPhase[FFT_SIZE];
 
 volatile bool bufferFull = false;
 volatile bool playbackReady = false;
@@ -75,6 +77,7 @@ class ModulatorProcessor : public AudioStream
   public:
       ModulatorProcessor() : AudioStream(1, inputQueueArray) {}
 
+      
       void update() override
       {
           audio_block_t *block;
@@ -112,7 +115,7 @@ class PlaybackProcessor : public AudioStream
           if (!playbackReady) 
             return;
           
-          audio_block_t *block = allocate();
+          audio_block_t *block = allocate(); 
           
           if (!block) 
             return;
@@ -122,7 +125,7 @@ class PlaybackProcessor : public AudioStream
           for (int i = 0; i < AUDIO_BLOCK_SAMPLES; i++) 
           {
               block->data[i] = CarrierBuffer[index++];
-              if (index >= FFT_SIZE) 
+              if (index >= FFT_SIZE)
               {
                   index = 0;
                   playbackReady = false;
@@ -142,10 +145,25 @@ AudioConnection         patchCord2(analogInput, 0, modProcessor, 0);
 AudioConnection         patchCord3(playbackProcessor, 0, i2sOutput, 0); // left channel
 AudioConnection         patchCord4(playbackProcessor, 0, i2sOutput, 1); // right channel
 
-
 // Function prototypes
 void processFFT();
-void getMagnitudeAndPhase(float *buffer);
+void getMagnitudeAndPhase(float *buffer, float *magnitude, float *phase);
+void convertInt16ToFloat(int16_t *inputBuffer, float *outputBuffer);
+
+/*
+* @brief Convert int16_t to float function
+*
+* @details This function converts the audio data from int16_t to float.
+* The real part is the audio data and the imaginary part is set to 0.
+*/
+void convertInt16ToFloat(int16_t *inputBuffer, float *outputBuffer)
+{
+  for (int i = 0; i < FFT_SIZE; i++)
+  {
+    outputBuffer[2 * i] = (float)inputBuffer[i]; // Real part
+    outputBuffer[2 * i + 1] = 0.0f; // Imaginary part
+  }
+}
 
 /*
 * @brief Get Magnitude and Phase function
@@ -154,7 +172,7 @@ void getMagnitudeAndPhase(float *buffer);
 * The magnitude is calculated as the square root of the sum of the squares of the real and imaginary parts.
 * The phase is calculated as the arctangent of the imaginary part divided by the real part.
 */
-void getMagnitudeAndPhase(float *buffer)
+void getMagnitudeAndPhase(float *buffer, float *magnitude, float *phase)
 {
   for (int i = 0; i < FFT_SIZE; i++)
   {
@@ -174,24 +192,20 @@ void getMagnitudeAndPhase(float *buffer)
 */
 void processFFT() 
 {
+
     // Convert int16_t to float
-    for (int i = 0; i < FFT_SIZE; i++)
-    {
-        fftBuffer[2 * i] = (float)CarrierBuffer[i]; // Real part
-        fftBuffer[2 * i + 1] = 0.0f; // Imaginary part
-    }
-    
+    convertInt16ToFloat(CarrierBuffer, fftBuffer);
     // Perform FFT
     arm_cfft_f32(&arm_cfft_sR_f32_len256, fftBuffer, 0, 1);
     
     // Extract magnitude and phase
-    getMagnitudeAndPhase(fftBuffer);
+    getMagnitudeAndPhase(fftBuffer, carMagnitude, carPhase);
 
     // Reconstruct signal from magnitude and phase
     for (int i = 0; i < FFT_SIZE; i++)
     {
-        fftBuffer[2 * i] = magnitude[i] * cosf(phase[i]);
-        fftBuffer[2 * i + 1] = magnitude[i] * sinf(phase[i]);
+        fftBuffer[2 * i] = carMagnitude[i] * cosf(carPhase[i]);
+        fftBuffer[2 * i + 1] = carMagnitude[i] * sinf(carPhase[i]);
     }
     
     // Perform Inverse FFT
