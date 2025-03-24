@@ -1,286 +1,186 @@
-
-/**
- * @file main.cpp
- * @author Tim Wannet
- * @brief This file contains the main program that will run on the teensy.
- * @version 0.1
- * 
- */
-
-#include <Arduino.h>
 #include <Audio.h>
-#include <arm_math.h>  // CMSIS-DSP for FFT
+#include <Wire.h>
+#include <SPI.h>
+#include <arm_math.h>
+#include <cmath>
+#include <arm_const_structs.h>
 
-//defines
-#define FFT_SIZE 128  // STFT window size
-#define NUM_BLOCKS 1  // Number of blocks to process
-#define AUDIO_MEMORY 200  // Audio memory allocation
+// defines
+#define FFT_SIZE 256 // Buffer size (Change this value as needed: 128, 256, 512, 1024, etc.)
 
-// Audio objects
-AudioInputAnalog     modulatorInput(A17); // Audio input object
-AudioInputI2S        carrierInput;
-AudioRecordQueue     modulatorQueue;
-AudioRecordQueue     carrierQueue;
-AudioOutputI2S       audioOutput;
-AudioPlayQueue       queueOutput;
-AudioControlSGTL5000 sgtl5000_1;
+// Audio Library objects
+AudioInputI2S         i2sInput;  // I2S input from Audio Shield
+AudioOutputI2S        i2sOutput; // I2S output to Audio Shield
+AudioControlSGTL5000  sgtl5000_1;
 
-// Audio connections/patching
-AudioConnection      patchCord1(modulatorInput, modulatorQueue);
-AudioConnection      patchCord2(carrierInput, carrierQueue); 
-AudioConnection      patchCord3(queueOutput, 0, audioOutput, 0);  // Left channel
-AudioConnection      patchCord4(queueOutput, 0, audioOutput, 1); // Right channel
+// variables
+int16_t audioBuffer[FFT_SIZE];
 
-bool MOD_FLAG  = false;
-bool CAR_FLAG  = false;
-// bool Test_MODE = true;
-bool Test_MODE = false;
+float fftBuffer[FFT_SIZE * 2]; // Complex FFT buffer (real + imaginary)
+float magnitude[FFT_SIZE];
+float phase[FFT_SIZE];
 
-// Buffers
-float inputBuffer_modulator[FFT_SIZE]; // Time-domain samples (modulator)
-float inputBuffer_carrier[FFT_SIZE];   // Time-domain samples (carrier)
-float Buffer_carrier[FFT_SIZE];        // Buffer for carrier signal
+volatile bool bufferFull = false;
+volatile bool playbackReady = false;
 
-// FFT output buffers (use FFT_SIZE + 2 for real-to-complex FFT)
-float fftOutput_modulator[FFT_SIZE+2];  
-float fftOutput_carrier[FFT_SIZE+2];   
+/*
+* @class AudioBufferProcessor
+* @brief Processes audio data from I2S input and stores it in a buffer
 
-// Magnitude and phase arrays (only half of FFT bins are useful)
-float magnitude_modulator[FFT_SIZE/2];  
-float magnitude_carrier[FFT_SIZE/2];    
-float phase_modulator[FFT_SIZE/2];      
-float phase_carrier[FFT_SIZE/2];        
-
-float32_t hannWindow[FFT_SIZE]; // Hann window
-
-/**
- * @brief This function applies the Hann window to the input buffer.
- * 
- * @param buffer The input buffer to apply the Hann window to.
- * @param size The size of the input buffer.
- */
-void applyHannWindow(float32_t* buffer, int size) 
+* @details This class processes audio data from the I2S input, this is handled in a interrupt service routine.
+* The audio data is stored in a buffer and when the buffer is full, a flag is set to signal that processing can start.
+*/
+class AudioBufferProcessor : public AudioStream 
 {
-  for (int i = 0; i < size; i++) 
-  {
-      buffer[i] *= hannWindow[i];
-  }
-}
+public:
+    AudioBufferProcessor() : AudioStream(1, inputQueueArray) {} 
 
-/**
- * @brief Compute the FFT of the input buffer.
- * 
- * @param buffer The input buffer to compute the FFT on.
- * @param fftOutput The output buffer to store the FFT result.
- */
-void computeFFT(float32_t* buffer, float32_t* fftOutput)
-{
-  arm_rfft_fast_instance_f32 fftInstance;
-  arm_rfft_fast_init_f32(&fftInstance, FFT_SIZE);
-  arm_rfft_fast_f32(&fftInstance, buffer, fftOutput, 0);
-}
-
-/**
- * @brief Get the magnitude and phase of the FFT output.
- * 
- * @param fftOutput The FFT output buffer.
- * @param magnitude The magnitude buffer.
- * @param phase The phase buffer.
- */
-void getMagnitudeAndPhase(float32_t* fftOutput, float32_t* magnitude, float32_t* phase)
-{
-    for (int i = 0; i < FFT_SIZE / 2; i++)
+     //override base::update()
+    void update() override
     {
-        float real = fftOutput[2 * i];
-        float imag = fftOutput[2 * i + 1];
+        audio_block_t *block;
+        block = receiveReadOnly(0); // Receive audio data from I2S input
+        if (!block)
+          return;
+
+        static uint16_t index = 0;
+        for (int i = 0; i < AUDIO_BLOCK_SAMPLES && index < FFT_SIZE; i++)
+        {
+            audioBuffer[index++] = block->data[i]; // Store audio data in buffer
+            if (index >= FFT_SIZE) // Buffer full
+            {
+                bufferFull = true; // Signal that processing can start
+                index = 0;
+            }
+        }
+        release(block);
+    }
+
+private:
+    audio_block_t *inputQueueArray[1]; 
+};
+
+/*
+* @class PlaybackProcessor
+* @brief Processes audio data from a buffer and plays it back
+*
+* @details This class processes audio data from the buffer and plays it back using the I2S output.
+* This is handeled in a interrupt service routine and the audio data is played back in chunks of 128 samples (according to the Audio Library).
+*/
+class PlaybackProcessor : public AudioStream 
+{
+public:
+    PlaybackProcessor() : AudioStream(0, NULL) {}
+
+    //override base::update()
+    void update() override  
+    {
+        if (!playbackReady) 
+          return;
+        
+        audio_block_t *block = allocate();
+        
+        if (!block) 
+          return;
+
+        static uint16_t index = 0;
+
+        for (int i = 0; i < AUDIO_BLOCK_SAMPLES; i++) 
+        {
+            block->data[i] = audioBuffer[index++];
+            if (index >= FFT_SIZE) 
+            {
+                index = 0;
+                playbackReady = false;
+            }
+        }
+        transmit(block);
+        release(block);
+    }
+};
+
+AudioBufferProcessor  bufferProcessor;
+PlaybackProcessor     playbackProcessor;
+AudioConnection       patchCord1(i2sInput, 0, bufferProcessor, 0);
+AudioConnection       patchCord2(playbackProcessor, 0, i2sOutput, 0);
+AudioConnection       patchCord3(playbackProcessor, 0, i2sOutput, 1);
+
+// Function prototypes
+void processFFT();
+
+/*
+* @brief Setup function
+*
+* @details This function initializes the audio library and the SGTL5000 audio codec.
+*/
+void setup()
+{
+    Serial.begin(115200);
+
+    AudioMemory(10);
+    sgtl5000_1.enable();
+    sgtl5000_1.inputSelect(AUDIO_INPUT_LINEIN);
+    sgtl5000_1.volume(0.5);
+
+    Serial.println("Setup complete");
+}
+
+/*
+* @brief Loop function
+*
+* @details This function is the main loop of the program.
+* It checks if the buffer is full and processes the FFT when the buffer is full.
+*/
+void loop() 
+{
+    if (bufferFull = true) // Process FFT when buffer is full
+    {
+        processFFT(); // Perform FFT
+        bufferFull = false;
+        playbackReady = true;
+    }
+}
+
+/*
+* @brief Process FFT function
+*
+* @details This function performs the FFT on the audio data in the buffer.
+* The audio data is converted to float, the FFT is performed, the magnitude and phase are extracted, the signal is reconstructed, and the inverse FFT is performed.
+*/
+void processFFT() 
+{
+    // Convert int16_t to float
+    for (int i = 0; i < FFT_SIZE; i++)
+    {
+        fftBuffer[2 * i] = (float)audioBuffer[i]; // Real part
+        fftBuffer[2 * i + 1] = 0.0f; // Imaginary part
+    }
+    
+    // Perform Forward FFT
+    arm_cfft_f32(&arm_cfft_sR_f32_len256, fftBuffer, 0, 1);
+    
+    // Extract magnitude and phase
+    for (int i = 0; i < FFT_SIZE; i++)
+    {
+        float real = fftBuffer[2 * i];
+        float imag = fftBuffer[2 * i + 1];
         magnitude[i] = sqrtf(real * real + imag * imag);
         phase[i] = atan2f(imag, real);
     }
-}
-
-/**
- * @brief For now only the carrier signal is being reconstructed by the IFFT and sent to the audio queue.
- * 
- * Here the audio queue send to the audio output of the SGTL5000.
- */
-void applyVocoderEffect() 
-{
-  for (int i = 0; i < FFT_SIZE / 2; i++) 
-  {
-    fftOutput_carrier[2 * i] = magnitude_carrier[i] * cos(phase_carrier[i]);  // Real
-    fftOutput_carrier[2 * i + 1] = magnitude_carrier[i] * sin(phase_carrier[i]);  // Imaginary
-  }
-  
-  // Perform Inverse FFT (IFFT) to reconstruct signal
-  arm_rfft_fast_instance_f32 ifftInstance;
-  arm_rfft_fast_init_f32(&ifftInstance, FFT_SIZE);
-  arm_rfft_fast_f32(&ifftInstance, fftOutput_carrier, Buffer_carrier, 1);  // 1 = IFFT
-
-  // Convert FFT output back to int16_t and send to Audio Queue
-  if (queueOutput.available() >= 1)
-  {
-      int16_t *buffer = queueOutput.getBuffer();
-      for (int i = 0; i < AUDIO_BLOCK_SAMPLES; i++) //FFT size?????????
-      {
-          // Scale the floating-point IFFT output to int16_t range
-          int16_t sample = Buffer_carrier[i] * 32767.0f;
-  
-          // Clamp to avoid overflow distortion
-          if (sample > 32767.0f) sample = 32767.0f;
-          if (sample < -32768.0f) sample = -32768.0f;
-  
-          buffer[i] = sample;
-      }
-      queueOutput.playBuffer();
-  }
-}
-
-/**
- * @brief Setup function to initialize the audio objects and buffers.
- */
-void setup()
-{
-  Serial.begin(115200); 
-
-  AudioMemory(AUDIO_MEMORY);  
-
-  // Set up the audio shield
-  sgtl5000_1.enable();
-  sgtl5000_1.inputSelect(AUDIO_INPUT_LINEIN);  // Set carrier to Line-In
-  sgtl5000_1.volume(0.5);  // Set output volume
-  sgtl5000_1.lineInLevel(5); // Adjust line input gain
-
-  modulatorQueue.begin(); // Start the audio queue
-  carrierQueue.begin();  // Start the audio queue
-
-  // Generate Hann window
-  for (int i = 0; i < FFT_SIZE; i++) 
-  {
-      hannWindow[i] = 0.5 * (1 - cosf(2 * PI * i / (FFT_SIZE - 1)));
-  }
-
-  Serial.println("Setup done");
-}
-
-/**
- * @brief Main loop function
- * 
- */
-void loop()
-{
-  if(Test_MODE)
-  {
-    Serial.print("Modulator Blocks: ");
-    Serial.println(modulatorQueue.available());
-    Serial.print("Carrier Blocks: ");
-    Serial.println(carrierQueue.available());
-  }
-
-  if (modulatorQueue.available() >= NUM_BLOCKS && MOD_FLAG == false) //Modulator
-  {
-    if(Test_MODE)
-      Serial.println("Reading Modulator");
-
-    int16_t *modulatorData;
-    modulatorData = modulatorQueue.readBuffer();
-
-    // Read Modulator samples
-    for (int block = 0; block < NUM_BLOCKS; block++) 
+    
+    // Reconstruct signal from magnitude and phase
+    for (int i = 0; i < FFT_SIZE; i++)
     {
-        if(Test_MODE)
-        {
-          Serial.print("Processing block: ");
-          Serial.println(block);
-        }
-        for (int i = 0; i < 128; i++) 
-        {
-            inputBuffer_modulator[block * 128 + i] = (float32_t)modulatorData[i] / 32768.0f;
-        }
+        fftBuffer[2 * i] = magnitude[i] * cosf(phase[i]);
+        fftBuffer[2 * i + 1] = magnitude[i] * sinf(phase[i]);
     }
-    modulatorQueue.clear();
-    MOD_FLAG = true;
-
-    if(Test_MODE)
-      Serial.println("Finished reading Modulator");
-  }
-
-  if (carrierQueue.available() >= NUM_BLOCKS && CAR_FLAG == false)  //Carrier
-  {
-    if(Test_MODE)
-      Serial.println("Reading Carrier");
-
-    int16_t *carrierData;
-    carrierData = carrierQueue.readBuffer();
-
-    // Read Carrier samples
-    for (int block = 0; block < NUM_BLOCKS; block++)
+    
+    // Perform Inverse FFT
+    arm_cfft_f32(&arm_cfft_sR_f32_len256, fftBuffer, 1, 1);
+    
+    // Convert back to int16_t
+    for (int i = 0; i < FFT_SIZE; i++)
     {
-        if(Test_MODE)
-        {
-          Serial.print("Processing block: ");
-          Serial.println(block);
-        }
-
-        for (int i = 0; i < 128; i++)
-        {
-            inputBuffer_carrier[block * 128 + i] = carrierData[i] / 32768.0f;
-        }
+        audioBuffer[i] = (int16_t)(fftBuffer[2 * i] / FFT_SIZE); // Scale down
     }
-    carrierQueue.clear();
-    CAR_FLAG = true;
-    if(Test_MODE)
-      Serial.println("Finished reading Carrier");
-  }
-
-  // Clear the queue if not enough blocks are available
-  if (modulatorQueue.available() >= NUM_BLOCKS && MOD_FLAG == true && CAR_FLAG == false)  
-  {
-    modulatorQueue.clear();
-  }
-
-  if (carrierQueue.available() >= NUM_BLOCKS && CAR_FLAG == true && MOD_FLAG == false)
-  {
-    carrierQueue.clear();
-  }
-
-  // Process FFT if both modulator and carrier blocks are filled
-  if(MOD_FLAG && CAR_FLAG)
-  {
-    if(Test_MODE)
-      Serial.println("Processing FFT");
-
-    // Apply window THIS IS NOT WORKING!!!!
-    // applyHannWindow(inputBuffer_modulator, FFT_SIZE);
-    // applyHannWindow(inputBuffer_carrier, FFT_SIZE);
-
-    // Compute FFTs
-    computeFFT(inputBuffer_modulator, fftOutput_modulator);
-    computeFFT(inputBuffer_carrier, fftOutput_carrier);
-
-    // Get Magnitude & Phase
-    getMagnitudeAndPhase(fftOutput_modulator, magnitude_modulator, phase_modulator);
-    getMagnitudeAndPhase(fftOutput_carrier, magnitude_carrier, phase_carrier);
-
-    // Print Magnitude & Phase for Serial Plotter
-    if(Test_MODE)
-    {
-      for (int i = 0; i < FFT_SIZE / 2; i++) 
-      {
-          Serial.print(magnitude_modulator[i]);  // Modulator Magnitude
-          Serial.print(",");
-          Serial.print(phase_modulator[i]);      // Modulator Phase
-          Serial.print(",");
-          Serial.print(magnitude_carrier[i]);    // Carrier Magnitude
-          Serial.print(",");
-          Serial.println(phase_carrier[i]);      // Carrier Phase
-      }
-    }
-
-    // Apply Vocoder Effect
-    applyVocoderEffect();
-
-    // Reset flags
-    MOD_FLAG = false;
-    CAR_FLAG = false;
-  }
 }
