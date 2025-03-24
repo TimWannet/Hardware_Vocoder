@@ -145,14 +145,22 @@ AudioConnection         patchCord4(playbackProcessor, 0, i2sOutput, 1); // right
 
 // Function prototypes
 void processFFT();
+void getMagnitudeAndPhase(float *buffer);
 
+/*
+* @brief Get Magnitude and Phase function
+*
+* @details This function extracts the magnitude and phase from the buffer in the frequency domain.
+* The magnitude is calculated as the square root of the sum of the squares of the real and imaginary parts.
+* The phase is calculated as the arctangent of the imaginary part divided by the real part.
+*/
 void getMagnitudeAndPhase(float *buffer)
 {
   for (int i = 0; i < FFT_SIZE; i++)
   {
       float real = buffer[2 * i];
       float imag = buffer[2 * i + 1];
-      magnitude[i] = sqrtf(real * real + imag * imag);
+      magnitude[i] = sqrtf((real * real) + (imag * imag));
       phase[i] = atan2f(imag, real);
   }
 }
@@ -173,12 +181,12 @@ void processFFT()
         fftBuffer[2 * i + 1] = 0.0f; // Imaginary part
     }
     
-    // Perform Forward FFT
+    // Perform FFT
     arm_cfft_f32(&arm_cfft_sR_f32_len256, fftBuffer, 0, 1);
     
     // Extract magnitude and phase
     getMagnitudeAndPhase(fftBuffer);
-    
+
     // Reconstruct signal from magnitude and phase
     for (int i = 0; i < FFT_SIZE; i++)
     {
