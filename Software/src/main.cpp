@@ -28,6 +28,8 @@ float carPhase[FFT_SIZE];
 volatile bool bufferFull = false;
 volatile bool playbackReady = false;
 
+const arm_cfft_instance_f32* fftConfig;
+
 /*
 * @class CarrierBufferProcessor
 * @brief Processes audio data from I2S input and stores it in a buffer
@@ -183,6 +185,19 @@ void getMagnitudeAndPhase(float *buffer, float *magnitude, float *phase)
   }
 }
 
+const arm_cfft_instance_f32* getFFTConfig(int size) 
+{
+    switch (size) 
+    {
+        case 128:  return &arm_cfft_sR_f32_len128;
+        case 256:  return &arm_cfft_sR_f32_len256;
+        case 512:  return &arm_cfft_sR_f32_len512;
+        case 1024: return &arm_cfft_sR_f32_len1024;
+        case 2048: return &arm_cfft_sR_f32_len2048;
+        case 4096: return &arm_cfft_sR_f32_len4096;
+        default:   return nullptr; // Handle error
+    }
+}
 
 /*
 * @brief Process FFT function
@@ -192,9 +207,9 @@ void getMagnitudeAndPhase(float *buffer, float *magnitude, float *phase)
 */
 void processFFT() 
 {
-
     // Convert int16_t to float
     convertInt16ToFloat(CarrierBuffer, fftBuffer);
+
     // Perform FFT
     arm_cfft_f32(&arm_cfft_sR_f32_len256, fftBuffer, 0, 1);
     
@@ -209,7 +224,7 @@ void processFFT()
     }
     
     // Perform Inverse FFT
-    arm_cfft_f32(&arm_cfft_sR_f32_len256, fftBuffer, 1, 1);
+    arm_cfft_f32(fftConfig, fftBuffer, 1, 1);
     
     // Convert back to int16_t
     for (int i = 0; i < FFT_SIZE; i++)
@@ -232,6 +247,13 @@ void setup()
     sgtl5000_1.inputSelect(AUDIO_INPUT_LINEIN);
     sgtl5000_1.volume(0.5);
 
+    fftConfig = getFFTConfig(FFT_SIZE);
+    if (!fftConfig) 
+    {
+        Serial.println("Invalid FFT size!");
+        return;
+    }
+
     Serial.println("Setup complete");
 }
 
@@ -250,4 +272,3 @@ void loop()
         playbackReady = true;
     }
 }
-
