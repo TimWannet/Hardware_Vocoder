@@ -1,3 +1,29 @@
+
+/**
+ * @file main.cpp
+ * @brief Hardware Vocoder Software Implementation
+ * 
+ * @details This program implements a hardware vocoder using the Teensy Audio Library. 
+ * It processes audio signals from a carrier input and a modulator input, performs 
+ * Fast Fourier Transform (FFT) analysis, and reconstructs the signal for playback.
+ * 
+ * The program is structured into three main processing classes:
+ * - CarrierBufferProcessor: Handles audio data from the carrier input.
+ * - ModulatorProcessor: Handles audio data from the modulator input.
+ * - PlaybackProcessor: Handles audio data playback after processing.
+ * 
+ * The FFT is performed using the CMSIS-DSP library, which provides optimized 
+ * FFT routines for ARM Cortex-M processors. The program extracts magnitude and 
+ * phase information from the frequency domain, reconstructs the signal, and 
+ * performs an inverse FFT to return to the time domain.
+ * 
+ * @note The FFT size can be adjusted by modifying the `FFT_SIZE` macro. Supported 
+ * sizes include 128, 256, 512, 1024, 2048, and 4096.
+ * 
+ * @author Tim Wannet
+ * @date 26-03-2025
+ * @version 0.02
+ */
 #include <Audio.h>
 #include <Wire.h>
 #include <SPI.h>
