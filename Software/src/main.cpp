@@ -81,7 +81,6 @@ class CarrierBufferProcessor : public AudioStream
           static uint16_t index = 0;
           for (int i = 0; i < AUDIO_BLOCK_SAMPLES && index < FFT_SIZE; i++)
           {
-              CarrierBuffer[index++] = block->data[i]; // Store audio data in buffer
               carrierBuffer[index++] = block->data[i]; // Store audio data in buffer
               if (index >= FFT_SIZE) // Buffer full
               {
@@ -155,7 +154,6 @@ class PlaybackProcessor : public AudioStream
 
           for (int i = 0; i < AUDIO_BLOCK_SAMPLES; i++) 
           {
-              block->data[i] = CarrierBuffer[index++];
               block->data[i] = carrierBuffer[index++];
               if (index >= FFT_SIZE)
               {
@@ -181,10 +179,15 @@ AudioConnection         patchCord4(playbackProcessor, 0, i2sOutput, 1); // right
 void processFFT();
 void getMagnitudeAndPhase(float *buffer, float *magnitude, float *phase);
 void convertInt16ToFloat(int16_t *inputBuffer, float *outputBuffer);
+void inverseFFT();
 const arm_cfft_instance_f32* getFFTConfig(int size);
+
 
 /*
 * @brief Convert int16_t to float function
+*
+* @param[in] inputBuffer    The input audio data buffer in int16_t format
+* @param[out] outputBuffer  The output audio data buffer in float format
 *
 * @details This function converts the audio data from int16_t to float.
 * The real part is the audio data and the imaginary part is set to 0.
@@ -201,6 +204,10 @@ void convertInt16ToFloat(int16_t *inputBuffer, float *outputBuffer)
 /*
 * @brief Get Magnitude and Phase function
 *
+* @param[in] buffer         The audio data buffer
+* @param[out] magnitude     The magnitude information
+* @param[out] phase         The phase information
+*
 * @details This function extracts the magnitude and phase from the buffer in the frequency domain.
 * The magnitude is calculated as the square root of the sum of the squares of the real and imaginary parts.
 * The phase is calculated as the arctangent of the imaginary part divided by the real part.
@@ -216,6 +223,13 @@ void getMagnitudeAndPhase(float *buffer, float *magnitude, float *phase)
   }
 }
 
+/*
+* @brief Get FFT Configuration function
+*
+* @param[in] size The FFT size
+*
+* @details This function returns the FFT configuration based on the FFT size.
+*/
 const arm_cfft_instance_f32* getFFTConfig(int size) 
 {
     switch (size) 
@@ -233,10 +247,14 @@ const arm_cfft_instance_f32* getFFTConfig(int size)
 /*
 * @brief Process FFT function
 *
+* @param[in] buffer         The audio data buffer
+* @param[in] floatBuffer    The float buffer
+* @param[out] magnitude     The magnitude information
+* @param[out] phase         The phase information 
+*
 * @details This function performs the FFT on the audio data in the buffer.
-* The audio data is converted to float, the FFT is performed, the magnitude and phase are extracted, the signal is reconstructed, and the inverse FFT is performed.
+* It converts the audio data to float, performs the FFT, and extracts the magnitude and phase information.
 */
-void processFFT() 
 void processFFT(int16_t *buffer, float *floatBuffer, float *magnitude, float *phase)
 {
     // Convert int16_t to float
@@ -266,7 +284,6 @@ void inverseFFT()
 
     // Perform Inverse FFT
     arm_cfft_f32(fftConfig, fftBuffer, 1, 1);
-    
 
     // Convert back to int16_t
     for (int i = 0; i < FFT_SIZE; i++)
