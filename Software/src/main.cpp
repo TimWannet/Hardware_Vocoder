@@ -41,10 +41,12 @@ AudioOutputI2S        i2sOutput; // I2S output to Audio Shield
 AudioControlSGTL5000  sgtl5000_1;
 
 // variables
-int16_t CarrierBuffer[FFT_SIZE];
+int16_t carrierBuffer[FFT_SIZE];
 int16_t modulatorBuffer[FFT_SIZE];
 
 float fftBuffer[FFT_SIZE * 2];
+float carFloatBuffer[FFT_SIZE * 2];
+float modFloatBuffer[FFT_SIZE * 2];
 float modulatorFFT[FFT_SIZE * 2];
 float modMagnitude[FFT_SIZE];
 float carMagnitude[FFT_SIZE];
@@ -80,6 +82,7 @@ class CarrierBufferProcessor : public AudioStream
           for (int i = 0; i < AUDIO_BLOCK_SAMPLES && index < FFT_SIZE; i++)
           {
               CarrierBuffer[index++] = block->data[i]; // Store audio data in buffer
+              carrierBuffer[index++] = block->data[i]; // Store audio data in buffer
               if (index >= FFT_SIZE) // Buffer full
               {
                   bufferFull = true; // Signal that processing can start
@@ -153,6 +156,7 @@ class PlaybackProcessor : public AudioStream
           for (int i = 0; i < AUDIO_BLOCK_SAMPLES; i++) 
           {
               block->data[i] = CarrierBuffer[index++];
+              block->data[i] = carrierBuffer[index++];
               if (index >= FFT_SIZE)
               {
                   index = 0;
@@ -177,6 +181,7 @@ AudioConnection         patchCord4(playbackProcessor, 0, i2sOutput, 1); // right
 void processFFT();
 void getMagnitudeAndPhase(float *buffer, float *magnitude, float *phase);
 void convertInt16ToFloat(int16_t *inputBuffer, float *outputBuffer);
+const arm_cfft_instance_f32* getFFTConfig(int size);
 
 /*
 * @brief Convert int16_t to float function
@@ -232,30 +237,41 @@ const arm_cfft_instance_f32* getFFTConfig(int size)
 * The audio data is converted to float, the FFT is performed, the magnitude and phase are extracted, the signal is reconstructed, and the inverse FFT is performed.
 */
 void processFFT() 
+void processFFT(int16_t *buffer, float *floatBuffer, float *magnitude, float *phase)
 {
     // Convert int16_t to float
-    convertInt16ToFloat(CarrierBuffer, fftBuffer);
+    convertInt16ToFloat(buffer, floatBuffer);
 
     // Perform FFT
-    arm_cfft_f32(&arm_cfft_sR_f32_len256, fftBuffer, 0, 1);
+    arm_cfft_f32(fftConfig, floatBuffer, 0, 1);
     
     // Extract magnitude and phase
-    getMagnitudeAndPhase(fftBuffer, carMagnitude, carPhase);
+    getMagnitudeAndPhase(floatBuffer, magnitude, phase);
+}
 
+/*
+* @brief Inverse FFT function
+*
+* @details This function reconstructs the signal from the magnitude and phase information.
+* It then performs an inverse FFT to return to the time domain.
+*/
+void inverseFFT()
+{
     // Reconstruct signal from magnitude and phase
     for (int i = 0; i < FFT_SIZE; i++)
     {
         fftBuffer[2 * i] = carMagnitude[i] * cosf(carPhase[i]);
         fftBuffer[2 * i + 1] = carMagnitude[i] * sinf(carPhase[i]);
     }
-    
+
     // Perform Inverse FFT
     arm_cfft_f32(fftConfig, fftBuffer, 1, 1);
     
+
     // Convert back to int16_t
     for (int i = 0; i < FFT_SIZE; i++)
     {
-        CarrierBuffer[i] = (int16_t)(fftBuffer[2 * i] / FFT_SIZE); // Scale down
+        carrierBuffer[i] = (int16_t)(fftBuffer[2 * i] / FFT_SIZE); // Scale down
     }
 }
 
@@ -293,7 +309,9 @@ void loop()
 {
     if (bufferFull == true) // Process FFT when buffer is full
     {
-        processFFT(); // Perform FFT
+        processFFT(carrierBuffer, carFloatBuffer, carMagnitude, carPhase);
+        // processFFT(modulatorBuffer, modFloatBuffer, modMagnitude, modPhase);
+        inverseFFT();
         bufferFull = false;
         playbackReady = true;
     }
