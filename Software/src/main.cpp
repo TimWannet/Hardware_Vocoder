@@ -53,10 +53,11 @@ float carMagnitude[FFT_SIZE];
 float modPhase[FFT_SIZE];
 float carPhase[FFT_SIZE];
 
-volatile bool bufferFull = false;
+volatile bool carrierBufferFull = false;
+volatile bool modulatorBufferFull = false;
 volatile bool playbackReady = false;
 
-const arm_cfft_instance_f32* fftConfig;
+
 
 /*
 * @class CarrierBufferProcessor
@@ -84,7 +85,6 @@ class CarrierBufferProcessor : public AudioStream
               carrierBuffer[index++] = block->data[i]; // Store audio data in buffer
               if (index >= FFT_SIZE) // Buffer full
               {
-                  bufferFull = true; // Signal that processing can start
                   index = 0;
               }
           }
@@ -342,6 +342,7 @@ void setup()
 void loop() 
 {
     if (bufferFull == true) // Process FFT when buffer is full
+    if (carrierBufferFull && modulatorBufferFull)
     {
         // Convert int16_t to float
         convertInt16ToFloat(carrierBuffer, carFloatBuffer);
