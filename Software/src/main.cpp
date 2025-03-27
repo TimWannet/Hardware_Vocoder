@@ -287,6 +287,12 @@ void processFFT(float *floatBuffer, float *magnitude, float *phase)
 /*
 * @brief Inverse FFT function
 *
+* @param[in] buffer             The audio data buffer
+* @param[in] carrierMagnitude   The carrier magnitude information
+* @param[in] carrierPhase       The carrier phase information
+* @param[in] modulatorMagnitude The modulator magnitude information
+* @param[in] modulatorPhase     The modulator phase information
+*
 * @details This function reconstructs the signal from the magnitude and phase information.
 * It then performs an inverse FFT to return to the time domain.
 */
@@ -339,10 +345,14 @@ void loop()
     {
         // Convert int16_t to float
         convertInt16ToFloat(carrierBuffer, carrierFloatBuffer);
+
         processFFT(carrierFloatBuffer, carrierMagnitude, carrierPhase);
         processFFT(modulatorFloatBuffer, modulatorMagnitude, modulatorPhase);
+        
         inverseFFT(fftBuffer, carrierMagnitude, carrierPhase, modulatorMagnitude, modulatorPhase);
+        
         convertFloatToInt16(fftBuffer, carrierBuffer);
+        
         carrierBufferFull = false;
         modulatorBufferFull = false;
         playbackReady = true;
