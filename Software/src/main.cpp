@@ -46,13 +46,13 @@ int16_t carrierBuffer[FFT_SIZE];
 int16_t modulatorBuffer[FFT_SIZE];
 
 float fftBuffer[FFT_SIZE * 2];
-float carFloatBuffer[FFT_SIZE * 2];
-float modFloatBuffer[FFT_SIZE * 2];
+float carrierFloatBuffer[FFT_SIZE * 2];
+float modulatorFloatBuffer[FFT_SIZE * 2];
 float modulatorFFT[FFT_SIZE * 2];
-float modMagnitude[FFT_SIZE];
-float carMagnitude[FFT_SIZE];
-float modPhase[FFT_SIZE];
-float carPhase[FFT_SIZE];
+float modulatorMagnitude[FFT_SIZE];
+float carrierMagnitude[FFT_SIZE];
+float modulatorPhase[FFT_SIZE];
+float carrierPhase[FFT_SIZE];
 
 volatile bool carrierBufferFull = false;
 volatile bool modulatorBufferFull = false;
@@ -182,7 +182,8 @@ AudioConnection         patchCord4(playbackProcessor, 0, i2sOutput, 1); // right
 void processFFT(arm_cfft_instance_f32* fftConfig, float *floatBuffer, float *magnitude, float *phase);
 void getMagnitudeAndPhase(float *buffer, float *magnitude, float *phase);
 void convertInt16ToFloat(int16_t *inputBuffer, float *outputBuffer);
-void inverseFFT();
+void convertFloatToInt16(float *inputBuffer, int16_t *outputBuffer);
+void inverseFFT(float *buffer, float *carrierMagnitude, float *carrierPhase, float *modulatorMagnitude, float *modulatorPhase);
 const arm_cfft_instance_f32* getFFTConfig(int size);
 
 /*
@@ -289,13 +290,13 @@ void processFFT(float *floatBuffer, float *magnitude, float *phase)
 * @details This function reconstructs the signal from the magnitude and phase information.
 * It then performs an inverse FFT to return to the time domain.
 */
-void inverseFFT()
+void inverseFFT(float *buffer, float *carrierMagnitude, float *carrierPhase, float *modulatorMagnitude, float *modulatorPhase)
 {
     // Reconstruct signal from magnitude and phase
     for (int i = 0; i < FFT_SIZE; i++)
     {
-        fftBuffer[2 * i] = carMagnitude[i] * cosf(carPhase[i]);
-        fftBuffer[2 * i + 1] = carMagnitude[i] * sinf(carPhase[i]);
+        buffer[2 * i] = carrierMagnitude[i] * cosf(carrierPhase[i]);
+        buffer[2 * i + 1] = carrierMagnitude[i] * sinf(carrierPhase[i]);
     }
 
     // Perform Inverse FFT
@@ -337,10 +338,10 @@ void loop()
     if (carrierBufferFull && modulatorBufferFull)
     {
         // Convert int16_t to float
-        convertInt16ToFloat(carrierBuffer, carFloatBuffer);
-        processFFT(carFloatBuffer, carMagnitude, carPhase);
-        // processFFT(modulatorBuffer, modFloatBuffer, modMagnitude, modPhase);
-        inverseFFT();
+        convertInt16ToFloat(carrierBuffer, carrierFloatBuffer);
+        processFFT(carrierFloatBuffer, carrierMagnitude, carrierPhase);
+        processFFT(modulatorFloatBuffer, modulatorMagnitude, modulatorPhase);
+        inverseFFT(fftBuffer, carrierMagnitude, carrierPhase, modulatorMagnitude, modulatorPhase);
         convertFloatToInt16(fftBuffer, carrierBuffer);
         carrierBufferFull = false;
         modulatorBufferFull = false;
