@@ -1,3 +1,29 @@
+
+/**
+ * @file main.cpp
+ * @brief Hardware Vocoder Software Implementation
+ * 
+ * @details This program implements a hardware vocoder using the Teensy Audio Library. 
+ * It processes audio signals from a carrier input and a modulator input, performs 
+ * Fast Fourier Transform (FFT) analysis, and reconstructs the signal for playback.
+ * 
+ * The program is structured into three main processing classes:
+ * - CarrierBufferProcessor: Handles audio data from the carrier input.
+ * - ModulatorProcessor: Handles audio data from the modulator input.
+ * - PlaybackProcessor: Handles audio data playback after processing.
+ * 
+ * The FFT is performed using the CMSIS-DSP library, which provides optimized 
+ * FFT routines for ARM Cortex-M processors. The program extracts magnitude and 
+ * phase information from the frequency domain, reconstructs the signal, and 
+ * performs an inverse FFT to return to the time domain.
+ * 
+ * @note The FFT size can be adjusted by modifying the `FFT_SIZE` macro. Supported 
+ * sizes include 128, 256, 512, 1024, 2048, and 4096.
+ * 
+ * @author Tim Wannet
+ * @date 26-03-2025
+ * @version 0.02
+ */
 #include <Audio.h>
 #include <Wire.h>
 #include <SPI.h>
@@ -5,8 +31,9 @@
 #include <cmath>
 #include <arm_const_structs.h>
 
-// defines
-#define FFT_SIZE 256 // Buffer size (Change this value as needed: 128, 256, 512, 1024, etc.)
+// defines/constants
+const int FFT_SIZE = 256; // Buffer size (Change this value as needed: 128, 256, 512, 1024, etc.)
+const arm_cfft_instance_f32* fftConfig;
 
 // Audio Library objects
 AudioInputI2S         i2sInput;  // I2S input from Audio Shield
@@ -15,16 +42,23 @@ AudioOutputI2S        i2sOutput; // I2S output to Audio Shield
 AudioControlSGTL5000  sgtl5000_1;
 
 // variables
-int16_t CarrierBuffer[FFT_SIZE];
+int16_t carrierBuffer[FFT_SIZE];
 int16_t modulatorBuffer[FFT_SIZE];
 
-float fftBuffer[FFT_SIZE * 2]; // Complex FFT buffer (real + imaginary)
+float fftBuffer[FFT_SIZE * 2];
+float carFloatBuffer[FFT_SIZE * 2];
+float modFloatBuffer[FFT_SIZE * 2];
 float modulatorFFT[FFT_SIZE * 2];
-float magnitude[FFT_SIZE];
-float phase[FFT_SIZE];
+float modMagnitude[FFT_SIZE];
+float carMagnitude[FFT_SIZE];
+float modPhase[FFT_SIZE];
+float carPhase[FFT_SIZE];
 
-volatile bool bufferFull = false;
+volatile bool carrierBufferFull = false;
+volatile bool modulatorBufferFull = false;
 volatile bool playbackReady = false;
+
+
 
 /*
 * @class CarrierBufferProcessor
@@ -49,10 +83,10 @@ class CarrierBufferProcessor : public AudioStream
           static uint16_t index = 0;
           for (int i = 0; i < AUDIO_BLOCK_SAMPLES && index < FFT_SIZE; i++)
           {
-              CarrierBuffer[index++] = block->data[i]; // Store audio data in buffer
+              carrierBuffer[index++] = block->data[i]; // Store audio data in buffer
               if (index >= FFT_SIZE) // Buffer full
               {
-                  bufferFull = true; // Signal that processing can start
+                  carrierBufferFull = true; // Signal that processing can start
                   index = 0;
               }
           }
@@ -75,6 +109,7 @@ class ModulatorProcessor : public AudioStream
   public:
       ModulatorProcessor() : AudioStream(1, inputQueueArray) {}
 
+      
       void update() override
       {
           audio_block_t *block;
@@ -87,6 +122,7 @@ class ModulatorProcessor : public AudioStream
           {
               modulatorBuffer[index++] = block->data[i];
           }
+          modulatorBufferFull = true;
           release(block);
       }
 
@@ -112,7 +148,7 @@ class PlaybackProcessor : public AudioStream
           if (!playbackReady) 
             return;
           
-          audio_block_t *block = allocate();
+          audio_block_t *block = allocate(); 
           
           if (!block) 
             return;
@@ -121,8 +157,8 @@ class PlaybackProcessor : public AudioStream
 
           for (int i = 0; i < AUDIO_BLOCK_SAMPLES; i++) 
           {
-              block->data[i] = CarrierBuffer[index++];
-              if (index >= FFT_SIZE) 
+              block->data[i] = carrierBuffer[index++];
+              if (index >= FFT_SIZE)
               {
                   index = 0;
                   playbackReady = false;
@@ -134,66 +170,136 @@ class PlaybackProcessor : public AudioStream
 };
 
 // Audio Library objects/patch connections
-CarrierBufferProcessor  bufferProcessor;
-ModulatorProcessor      modProcessor;
+CarrierBufferProcessor  carrierProcessor;
+ModulatorProcessor      modulatorProcessor;
 PlaybackProcessor       playbackProcessor;
-AudioConnection         patchCord1(i2sInput, 0, bufferProcessor, 0); 
-AudioConnection         patchCord2(analogInput, 0, modProcessor, 0); 
+AudioConnection         patchCord1(i2sInput, 0, carrierProcessor, 0); 
+AudioConnection         patchCord2(analogInput, 0, modulatorProcessor, 0); 
 AudioConnection         patchCord3(playbackProcessor, 0, i2sOutput, 0); // left channel
 AudioConnection         patchCord4(playbackProcessor, 0, i2sOutput, 1); // right channel
 
-
 // Function prototypes
-void processFFT();
+void processFFT(arm_cfft_instance_f32* fftConfig, float *floatBuffer, float *magnitude, float *phase);
+void getMagnitudeAndPhase(float *buffer, float *magnitude, float *phase);
+void convertInt16ToFloat(int16_t *inputBuffer, float *outputBuffer);
+void inverseFFT();
+const arm_cfft_instance_f32* getFFTConfig(int size);
 
-void getMagnitudeAndPhase(float *buffer)
+/*
+* @brief Convert int16_t to float function
+*
+* @param[in] inputBuffer    The input audio data buffer in int16_t format
+* @param[out] outputBuffer  The output audio data buffer in float format
+*
+* @details This function converts the audio data from int16_t to float.
+* The real part is the audio data and the imaginary part is set to 0.
+*/
+void convertInt16ToFloat(int16_t *inputBuffer, float *outputBuffer)
+{
+  for (int i = 0; i < FFT_SIZE; i++)
+  {
+    outputBuffer[2 * i] = (float)inputBuffer[i]; // Real part
+    outputBuffer[2 * i + 1] = 0.0f; // Imaginary part
+  }
+}
+
+/*
+* @brief Convert float to int16_t function
+*
+* @param[in] inputBuffer    The input audio data buffer in float format
+* @param[out] outputBuffer  The output audio data buffer in int16_t format
+*
+* @details This function converts the audio data from float to int16_t.
+* The audio data is scaled down by dividing by the FFT size.
+*/
+void convertFloatToInt16(float *inputBuffer, int16_t *outputBuffer)
+{
+    for (int i = 0; i < FFT_SIZE; i++)
+    {
+        outputBuffer[i] = (int16_t)(inputBuffer[2 * i] / FFT_SIZE);
+    }
+}
+
+/*
+* @brief Get Magnitude and Phase function
+*
+* @param[in] buffer         The audio data buffer
+* @param[out] magnitude     The magnitude information
+* @param[out] phase         The phase information
+*
+* @details This function extracts the magnitude and phase from the buffer in the frequency domain.
+* The magnitude is calculated as the square root of the sum of the squares of the real and imaginary parts.
+* The phase is calculated as the arctangent of the imaginary part divided by the real part.
+*/
+void getMagnitudeAndPhase(float *buffer, float *magnitude, float *phase)
 {
   for (int i = 0; i < FFT_SIZE; i++)
   {
       float real = buffer[2 * i];
       float imag = buffer[2 * i + 1];
-      magnitude[i] = sqrtf(real * real + imag * imag);
+      magnitude[i] = sqrtf((real * real) + (imag * imag));
       phase[i] = atan2f(imag, real);
   }
 }
 
+/*
+* @brief Get FFT Configuration function
+*
+* @param[in] size The FFT size
+*
+* @details This function returns the FFT configuration based on the FFT size.
+*/
+const arm_cfft_instance_f32* getFFTConfig(int size) 
+{
+    switch (size) 
+    {
+        case 128:  return &arm_cfft_sR_f32_len128;
+        case 256:  return &arm_cfft_sR_f32_len256;
+        case 512:  return &arm_cfft_sR_f32_len512;
+        case 1024: return &arm_cfft_sR_f32_len1024;
+        case 2048: return &arm_cfft_sR_f32_len2048;
+        case 4096: return &arm_cfft_sR_f32_len4096;
+        default:   return nullptr; // Handle error
+    }
+}
 
 /*
 * @brief Process FFT function
 *
+* @param[in] buffer         The audio data buffer
+* @param[in] floatBuffer    The float buffer
+* @param[out] magnitude     The magnitude information
+* @param[out] phase         The phase information 
+*
 * @details This function performs the FFT on the audio data in the buffer.
-* The audio data is converted to float, the FFT is performed, the magnitude and phase are extracted, the signal is reconstructed, and the inverse FFT is performed.
+* It converts the audio data to float, performs the FFT, and extracts the magnitude and phase information.
 */
-void processFFT() 
+void processFFT(float *floatBuffer, float *magnitude, float *phase)
 {
-    // Convert int16_t to float
-    for (int i = 0; i < FFT_SIZE; i++)
-    {
-        fftBuffer[2 * i] = (float)CarrierBuffer[i]; // Real part
-        fftBuffer[2 * i + 1] = 0.0f; // Imaginary part
-    }
-    
-    // Perform Forward FFT
-    arm_cfft_f32(&arm_cfft_sR_f32_len256, fftBuffer, 0, 1);
+    // Perform FFT
+    arm_cfft_f32(fftConfig, floatBuffer, 0, 1);
     
     // Extract magnitude and phase
-    getMagnitudeAndPhase(fftBuffer);
-    
+    getMagnitudeAndPhase(floatBuffer, magnitude, phase);
+}
+
+/*
+* @brief Inverse FFT function
+*
+* @details This function reconstructs the signal from the magnitude and phase information.
+* It then performs an inverse FFT to return to the time domain.
+*/
+void inverseFFT()
+{
     // Reconstruct signal from magnitude and phase
     for (int i = 0; i < FFT_SIZE; i++)
     {
-        fftBuffer[2 * i] = magnitude[i] * cosf(phase[i]);
-        fftBuffer[2 * i + 1] = magnitude[i] * sinf(phase[i]);
+        fftBuffer[2 * i] = carMagnitude[i] * cosf(carPhase[i]);
+        fftBuffer[2 * i + 1] = carMagnitude[i] * sinf(carPhase[i]);
     }
-    
+
     // Perform Inverse FFT
-    arm_cfft_f32(&arm_cfft_sR_f32_len256, fftBuffer, 1, 1);
-    
-    // Convert back to int16_t
-    for (int i = 0; i < FFT_SIZE; i++)
-    {
-        CarrierBuffer[i] = (int16_t)(fftBuffer[2 * i] / FFT_SIZE); // Scale down
-    }
+    arm_cfft_f32(fftConfig, fftBuffer, 1, 1);
 }
 
 /*
@@ -210,6 +316,13 @@ void setup()
     sgtl5000_1.inputSelect(AUDIO_INPUT_LINEIN);
     sgtl5000_1.volume(0.5);
 
+    fftConfig = getFFTConfig(FFT_SIZE);
+    if (!fftConfig) 
+    {
+        Serial.println("Invalid FFT size!");
+        return;
+    }
+
     Serial.println("Setup complete");
 }
 
@@ -221,11 +334,16 @@ void setup()
 */
 void loop() 
 {
-    if (bufferFull == true) // Process FFT when buffer is full
+    if (carrierBufferFull && modulatorBufferFull)
     {
-        processFFT(); // Perform FFT
-        bufferFull = false;
+        // Convert int16_t to float
+        convertInt16ToFloat(carrierBuffer, carFloatBuffer);
+        processFFT(carFloatBuffer, carMagnitude, carPhase);
+        // processFFT(modulatorBuffer, modFloatBuffer, modMagnitude, modPhase);
+        inverseFFT();
+        convertFloatToInt16(fftBuffer, carrierBuffer);
+        carrierBufferFull = false;
+        modulatorBufferFull = false;
         playbackReady = true;
     }
 }
-
