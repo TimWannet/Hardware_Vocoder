@@ -31,8 +31,9 @@
 #include <cmath>
 #include <arm_const_structs.h>
 
-// defines
-#define FFT_SIZE 256 // Buffer size (Change this value as needed: 128, 256, 512, 1024, etc.)
+// defines/constants
+const int FFT_SIZE = 256; // Buffer size (Change this value as needed: 128, 256, 512, 1024, etc.)
+const arm_cfft_instance_f32* fftConfig;
 
 // Audio Library objects
 AudioInputI2S         i2sInput;  // I2S input from Audio Shield
@@ -167,11 +168,10 @@ class PlaybackProcessor : public AudioStream
 };
 
 // Audio Library objects/patch connections
-CarrierBufferProcessor  bufferProcessor;
 ModulatorProcessor      modProcessor;
 PlaybackProcessor       playbackProcessor;
-AudioConnection         patchCord1(i2sInput, 0, bufferProcessor, 0); 
-AudioConnection         patchCord2(analogInput, 0, modProcessor, 0); 
+AudioConnection         patchCord1(i2sInput, 0, carrierProcessor, 0); 
+AudioConnection         patchCord2(analogInput, 0, modulatorProcessor, 0); 
 AudioConnection         patchCord3(playbackProcessor, 0, i2sOutput, 0); // left channel
 AudioConnection         patchCord4(playbackProcessor, 0, i2sOutput, 1); // right channel
 
