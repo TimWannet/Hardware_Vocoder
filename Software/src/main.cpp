@@ -86,6 +86,7 @@ class CarrierBufferProcessor : public AudioStream
               carrierBuffer[index++] = block->data[i]; // Store audio data in buffer
               if (index >= FFT_SIZE) // Buffer full
               {
+                  carrierBufferFull = true; // Signal that processing can start
                   index = 0;
               }
           }
@@ -121,6 +122,7 @@ class ModulatorProcessor : public AudioStream
           {
               modulatorBuffer[index++] = block->data[i];
           }
+          modulatorBufferFull = true;
           release(block);
       }
 
@@ -168,7 +170,8 @@ class PlaybackProcessor : public AudioStream
 };
 
 // Audio Library objects/patch connections
-ModulatorProcessor      modProcessor;
+CarrierBufferProcessor  carrierProcessor;
+ModulatorProcessor      modulatorProcessor;
 PlaybackProcessor       playbackProcessor;
 AudioConnection         patchCord1(i2sInput, 0, carrierProcessor, 0); 
 AudioConnection         patchCord2(analogInput, 0, modulatorProcessor, 0); 
@@ -176,12 +179,11 @@ AudioConnection         patchCord3(playbackProcessor, 0, i2sOutput, 0); // left 
 AudioConnection         patchCord4(playbackProcessor, 0, i2sOutput, 1); // right channel
 
 // Function prototypes
-void processFFT();
+void processFFT(arm_cfft_instance_f32* fftConfig, float *floatBuffer, float *magnitude, float *phase);
 void getMagnitudeAndPhase(float *buffer, float *magnitude, float *phase);
 void convertInt16ToFloat(int16_t *inputBuffer, float *outputBuffer);
 void inverseFFT();
 const arm_cfft_instance_f32* getFFTConfig(int size);
-
 
 /*
 * @brief Convert int16_t to float function
@@ -272,11 +274,8 @@ const arm_cfft_instance_f32* getFFTConfig(int size)
 * @details This function performs the FFT on the audio data in the buffer.
 * It converts the audio data to float, performs the FFT, and extracts the magnitude and phase information.
 */
-void processFFT(int16_t *buffer, float *floatBuffer, float *magnitude, float *phase)
+void processFFT(float *floatBuffer, float *magnitude, float *phase)
 {
-    // Convert int16_t to float
-    convertInt16ToFloat(buffer, floatBuffer);
-
     // Perform FFT
     arm_cfft_f32(fftConfig, floatBuffer, 0, 1);
     
@@ -301,12 +300,6 @@ void inverseFFT()
 
     // Perform Inverse FFT
     arm_cfft_f32(fftConfig, fftBuffer, 1, 1);
-
-    // Convert back to int16_t
-    for (int i = 0; i < FFT_SIZE; i++)
-    {
-        carrierBuffer[i] = (int16_t)(fftBuffer[2 * i] / FFT_SIZE); // Scale down
-    }
 }
 
 /*
@@ -341,7 +334,6 @@ void setup()
 */
 void loop() 
 {
-    if (bufferFull == true) // Process FFT when buffer is full
     if (carrierBufferFull && modulatorBufferFull)
     {
         // Convert int16_t to float
