@@ -202,6 +202,23 @@ void convertInt16ToFloat(int16_t *inputBuffer, float *outputBuffer)
 }
 
 /*
+* @brief Convert float to int16_t function
+*
+* @param[in] inputBuffer    The input audio data buffer in float format
+* @param[out] outputBuffer  The output audio data buffer in int16_t format
+*
+* @details This function converts the audio data from float to int16_t.
+* The audio data is scaled down by dividing by the FFT size.
+*/
+void convertFloatToInt16(float *inputBuffer, int16_t *outputBuffer)
+{
+    for (int i = 0; i < FFT_SIZE; i++)
+    {
+        outputBuffer[i] = (int16_t)(inputBuffer[2 * i] / FFT_SIZE);
+    }
+}
+
+/*
 * @brief Get Magnitude and Phase function
 *
 * @param[in] buffer         The audio data buffer
@@ -326,10 +343,14 @@ void loop()
 {
     if (bufferFull == true) // Process FFT when buffer is full
     {
-        processFFT(carrierBuffer, carFloatBuffer, carMagnitude, carPhase);
+        // Convert int16_t to float
+        convertInt16ToFloat(carrierBuffer, carFloatBuffer);
+        processFFT(carFloatBuffer, carMagnitude, carPhase);
         // processFFT(modulatorBuffer, modFloatBuffer, modMagnitude, modPhase);
         inverseFFT();
-        bufferFull = false;
+        convertFloatToInt16(fftBuffer, carrierBuffer);
+        carrierBufferFull = false;
+        modulatorBufferFull = false;
         playbackReady = true;
     }
 }
