@@ -106,28 +106,32 @@ class CarrierBufferProcessor : public AudioStream
 */
 class ModulatorProcessor : public AudioStream 
 {
-  public:
-      ModulatorProcessor() : AudioStream(1, inputQueueArray) {}
+    public:
+        ModulatorProcessor() : AudioStream(1, inputQueueArray) {}
 
-      
-      void update() override
-      {
-          audio_block_t *block;
-          block = receiveReadOnly(0);
-          if (!block)
-            return;
+        void update() override
+        {
+            audio_block_t *block;
+            block = receiveReadOnly(0);
+            if (!block)
+                return;
 
-          static uint16_t index = 0;
-          for (int i = 0; i < AUDIO_BLOCK_SAMPLES && index < FFT_SIZE; i++)
-          {
-              modulatorBuffer[index++] = block->data[i];
-          }
-          modulatorBufferFull = true;
-          release(block);
-      }
+            static uint16_t index = 0;
+            for (int i = 0; i < AUDIO_BLOCK_SAMPLES && index < FFT_SIZE; i++)
+            {
+                modulatorBuffer[index++] = block->data[i]; //32767
+            }
 
-  private:
-      audio_block_t *inputQueueArray[1];
+            if (index >= FFT_SIZE) // Buffer full
+            {
+                modulatorBufferFull = true; // Signal that processing can start
+                index = 0;
+            }
+            release(block);
+        }
+
+    private:
+        audio_block_t *inputQueueArray[1];
 };
 
 /*
