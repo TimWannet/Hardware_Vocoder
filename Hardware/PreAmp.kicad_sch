@@ -1,0 +1,14 @@
+(kicad_sch
+	(version 20231120)
+	(generator "eeschema")
+	(generator_version "8.0")
+	(uuid "74b078a6-d996-4783-b400-e44b472ec4b1")
+	(paper "A4")
+	(title_block
+		(title "Mic Pre Amp")
+		(date "2025-04-03")
+		(rev "0.1")
+		(company "Sounds Like Tim")
+	)
+	(lib_symbols)
+)

@@ -1,5 +1,60 @@
-(kicad_sch (version 20231120) (generator "eeschema") (generator_version "8.0")
-  (paper "A4")
-  (lib_symbols)
-  (symbol_instances)
+(kicad_sch
+	(version 20231120)
+	(generator "eeschema")
+	(generator_version "8.0")
+	(uuid "e827c80a-ca8d-4d24-8db6-878b575a1aed")
+	(paper "A4")
+	(title_block
+		(title "Vocoder PCB")
+		(date "2025-04-03")
+		(rev "0.1")
+		(company "Sounds Like Tim")
+		(comment 1 "Tim Wannet")
+	)
+	(lib_symbols)
+	(sheet
+		(at 80.01 49.53)
+		(size 16.51 16.51)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "f759df24-a40e-4928-b060-ce3f4ace9ae8")
+		(property "Sheetname" "Mic PreAmp"
+			(at 80.01 48.8184 0)
+			(show_name yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "PreAmp.kicad_sch"
+			(at 80.01 66.6246 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "Hardware"
+				(path "/e827c80a-ca8d-4d24-8db6-878b575a1aed"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
 )
