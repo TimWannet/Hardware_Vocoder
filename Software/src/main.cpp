@@ -32,7 +32,7 @@
 #include <arm_const_structs.h>
 
 // defines/constants
-const int FFT_SIZE = 256; // Buffer size (Change this value as needed: 128, 256, 512, 1024, etc.)
+const int FFT_SIZE = 1024; // Buffer size (Change this value as needed: 128, 256, 512, 1024, etc.)
 const arm_cfft_instance_f32* fftConfig;
 
 // Audio Library objects
@@ -44,21 +44,21 @@ AudioControlSGTL5000  sgtl5000_1;
 // variables
 int16_t carrierBuffer[FFT_SIZE];
 int16_t modulatorBuffer[FFT_SIZE];
+int16_t fftFloatBuffer[FFT_SIZE];
 
 float fftBuffer[FFT_SIZE * 2];
-float carFloatBuffer[FFT_SIZE * 2];
-float modFloatBuffer[FFT_SIZE * 2];
+float carrierFloatBuffer[FFT_SIZE * 2];
+float modulatorFloatBuffer[FFT_SIZE * 2];
 float modulatorFFT[FFT_SIZE * 2];
-float modMagnitude[FFT_SIZE];
-float carMagnitude[FFT_SIZE];
-float modPhase[FFT_SIZE];
-float carPhase[FFT_SIZE];
+float modulatorMagnitude[FFT_SIZE];
+float carrierMagnitude[FFT_SIZE];
+float smoothedModulator[FFT_SIZE] = {0}; // Initialize smoothedModulator with zeros
+float modulatorPhase[FFT_SIZE];
+float carrierPhase[FFT_SIZE];
 
 volatile bool carrierBufferFull = false;
 volatile bool modulatorBufferFull = false;
 volatile bool playbackReady = false;
-
-
 
 /*
 * @class CarrierBufferProcessor
@@ -69,32 +69,32 @@ volatile bool playbackReady = false;
 */
 class CarrierBufferProcessor : public AudioStream 
 {
-  public:
-      CarrierBufferProcessor() : AudioStream(1, inputQueueArray) {} 
+    public:
+        CarrierBufferProcessor() : AudioStream(1, inputQueueArray) {} 
 
-      //override base::update()
-      void update() override
-      {
-          audio_block_t *block;
-          block = receiveReadOnly(0); // Receive audio data from I2S input
-          if (!block)
-            return;
+        //override base::update()
+        void update() override
+        {
+            audio_block_t *block;
+            block = receiveReadOnly(0); // Receive audio data from I2S input
+            if (!block)
+                return;
 
-          static uint16_t index = 0;
-          for (int i = 0; i < AUDIO_BLOCK_SAMPLES && index < FFT_SIZE; i++)
-          {
-              carrierBuffer[index++] = block->data[i]; // Store audio data in buffer
-              if (index >= FFT_SIZE) // Buffer full
-              {
-                  carrierBufferFull = true; // Signal that processing can start
-                  index = 0;
-              }
-          }
-          release(block);
-      }
+            static uint16_t index = 0;
+            for (int i = 0; i < AUDIO_BLOCK_SAMPLES && index < FFT_SIZE; i++)
+            {
+                carrierBuffer[index++] = block->data[i]; // Store audio data in buffer
+                if (index >= FFT_SIZE) // Buffer full
+                {
+                    carrierBufferFull = true; // Signal that processing can start
+                    index = 0;
+                }
+            }
+            release(block);
+        }
 
-  private:
-      audio_block_t *inputQueueArray[1]; 
+    private:
+        audio_block_t *inputQueueArray[1]; 
 };
 
 /*
@@ -106,28 +106,32 @@ class CarrierBufferProcessor : public AudioStream
 */
 class ModulatorProcessor : public AudioStream 
 {
-  public:
-      ModulatorProcessor() : AudioStream(1, inputQueueArray) {}
+    public:
+        ModulatorProcessor() : AudioStream(1, inputQueueArray) {}
 
-      
-      void update() override
-      {
-          audio_block_t *block;
-          block = receiveReadOnly(0);
-          if (!block)
-            return;
+        void update() override
+        {
+            audio_block_t *block;
+            block = receiveReadOnly(0);
+            if (!block)
+                return;
 
-          static uint16_t index = 0;
-          for (int i = 0; i < AUDIO_BLOCK_SAMPLES && index < FFT_SIZE; i++)
-          {
-              modulatorBuffer[index++] = block->data[i];
-          }
-          modulatorBufferFull = true;
-          release(block);
-      }
+            static uint16_t index = 0;
+            for (int i = 0; i < AUDIO_BLOCK_SAMPLES && index < FFT_SIZE; i++)
+            {
+                modulatorBuffer[index++] = block->data[i]; //32767
+            }
 
-  private:
-      audio_block_t *inputQueueArray[1];
+            if (index >= FFT_SIZE) // Buffer full
+            {
+                modulatorBufferFull = true; // Signal that processing can start
+                index = 0;
+            }
+            release(block);
+        }
+
+    private:
+        audio_block_t *inputQueueArray[1];
 };
 
 /*
@@ -139,34 +143,34 @@ class ModulatorProcessor : public AudioStream
 */
 class PlaybackProcessor : public AudioStream 
 {
-  public:
-      PlaybackProcessor() : AudioStream(0, NULL) {}
+public:
+    PlaybackProcessor() : AudioStream(0, NULL) {}
 
-      //override base::update()
-      void update() override  
-      {
-          if (!playbackReady) 
+    //override base::update()
+    void update() override  
+    {
+        if (!playbackReady) 
             return;
-          
-          audio_block_t *block = allocate(); 
-          
-          if (!block) 
+        
+        audio_block_t *block = allocate(); 
+        
+        if (!block) 
             return;
 
-          static uint16_t index = 0;
+        static uint16_t index = 0;
 
-          for (int i = 0; i < AUDIO_BLOCK_SAMPLES; i++) 
-          {
-              block->data[i] = carrierBuffer[index++];
-              if (index >= FFT_SIZE)
-              {
-                  index = 0;
-                  playbackReady = false;
-              }
-          }
-          transmit(block);
-          release(block);
-      }
+        for (int i = 0; i < AUDIO_BLOCK_SAMPLES; i++) 
+        {
+            block->data[i] = fftFloatBuffer[index++];
+            if (index >= FFT_SIZE)
+            {
+                index = 0;
+                playbackReady = false;
+            }
+        }
+        transmit(block);
+        release(block);
+    }
 };
 
 // Audio Library objects/patch connections
@@ -182,8 +186,9 @@ AudioConnection         patchCord4(playbackProcessor, 0, i2sOutput, 1); // right
 void processFFT(arm_cfft_instance_f32* fftConfig, float *floatBuffer, float *magnitude, float *phase);
 void getMagnitudeAndPhase(float *buffer, float *magnitude, float *phase);
 void convertInt16ToFloat(int16_t *inputBuffer, float *outputBuffer);
-void inverseFFT();
-const arm_cfft_instance_f32* getFFTConfig(int size);
+void convertFloatToInt16(float *inputBuffer, int16_t *outputBuffer);
+void inverseFFT(float *buffer, float *carrierMagnitude, float *carrierPhase, float *modulatorMagnitude, float *modulatorPhase);
+// const arm_cfft_instance_f32* getFFTConfig(int size);
 
 /*
 * @brief Convert int16_t to float function
@@ -196,11 +201,11 @@ const arm_cfft_instance_f32* getFFTConfig(int size);
 */
 void convertInt16ToFloat(int16_t *inputBuffer, float *outputBuffer)
 {
-  for (int i = 0; i < FFT_SIZE; i++)
-  {
-    outputBuffer[2 * i] = (float)inputBuffer[i]; // Real part
-    outputBuffer[2 * i + 1] = 0.0f; // Imaginary part
-  }
+    for (int i = 0; i < FFT_SIZE; i++)
+    {
+        outputBuffer[2 * i] = (float)inputBuffer[i]; // Real part
+        outputBuffer[2 * i + 1] = 0.0f; // Imaginary part
+    }
 }
 
 /*
@@ -233,13 +238,13 @@ void convertFloatToInt16(float *inputBuffer, int16_t *outputBuffer)
 */
 void getMagnitudeAndPhase(float *buffer, float *magnitude, float *phase)
 {
-  for (int i = 0; i < FFT_SIZE; i++)
-  {
-      float real = buffer[2 * i];
-      float imag = buffer[2 * i + 1];
-      magnitude[i] = sqrtf((real * real) + (imag * imag));
-      phase[i] = atan2f(imag, real);
-  }
+    for (int i = 0; i < FFT_SIZE; i++)
+    {
+        float real = buffer[2 * i];
+        float imag = buffer[2 * i + 1];
+        magnitude[i] = sqrtf((real * real) + (imag * imag));
+        phase[i] = atan2f(imag, real);
+    }
 }
 
 /*
@@ -286,20 +291,29 @@ void processFFT(float *floatBuffer, float *magnitude, float *phase)
 /*
 * @brief Inverse FFT function
 *
+* @param[in] buffer             The audio data buffer
+* @param[in] carrierMagnitude   The carrier magnitude information
+* @param[in] carrierPhase       The carrier phase information
+* @param[in] modulatorMagnitude The modulator magnitude information
+* @param[in] modulatorPhase     The modulator phase information
+*
 * @details This function reconstructs the signal from the magnitude and phase information.
 * It then performs an inverse FFT to return to the time domain.
 */
-void inverseFFT()
+void inverseFFT(float *buffer, float *carrierMagnitude, float *carrierPhase, float *modulatorMagnitude, float *modulatorPhase)
 {
-    // Reconstruct signal from magnitude and phase
-    for (int i = 0; i < FFT_SIZE; i++)
+    for (int i = 0; i < FFT_SIZE; i++) 
     {
-        fftBuffer[2 * i] = carMagnitude[i] * cosf(carPhase[i]);
-        fftBuffer[2 * i + 1] = carMagnitude[i] * sinf(carPhase[i]);
+        float normalizedMod = modulatorMagnitude[i] / 32768.0f;  // Assuming 16-bit range
+        float normalizedCarrier = carrierMagnitude[i] / 32768.0f;
+        float fftMagnitude = normalizedCarrier * pow(normalizedMod, 0.5f) * 32768.0f; // Scale back
+
+        buffer[2 * i] = fftMagnitude * cosf(carrierPhase[i]);
+        buffer[2 * i + 1] = fftMagnitude * sinf(carrierPhase[i]);
     }
 
     // Perform Inverse FFT
-    arm_cfft_f32(fftConfig, fftBuffer, 1, 1);
+    arm_cfft_f32(fftConfig, buffer, 1, 1);
 }
 
 /*
@@ -311,10 +325,10 @@ void setup()
 {
     Serial.begin(115200);
 
-    AudioMemory(10);
+    AudioMemory(30);
     sgtl5000_1.enable();
     sgtl5000_1.inputSelect(AUDIO_INPUT_LINEIN);
-    sgtl5000_1.volume(0.5);
+    sgtl5000_1.volume(1);
 
     fftConfig = getFFTConfig(FFT_SIZE);
     if (!fftConfig) 
@@ -334,14 +348,19 @@ void setup()
 */
 void loop() 
 {
-    if (carrierBufferFull && modulatorBufferFull)
+    if (carrierBufferFull == true && modulatorBufferFull == true)
     {
         // Convert int16_t to float
-        convertInt16ToFloat(carrierBuffer, carFloatBuffer);
-        processFFT(carFloatBuffer, carMagnitude, carPhase);
-        // processFFT(modulatorBuffer, modFloatBuffer, modMagnitude, modPhase);
-        inverseFFT();
-        convertFloatToInt16(fftBuffer, carrierBuffer);
+        convertInt16ToFloat(carrierBuffer, carrierFloatBuffer);
+        convertInt16ToFloat(modulatorBuffer, modulatorFloatBuffer);
+
+        processFFT(carrierFloatBuffer, carrierMagnitude, carrierPhase);
+        processFFT(modulatorFloatBuffer, modulatorMagnitude, modulatorPhase);
+
+        inverseFFT(fftBuffer, carrierMagnitude, carrierPhase, modulatorMagnitude, modulatorPhase);
+        
+        convertFloatToInt16(fftBuffer, fftFloatBuffer);
+        
         carrierBufferFull = false;
         modulatorBufferFull = false;
         playbackReady = true;
