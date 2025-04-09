@@ -32,8 +32,10 @@
 #include <arm_const_structs.h>
 
 // defines/constants
-const int FFT_SIZE = 1024; // Buffer size (Change this value as needed: 128, 256, 512, 1024, etc.)
+const int FFT_SIZE = 2048; // Buffer size (Change this value as needed: 128, 256, 512, 1024, etc.)
 const arm_cfft_instance_f32* fftConfig;
+const float sampleRate = 44100.0; // Sample rate in Hz
+const float cutoffFreq = 400.0; // Cutoff frequency for highpass filter
 
 // Audio Library objects
 AudioInputI2S         i2sInput;  // I2S input from Audio Shield
@@ -55,6 +57,12 @@ float carrierMagnitude[FFT_SIZE];
 float smoothedModulator[FFT_SIZE] = {0}; // Initialize smoothedModulator with zeros
 float modulatorPhase[FFT_SIZE];
 float carrierPhase[FFT_SIZE];
+
+float prev_input = 0.0;
+float prev_output = 0.0;
+float RC = 1.0 / (2 * PI * cutoffFreq);  // e.g., 200 Hz
+float dt = 1.0 / sampleRate;
+float alpha = RC / (RC + dt);
 
 volatile bool carrierBufferFull = false;
 volatile bool modulatorBufferFull = false;
@@ -225,6 +233,16 @@ void convertFloatToInt16(float *inputBuffer, int16_t *outputBuffer)
     }
 }
 
+
+float highpass(float input)
+{
+    float output = alpha * (prev_output + input - prev_input);
+    prev_input = input;
+    prev_output = output;
+    return output;
+}
+
+
 /*
 * @brief Get Magnitude and Phase function
 *
@@ -305,7 +323,7 @@ void inverseFFT(float *buffer, float *carrierMagnitude, float *carrierPhase, flo
     for (int i = 0; i < FFT_SIZE; i++) 
     {
         float normalizedMod = modulatorMagnitude[i] / 32768.0f;  // Assuming 16-bit range
-        float normalizedCarrier = carrierMagnitude[i] / 32768.0f;
+        float normalizedCarrier = carrierMagnitude[i] /  32768.0f;
         float fftMagnitude = normalizedCarrier * pow(normalizedMod, 0.5f) * 32768.0f; // Scale back
 
         buffer[2 * i] = fftMagnitude * cosf(carrierPhase[i]);
@@ -350,6 +368,10 @@ void loop()
 {
     if (carrierBufferFull == true && modulatorBufferFull == true)
     {
+        for (int i = 0; i < FFT_SIZE; i++) 
+        {
+            modulatorBuffer[i] = highpass(modulatorBuffer[i]);
+        }
         // Convert int16_t to float
         convertInt16ToFloat(carrierBuffer, carrierFloatBuffer);
         convertInt16ToFloat(modulatorBuffer, modulatorFloatBuffer);
