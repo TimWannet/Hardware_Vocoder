@@ -1,7 +1,7 @@
 (kicad_sch
-	(version 20231120)
+	(version 20250114)
 	(generator "eeschema")
-	(generator_version "8.0")
+	(generator_version "9.0")
 	(uuid "e827c80a-ca8d-4d24-8db6-878b575a1aed")
 	(paper "A4")
 	(title_block
@@ -13,8 +13,12 @@
 	)
 	(lib_symbols)
 	(sheet
-		(at 102.87 72.39)
-		(size 16.51 15.24)
+		(at 124.46 80.01)
+		(size 38.1 38.1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
@@ -25,7 +29,7 @@
 		)
 		(uuid "80744173-9491-4551-a74b-98f5922bdb3a")
 		(property "Sheetname" "Microcontroller"
-			(at 102.87 71.6784 0)
+			(at 124.46 79.2984 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -34,7 +38,7 @@
 			)
 		)
 		(property "Sheetfile" "MCU.kicad_sch"
-			(at 102.87 88.2146 0)
+			(at 124.46 118.6946 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -52,8 +56,54 @@
 		)
 	)
 	(sheet
-		(at 50.8 86.36)
+		(at 80.01 34.29)
+		(size 97.79 16.51)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "ae68f18c-05a9-496e-90b3-166bfef37cf7")
+		(property "Sheetname" "Inputs and outputs"
+			(at 80.01 33.5784 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "I_O.kicad_sch"
+			(at 80.01 51.3846 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "Hardware"
+				(path "/e827c80a-ca8d-4d24-8db6-878b575a1aed"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 88.9 101.6)
 		(size 16.51 15.24)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
@@ -64,7 +114,7 @@
 		)
 		(uuid "ea9bf73e-a18e-4434-8c74-6fad8c6cf4b3")
 		(property "Sheetname" "Power Supply"
-			(at 50.8 85.6484 0)
+			(at 88.9 100.8884 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -73,7 +123,7 @@
 			)
 		)
 		(property "Sheetfile" "PSU.kicad_sch"
-			(at 50.8 102.1846 0)
+			(at 88.9 117.4246 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -91,8 +141,12 @@
 		)
 	)
 	(sheet
-		(at 50.8 48.26)
-		(size 16.51 15.24)
+		(at 88.9 63.5)
+		(size 16.51 17.78)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
@@ -103,8 +157,7 @@
 		)
 		(uuid "f759df24-a40e-4928-b060-ce3f4ace9ae8")
 		(property "Sheetname" "Mic PreAmp"
-			(at 50.8 47.5484 0)
-			(show_name yes)
+			(at 88.9 62.7884 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -113,13 +166,43 @@
 			)
 		)
 		(property "Sheetfile" "PreAmp.kicad_sch"
-			(at 50.8 64.0846 0)
+			(at 88.9 81.8646 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
 				(hide yes)
+			)
+		)
+		(pin "Pin_1" input
+			(at 88.9 67.31 180)
+			(uuid "2ea52174-d063-4800-be01-944370ad78f2")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "Pin_2" input
+			(at 88.9 72.39 180)
+			(uuid "d788ca27-a20b-415d-93cc-360f49179b98")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "Pin_3" input
+			(at 88.9 77.47 180)
+			(uuid "dd4215e1-8d76-4ed3-8f76-02ff808b3bd2")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 			)
 		)
 		(instances
@@ -135,4 +218,5 @@
 			(page "1")
 		)
 	)
+	(embedded_fonts no)
 )
