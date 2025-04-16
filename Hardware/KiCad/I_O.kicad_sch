@@ -2127,83 +2127,179 @@
 			(embedded_fonts no)
 		)
 	)
+	(rectangle
+		(start 22.86 76.2)
+		(end 86.36 114.3)
+		(stroke
+			(width 0)
+			(type dash)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 39d14c20-c4f1-4e3f-a40f-2acdeba7f204)
+	)
+	(rectangle
+		(start 198.12 76.2)
+		(end 261.62 114.3)
+		(stroke
+			(width 0)
+			(type dash)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 3f5c9543-a2c6-4040-974f-3c7e4c98b051)
+	)
+	(rectangle
+		(start 22.86 124.46)
+		(end 35.56 132.08)
+		(stroke
+			(width 0)
+			(type dash)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 5f572c1a-62fd-4a2d-8d39-cba8ba39441b)
+	)
+	(rectangle
+		(start 198.12 68.58)
+		(end 227.33 76.2)
+		(stroke
+			(width 0)
+			(type dash)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 84b3056a-ae6d-4b10-a4ec-d7a3083967fa)
+	)
+	(rectangle
+		(start 22.86 21.59)
+		(end 55.88 29.21)
+		(stroke
+			(width 0)
+			(type dash)
+		)
+		(fill
+			(type none)
+		)
+		(uuid bfaaa920-4c4b-494e-87f0-7579cc1cac66)
+	)
+	(rectangle
+		(start 22.86 68.58)
+		(end 52.07 76.2)
+		(stroke
+			(width 0)
+			(type dash)
+		)
+		(fill
+			(type none)
+		)
+		(uuid c95cc0d8-972b-44a3-a7c3-406015090777)
+	)
+	(rectangle
+		(start 22.86 29.21)
+		(end 74.93 58.42)
+		(stroke
+			(width 0)
+			(type dash)
+		)
+		(fill
+			(type none)
+		)
+		(uuid f745931c-7504-4ace-8944-dd9fd89a87fc)
+	)
+	(rectangle
+		(start 22.86 132.08)
+		(end 170.18 184.15)
+		(stroke
+			(width 0)
+			(type dash)
+		)
+		(fill
+			(type none)
+		)
+		(uuid fd8770c9-ebdb-427d-8447-cbf4d03e3b89)
+	)
 	(junction
-		(at 166.37 160.02)
+		(at 142.24 168.91)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "083f34d4-2798-4ecb-8ce6-02242890ae1e")
 	)
 	(junction
-		(at 166.37 127)
+		(at 142.24 135.89)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "273f23f6-d378-4447-8eee-df7f43ec406e")
 	)
 	(junction
-		(at 66.04 149.86)
+		(at 41.91 158.75)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "373bd155-98d4-4f9e-94a4-9e576480269b")
 	)
 	(junction
-		(at 115.57 134.62)
+		(at 91.44 143.51)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "63e01a28-7758-4336-9c55-78c33bee2230")
 	)
 	(junction
-		(at 152.4 127)
+		(at 128.27 135.89)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9dadc82e-4900-4c65-a9ca-af1020d8eb23")
 	)
 	(junction
-		(at 115.57 149.86)
+		(at 91.44 158.75)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ba4bc073-7722-400c-adb9-fb8f96c6e4f5")
 	)
 	(junction
-		(at 152.4 142.24)
+		(at 128.27 151.13)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ca79445e-e410-4606-95f4-69ed84361a7c")
 	)
 	(junction
-		(at 156.21 142.24)
+		(at 132.08 151.13)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "cf4e1528-22d4-453a-9179-644f313dde8c")
 	)
 	(junction
-		(at 156.21 160.02)
+		(at 132.08 168.91)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d8c3552b-5de0-45c4-b375-e07f2dc2e36a")
 	)
 	(no_connect
-		(at 64.77 139.7)
+		(at 40.64 148.59)
 		(uuid "3c678848-fc9d-43e7-b6b7-7c348c45413c")
 	)
 	(no_connect
-		(at 146.05 139.7)
+		(at 121.92 148.59)
 		(uuid "7082e515-07f5-472a-9e00-e7a3ef1bfe96")
 	)
 	(no_connect
-		(at 64.77 134.62)
+		(at 40.64 143.51)
 		(uuid "a9fc5b95-373d-4241-a2ad-158a524a6010")
 	)
 	(no_connect
-		(at 130.81 137.16)
+		(at 106.68 146.05)
 		(uuid "d7e74cb7-6bf1-4907-bf66-eebd6e694a53")
 	)
 	(no_connect
-		(at 130.81 147.32)
+		(at 106.68 156.21)
 		(uuid "eb2ba813-1680-4aee-82f4-edcafff7dcb2")
 	)
 	(wire
 		(pts
-			(xy 127 149.86) (xy 127 144.78)
+			(xy 102.87 158.75) (xy 102.87 153.67)
 		)
 		(stroke
 			(width 0)
@@ -2213,7 +2309,7 @@
 	)
 	(wire
 		(pts
-			(xy 115.57 149.86) (xy 127 149.86)
+			(xy 91.44 158.75) (xy 102.87 158.75)
 		)
 		(stroke
 			(width 0)
@@ -2223,7 +2319,7 @@
 	)
 	(wire
 		(pts
-			(xy 156.21 160.02) (xy 138.43 160.02)
+			(xy 132.08 168.91) (xy 114.3 168.91)
 		)
 		(stroke
 			(width 0)
@@ -2233,7 +2329,7 @@
 	)
 	(wire
 		(pts
-			(xy 166.37 160.02) (xy 156.21 160.02)
+			(xy 142.24 168.91) (xy 132.08 168.91)
 		)
 		(stroke
 			(width 0)
@@ -2243,7 +2339,7 @@
 	)
 	(wire
 		(pts
-			(xy 166.37 127) (xy 176.53 127)
+			(xy 142.24 135.89) (xy 152.4 135.89)
 		)
 		(stroke
 			(width 0)
@@ -2253,7 +2349,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 149.86) (xy 66.04 149.86)
+			(xy 39.37 158.75) (xy 41.91 158.75)
 		)
 		(stroke
 			(width 0)
@@ -2263,7 +2359,7 @@
 	)
 	(wire
 		(pts
-			(xy 152.4 127) (xy 166.37 127)
+			(xy 128.27 135.89) (xy 142.24 135.89)
 		)
 		(stroke
 			(width 0)
@@ -2273,7 +2369,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 144.78) (xy 71.12 144.78)
+			(xy 39.37 153.67) (xy 46.99 153.67)
 		)
 		(stroke
 			(width 0)
@@ -2283,7 +2379,7 @@
 	)
 	(wire
 		(pts
-			(xy 71.12 144.78) (xy 71.12 149.86)
+			(xy 46.99 153.67) (xy 46.99 158.75)
 		)
 		(stroke
 			(width 0)
@@ -2293,7 +2389,7 @@
 	)
 	(wire
 		(pts
-			(xy 156.21 142.24) (xy 176.53 142.24)
+			(xy 132.08 151.13) (xy 152.4 151.13)
 		)
 		(stroke
 			(width 0)
@@ -2303,7 +2399,7 @@
 	)
 	(wire
 		(pts
-			(xy 71.12 142.24) (xy 71.12 134.62)
+			(xy 46.99 151.13) (xy 46.99 143.51)
 		)
 		(stroke
 			(width 0)
@@ -2313,7 +2409,7 @@
 	)
 	(wire
 		(pts
-			(xy 115.57 149.86) (xy 91.44 149.86)
+			(xy 91.44 158.75) (xy 67.31 158.75)
 		)
 		(stroke
 			(width 0)
@@ -2323,7 +2419,7 @@
 	)
 	(wire
 		(pts
-			(xy 138.43 160.02) (xy 138.43 152.4)
+			(xy 114.3 168.91) (xy 114.3 161.29)
 		)
 		(stroke
 			(width 0)
@@ -2333,7 +2429,7 @@
 	)
 	(wire
 		(pts
-			(xy 115.57 134.62) (xy 115.57 138.43)
+			(xy 91.44 143.51) (xy 91.44 147.32)
 		)
 		(stroke
 			(width 0)
@@ -2343,7 +2439,7 @@
 	)
 	(wire
 		(pts
-			(xy 156.21 142.24) (xy 156.21 147.32)
+			(xy 132.08 151.13) (xy 132.08 156.21)
 		)
 		(stroke
 			(width 0)
@@ -2353,7 +2449,17 @@
 	)
 	(wire
 		(pts
-			(xy 127 139.7) (xy 130.81 139.7)
+			(xy 45.72 54.61) (xy 45.72 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "43232432-5858-4334-824a-75ceeb4b2590")
+	)
+	(wire
+		(pts
+			(xy 102.87 148.59) (xy 106.68 148.59)
 		)
 		(stroke
 			(width 0)
@@ -2363,7 +2469,7 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 165.1) (xy 77.47 167.64)
+			(xy 53.34 173.99) (xy 53.34 176.53)
 		)
 		(stroke
 			(width 0)
@@ -2373,7 +2479,7 @@
 	)
 	(wire
 		(pts
-			(xy 138.43 127) (xy 152.4 127)
+			(xy 114.3 135.89) (xy 128.27 135.89)
 		)
 		(stroke
 			(width 0)
@@ -2383,7 +2489,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 147.32) (xy 66.04 147.32)
+			(xy 39.37 156.21) (xy 41.91 156.21)
 		)
 		(stroke
 			(width 0)
@@ -2393,7 +2499,7 @@
 	)
 	(wire
 		(pts
-			(xy 66.04 165.1) (xy 66.04 167.64)
+			(xy 41.91 173.99) (xy 41.91 176.53)
 		)
 		(stroke
 			(width 0)
@@ -2403,7 +2509,7 @@
 	)
 	(wire
 		(pts
-			(xy 71.12 149.86) (xy 83.82 149.86)
+			(xy 46.99 158.75) (xy 59.69 158.75)
 		)
 		(stroke
 			(width 0)
@@ -2413,7 +2519,7 @@
 	)
 	(wire
 		(pts
-			(xy 156.21 154.94) (xy 156.21 160.02)
+			(xy 132.08 163.83) (xy 132.08 168.91)
 		)
 		(stroke
 			(width 0)
@@ -2423,7 +2529,17 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 142.24) (xy 71.12 142.24)
+			(xy 46.99 54.61) (xy 45.72 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "874b86ac-a7cb-4cd3-a335-c9dd6f6b918a")
+	)
+	(wire
+		(pts
+			(xy 39.37 151.13) (xy 46.99 151.13)
 		)
 		(stroke
 			(width 0)
@@ -2433,7 +2549,7 @@
 	)
 	(wire
 		(pts
-			(xy 115.57 134.62) (xy 127 134.62)
+			(xy 91.44 143.51) (xy 102.87 143.51)
 		)
 		(stroke
 			(width 0)
@@ -2443,7 +2559,7 @@
 	)
 	(wire
 		(pts
-			(xy 127 144.78) (xy 130.81 144.78)
+			(xy 102.87 153.67) (xy 106.68 153.67)
 		)
 		(stroke
 			(width 0)
@@ -2453,7 +2569,7 @@
 	)
 	(wire
 		(pts
-			(xy 109.22 134.62) (xy 115.57 134.62)
+			(xy 85.09 143.51) (xy 91.44 143.51)
 		)
 		(stroke
 			(width 0)
@@ -2463,7 +2579,7 @@
 	)
 	(wire
 		(pts
-			(xy 138.43 127) (xy 138.43 132.08)
+			(xy 114.3 135.89) (xy 114.3 140.97)
 		)
 		(stroke
 			(width 0)
@@ -2473,7 +2589,7 @@
 	)
 	(wire
 		(pts
-			(xy 146.05 142.24) (xy 152.4 142.24)
+			(xy 121.92 151.13) (xy 128.27 151.13)
 		)
 		(stroke
 			(width 0)
@@ -2483,7 +2599,7 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 137.16) (xy 77.47 157.48)
+			(xy 53.34 146.05) (xy 53.34 166.37)
 		)
 		(stroke
 			(width 0)
@@ -2493,7 +2609,7 @@
 	)
 	(wire
 		(pts
-			(xy 152.4 139.7) (xy 152.4 142.24)
+			(xy 128.27 148.59) (xy 128.27 151.13)
 		)
 		(stroke
 			(width 0)
@@ -2503,7 +2619,7 @@
 	)
 	(wire
 		(pts
-			(xy 92.71 134.62) (xy 101.6 134.62)
+			(xy 68.58 143.51) (xy 77.47 143.51)
 		)
 		(stroke
 			(width 0)
@@ -2513,7 +2629,7 @@
 	)
 	(wire
 		(pts
-			(xy 166.37 138.43) (xy 166.37 160.02)
+			(xy 142.24 147.32) (xy 142.24 168.91)
 		)
 		(stroke
 			(width 0)
@@ -2523,7 +2639,7 @@
 	)
 	(wire
 		(pts
-			(xy 71.12 134.62) (xy 85.09 134.62)
+			(xy 46.99 143.51) (xy 60.96 143.51)
 		)
 		(stroke
 			(width 0)
@@ -2533,7 +2649,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 137.16) (xy 77.47 137.16)
+			(xy 39.37 146.05) (xy 53.34 146.05)
 		)
 		(stroke
 			(width 0)
@@ -2543,7 +2659,17 @@
 	)
 	(wire
 		(pts
-			(xy 152.4 142.24) (xy 156.21 142.24)
+			(xy 53.34 41.91) (xy 58.42 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cffb7479-e1ae-4a57-b6e9-6fa59d554ed3")
+	)
+	(wire
+		(pts
+			(xy 128.27 151.13) (xy 132.08 151.13)
 		)
 		(stroke
 			(width 0)
@@ -2553,7 +2679,7 @@
 	)
 	(wire
 		(pts
-			(xy 166.37 127) (xy 166.37 130.81)
+			(xy 142.24 135.89) (xy 142.24 139.7)
 		)
 		(stroke
 			(width 0)
@@ -2563,7 +2689,7 @@
 	)
 	(wire
 		(pts
-			(xy 115.57 146.05) (xy 115.57 149.86)
+			(xy 91.44 154.94) (xy 91.44 158.75)
 		)
 		(stroke
 			(width 0)
@@ -2573,7 +2699,7 @@
 	)
 	(wire
 		(pts
-			(xy 152.4 127) (xy 152.4 132.08)
+			(xy 128.27 135.89) (xy 128.27 140.97)
 		)
 		(stroke
 			(width 0)
@@ -2583,7 +2709,7 @@
 	)
 	(wire
 		(pts
-			(xy 127 134.62) (xy 127 139.7)
+			(xy 102.87 143.51) (xy 102.87 148.59)
 		)
 		(stroke
 			(width 0)
@@ -2593,7 +2719,7 @@
 	)
 	(wire
 		(pts
-			(xy 66.04 147.32) (xy 66.04 149.86)
+			(xy 41.91 156.21) (xy 41.91 158.75)
 		)
 		(stroke
 			(width 0)
@@ -2603,7 +2729,7 @@
 	)
 	(wire
 		(pts
-			(xy 66.04 149.86) (xy 66.04 157.48)
+			(xy 41.91 158.75) (xy 41.91 166.37)
 		)
 		(stroke
 			(width 0)
@@ -2613,7 +2739,17 @@
 	)
 	(wire
 		(pts
-			(xy 176.53 160.02) (xy 166.37 160.02)
+			(xy 33.02 41.91) (xy 38.1 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f2b99f43-9228-4076-9f3c-8f0b0bb0cdd8")
+	)
+	(wire
+		(pts
+			(xy 152.4 168.91) (xy 142.24 168.91)
 		)
 		(stroke
 			(width 0)
@@ -2622,7 +2758,27 @@
 		(uuid "fc884356-09e5-452d-a722-d490073f3d5a")
 	)
 	(label "Right"
-		(at 44.45 114.3 0)
+		(at 255.27 106.68 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "03886298-0ea4-43cb-a83c-85a7c59ab73f")
+	)
+	(label "Left"
+		(at 255.27 87.63 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0db5cbad-f186-418e-b14d-6458c98bff82")
+	)
+	(label "Right"
+		(at 22.86 106.68 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2632,37 +2788,47 @@
 		(uuid "3a4de039-561e-409e-b82a-c04e9f0ffe84")
 	)
 	(label "Carrier Input"
-		(at 68.58 82.55 0)
+		(at 25.4 74.93 0)
 		(effects
 			(font
-				(size 1.27 1.27)
+				(size 2.54 2.54)
 			)
 			(justify left bottom)
 		)
 		(uuid "5bf21de9-9862-45b7-864e-d7a6b3e37a81")
 	)
 	(label "Modulator Input"
-		(at 68.58 49.53 0)
+		(at 24.13 27.94 0)
 		(effects
 			(font
-				(size 1.27 1.27)
+				(size 2.54 2.54)
 			)
 			(justify left bottom)
 		)
 		(uuid "8d134c73-22bb-46f3-b026-b94b705ba2b6")
 	)
 	(label "Midi"
-		(at 68.58 127 0)
+		(at 25.4 130.81 0)
 		(effects
 			(font
-				(size 1.27 1.27)
+				(size 2.54 2.54)
 			)
 			(justify left bottom)
 		)
 		(uuid "9e057837-1406-42b5-8941-4892732c53ac")
 	)
+	(label "Main Out"
+		(at 200.66 74.93 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+			)
+			(justify left bottom)
+		)
+		(uuid "de750c82-2329-412d-84ab-c113b380cec4")
+	)
 	(label "Left"
-		(at 44.45 95.25 0)
+		(at 22.86 87.63 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2673,7 +2839,7 @@
 	)
 	(global_label "GND"
 		(shape input)
-		(at 77.47 167.64 270)
+		(at 53.34 176.53 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2683,7 +2849,29 @@
 		)
 		(uuid "0210d93e-0b62-478b-9131-1c9bf82e3e72")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 77.47 174.4957 90)
+			(at 53.34 183.3857 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "GND"
+		(shape input)
+		(at 33.02 41.91 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "2f4d0b25-a123-49a6-96ca-75a175088339")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 26.1643 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2695,7 +2883,7 @@
 	)
 	(global_label "5V"
 		(shape input)
-		(at 176.53 127 0)
+		(at 152.4 135.89 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2705,7 +2893,7 @@
 		)
 		(uuid "5e80a369-7a70-4fd6-9204-a28b1f2bad86")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 181.8133 127 0)
+			(at 157.6833 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2717,7 +2905,7 @@
 	)
 	(global_label "GND"
 		(shape input)
-		(at 176.53 160.02 0)
+		(at 152.4 168.91 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2727,7 +2915,7 @@
 		)
 		(uuid "bbf10a74-f36e-4daf-8d7c-bcf3a7bafc5f")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 183.3857 160.02 0)
+			(at 159.2557 168.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2739,7 +2927,7 @@
 	)
 	(global_label "GND"
 		(shape input)
-		(at 66.04 167.64 270)
+		(at 41.91 176.53 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2749,7 +2937,7 @@
 		)
 		(uuid "d224240f-c79b-4c3e-976b-321dbef1e582")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 66.04 174.4957 90)
+			(at 41.91 183.3857 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2759,9 +2947,20 @@
 			)
 		)
 	)
+	(hierarchical_label "Modulator_Cold"
+		(shape output)
+		(at 46.99 54.61 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "3c07a76f-990c-4cda-9df5-81f3602de0e2")
+	)
 	(hierarchical_label "Midi_RX"
 		(shape output)
-		(at 176.53 142.24 0)
+		(at 152.4 151.13 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2770,9 +2969,20 @@
 		)
 		(uuid "a1c184ce-0db5-46f2-9d25-a1e763303304")
 	)
+	(hierarchical_label "Modulator_Hot"
+		(shape output)
+		(at 58.42 41.91 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "cbba599c-2b81-445e-8f48-da8c44d05b49")
+	)
 	(symbol
 		(lib_id "Midi_connector:57PC5F")
-		(at 59.69 142.24 0)
+		(at 35.56 151.13 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2781,7 +2991,7 @@
 		(fields_autoplaced yes)
 		(uuid "0207f852-1b66-4442-bded-c4fc985bf546")
 		(property "Reference" "J4"
-			(at 55.88 127 0)
+			(at 31.75 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2789,7 +2999,7 @@
 			)
 		)
 		(property "Value" "57PC5F"
-			(at 55.88 129.54 0)
+			(at 31.75 138.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2797,7 +3007,7 @@
 			)
 		)
 		(property "Footprint" "Midi_Connector:SWITCHCRAFT_57PC5F"
-			(at 58.166 165.354 0)
+			(at 34.036 174.244 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2807,7 +3017,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 59.69 142.24 0)
+			(at 35.56 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2816,7 +3026,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 59.69 142.24 0)
+			(at 35.56 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2825,7 +3035,7 @@
 			)
 		)
 		(property "MF" "Switchcraft Inc."
-			(at 57.404 172.466 0)
+			(at 33.274 181.356 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2835,7 +3045,7 @@
 			)
 		)
 		(property "MAXIMUM_PACKAGE_HEIGHT" "21mm"
-			(at 88.646 169.164 0)
+			(at 64.516 178.054 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2845,7 +3055,7 @@
 			)
 		)
 		(property "Package" "None"
-			(at 85.09 158.496 0)
+			(at 60.96 167.386 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2855,7 +3065,7 @@
 			)
 		)
 		(property "Price" "None"
-			(at 97.79 151.892 0)
+			(at 73.66 160.782 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2865,7 +3075,7 @@
 			)
 		)
 		(property "Check_prices" "https://www.snapeda.com/parts/57PC5F/SWITCHCRAFT/view-part/?ref=eda"
-			(at 55.118 182.118 0)
+			(at 30.988 191.008 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2875,7 +3085,7 @@
 			)
 		)
 		(property "STANDARD" "a"
-			(at 58.166 157.734 0)
+			(at 34.036 166.624 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2885,7 +3095,7 @@
 			)
 		)
 		(property "PARTREV" "D"
-			(at 89.662 139.954 0)
+			(at 65.532 148.844 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2895,7 +3105,7 @@
 			)
 		)
 		(property "SnapEDA_Link" "https://www.snapeda.com/parts/57PC5F/SWITCHCRAFT/view-part/?ref=snap"
-			(at 56.388 160.782 0)
+			(at 32.258 169.672 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2905,7 +3115,7 @@
 			)
 		)
 		(property "MP" "57PC5F"
-			(at 57.912 169.164 0)
+			(at 33.782 178.054 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2915,7 +3125,7 @@
 			)
 		)
 		(property "Description_1" "\n                        \n                            DIN Receptacle Receptacle 5 Female PCB Mount | Switchcraft 57PC5F\n                        \n"
-			(at 53.848 131.826 0)
+			(at 29.718 140.716 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2925,7 +3135,7 @@
 			)
 		)
 		(property "Availability" "In Stock"
-			(at 88.646 154.178 0)
+			(at 64.516 163.068 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2935,7 +3145,7 @@
 			)
 		)
 		(property "MANUFACTURER" "Switchcraft"
-			(at 56.896 175.006 0)
+			(at 32.766 183.896 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2976,7 +3186,7 @@
 	)
 	(symbol
 		(lib_id "Diode:1N4148")
-		(at 115.57 142.24 270)
+		(at 91.44 151.13 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2985,7 +3195,7 @@
 		(fields_autoplaced yes)
 		(uuid "2a4587e7-c33f-42a3-9fec-cd98e0091852")
 		(property "Reference" "D1"
-			(at 118.11 140.9699 90)
+			(at 93.98 149.8599 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2994,7 +3204,7 @@
 			)
 		)
 		(property "Value" "1N4148"
-			(at 118.11 143.5099 90)
+			(at 93.98 152.3999 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3003,7 +3213,7 @@
 			)
 		)
 		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
-			(at 115.57 142.24 0)
+			(at 91.44 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3012,7 +3222,7 @@
 			)
 		)
 		(property "Datasheet" "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf"
-			(at 115.57 142.24 0)
+			(at 91.44 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3021,7 +3231,7 @@
 			)
 		)
 		(property "Description" "100V 0.15A standard switching diode, DO-35"
-			(at 115.57 142.24 0)
+			(at 91.44 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3030,7 +3240,7 @@
 			)
 		)
 		(property "Sim.Device" "D"
-			(at 115.57 142.24 0)
+			(at 91.44 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3039,7 +3249,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
-			(at 115.57 142.24 0)
+			(at 91.44 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3064,7 +3274,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Audio:NMJ4HFD2")
-		(at 55.88 114.3 0)
+		(at 34.29 106.68 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3072,7 +3282,7 @@
 		(dnp no)
 		(uuid "34a6187f-d70f-478d-83d4-dddb720826ea")
 		(property "Reference" "J3"
-			(at 55.245 102.87 0)
+			(at 33.655 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3080,7 +3290,7 @@
 			)
 		)
 		(property "Value" "NMJ4HFD2"
-			(at 55.245 105.41 0)
+			(at 33.655 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3088,7 +3298,7 @@
 			)
 		)
 		(property "Footprint" "Connector_Audio:Jack_6.35mm_Neutrik_NMJ4HFD2_Horizontal"
-			(at 55.88 109.22 0)
+			(at 34.29 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3097,7 +3307,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.neutrik.com/en/product/nmj4hfd2"
-			(at 55.88 109.22 0)
+			(at 34.29 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3106,7 +3316,7 @@
 			)
 		)
 		(property "Description" "M Series, 6.35mm (1/4in) mono jack, switched, with full threaded nose and straight PCB pins"
-			(at 55.88 114.3 0)
+			(at 34.29 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3137,7 +3347,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Audio:NMJ4HFD2")
-		(at 55.88 95.25 0)
+		(at 34.29 87.63 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3145,7 +3355,7 @@
 		(dnp no)
 		(uuid "45a9e869-4338-4203-9a12-b97061939d61")
 		(property "Reference" "J2"
-			(at 55.245 83.82 0)
+			(at 33.655 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3153,7 +3363,7 @@
 			)
 		)
 		(property "Value" "NMJ4HFD2"
-			(at 55.245 86.36 0)
+			(at 33.655 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3161,7 +3371,7 @@
 			)
 		)
 		(property "Footprint" "Connector_Audio:Jack_6.35mm_Neutrik_NMJ4HFD2_Horizontal"
-			(at 55.88 90.17 0)
+			(at 34.29 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3170,7 +3380,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.neutrik.com/en/product/nmj4hfd2"
-			(at 55.88 90.17 0)
+			(at 34.29 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3179,7 +3389,7 @@
 			)
 		)
 		(property "Description" "M Series, 6.35mm (1/4in) mono jack, switched, with full threaded nose and straight PCB pins"
-			(at 55.88 95.25 0)
+			(at 34.29 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3210,7 +3420,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 152.4 135.89 180)
+		(at 128.27 144.78 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3219,7 +3429,7 @@
 		(fields_autoplaced yes)
 		(uuid "67c8dca4-427b-4a73-8bba-cc77692208b4")
 		(property "Reference" "R4"
-			(at 154.94 134.6199 0)
+			(at 130.81 143.5099 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3228,7 +3438,7 @@
 			)
 		)
 		(property "Value" "R"
-			(at 154.94 137.1599 0)
+			(at 130.81 146.0499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3237,7 +3447,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 154.178 135.89 90)
+			(at 130.048 144.78 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3246,7 +3456,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 152.4 135.89 0)
+			(at 128.27 144.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3255,7 +3465,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 152.4 135.89 0)
+			(at 128.27 144.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3280,7 +3490,7 @@
 	)
 	(symbol
 		(lib_id "Device:FerriteBead")
-		(at 87.63 149.86 270)
+		(at 63.5 158.75 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3289,7 +3499,7 @@
 		(fields_autoplaced yes)
 		(uuid "689724e9-a56a-465e-9446-6e6b2acda577")
 		(property "Reference" "FB2"
-			(at 87.6808 142.24 90)
+			(at 63.5508 151.13 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3297,7 +3507,7 @@
 			)
 		)
 		(property "Value" "1k 100MHz"
-			(at 87.6808 144.78 90)
+			(at 63.5508 153.67 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3305,7 +3515,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 87.63 148.082 90)
+			(at 63.5 156.972 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3314,7 +3524,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 87.63 149.86 0)
+			(at 63.5 158.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3323,7 +3533,7 @@
 			)
 		)
 		(property "Description" "Ferrite bead"
-			(at 87.63 149.86 0)
+			(at 63.5 158.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3348,7 +3558,7 @@
 	)
 	(symbol
 		(lib_id "Isolator:6N137")
-		(at 138.43 142.24 0)
+		(at 114.3 151.13 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3357,7 +3567,7 @@
 		(fields_autoplaced yes)
 		(uuid "74c94ab1-16d0-4b3d-b273-21c3cd80337a")
 		(property "Reference" "U3"
-			(at 141.4465 129.54 0)
+			(at 117.3165 138.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3366,7 +3576,7 @@
 			)
 		)
 		(property "Value" "6N137"
-			(at 141.4465 132.08 0)
+			(at 117.3165 140.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3375,7 +3585,7 @@
 			)
 		)
 		(property "Footprint" "Package_DIP:DIP-8_W7.62mm"
-			(at 138.43 154.94 0)
+			(at 114.3 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3384,7 +3594,7 @@
 			)
 		)
 		(property "Datasheet" "https://docs.broadcom.com/docs/AV02-0940EN"
-			(at 116.84 128.27 0)
+			(at 92.71 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3393,7 +3603,7 @@
 			)
 		)
 		(property "Description" "Single High Speed LSTTL/TTL Compatible Optocoupler with enable, dV/dt 1000/us, VCM 10, max 7V VCC, DIP-8"
-			(at 138.43 142.24 0)
+			(at 114.3 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3435,8 +3645,82 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector_Audio:NMJ4HFD2")
+		(at 248.92 107.95 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "8e555c18-1463-401d-91b9-f652c0525ed3")
+		(property "Reference" "J6"
+			(at 249.555 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "NMJ4HFD2"
+			(at 249.555 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_Audio:Jack_6.35mm_Neutrik_NMJ4HFD2_Horizontal"
+			(at 248.92 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.neutrik.com/en/product/nmj4hfd2"
+			(at 248.92 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "M Series, 6.35mm (1/4in) mono jack, switched, with full threaded nose and straight PCB pins"
+			(at 248.92 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "TN"
+			(uuid "6ca37101-6ca6-4a42-8506-4bb0f60d6e76")
+		)
+		(pin "S"
+			(uuid "1eab8a60-7582-429f-b7c8-8551d5b81023")
+		)
+		(pin "T"
+			(uuid "aa221a72-cedf-4b9e-86fc-4e6d1afeddd8")
+		)
+		(pin "SN"
+			(uuid "eab926b0-32f8-4531-86f9-b8b3a36177d4")
+		)
+		(instances
+			(project "Hardware"
+				(path "/e827c80a-ca8d-4d24-8db6-878b575a1aed/ae68f18c-05a9-496e-90b3-166bfef37cf7"
+					(reference "J6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
-		(at 166.37 134.62 0)
+		(at 142.24 143.51 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3445,7 +3729,7 @@
 		(fields_autoplaced yes)
 		(uuid "8f366082-79b5-4179-be8d-a79a649b1ead")
 		(property "Reference" "C4"
-			(at 170.18 133.3499 0)
+			(at 146.05 142.2399 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3454,7 +3738,7 @@
 			)
 		)
 		(property "Value" "C"
-			(at 170.18 135.8899 0)
+			(at 146.05 144.7799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3463,7 +3747,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 167.3352 138.43 0)
+			(at 143.2052 147.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3472,7 +3756,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 166.37 134.62 0)
+			(at 142.24 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3481,7 +3765,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 166.37 134.62 0)
+			(at 142.24 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3506,7 +3790,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Audio:NC3FAAH-0")
-		(at 55.88 62.23 0)
+		(at 45.72 41.91 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3515,7 +3799,7 @@
 		(fields_autoplaced yes)
 		(uuid "98101b32-81ee-4896-96a0-864473319c58")
 		(property "Reference" "J1"
-			(at 55.88 52.07 0)
+			(at 45.72 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3523,7 +3807,7 @@
 			)
 		)
 		(property "Value" "NC3FAAH-0"
-			(at 55.88 54.61 0)
+			(at 45.72 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3531,7 +3815,7 @@
 			)
 		)
 		(property "Footprint" "Connector_Audio:Jack_XLR_Neutrik_NC3FAAH-0_Horizontal"
-			(at 55.88 62.23 0)
+			(at 45.72 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3540,7 +3824,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.neutrik.com/en/product/nc3faah-0"
-			(at 55.88 62.23 0)
+			(at 45.72 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3549,7 +3833,7 @@
 			)
 		)
 		(property "Description" "AA Series, 3 pole female XLR receptacle, grounding: without ground/shell contact, horizontal PCB mount, retention spring instead of latch"
-			(at 55.88 62.23 0)
+			(at 45.72 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3577,7 +3861,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 156.21 151.13 0)
+		(at 132.08 160.02 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3586,7 +3870,7 @@
 		(fields_autoplaced yes)
 		(uuid "b3e9ae1d-05b0-4971-8671-f9d958ec5689")
 		(property "Reference" "C3"
-			(at 160.02 149.8599 0)
+			(at 135.89 158.7499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3595,7 +3879,7 @@
 			)
 		)
 		(property "Value" "C"
-			(at 160.02 152.3999 0)
+			(at 135.89 161.2899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3604,7 +3888,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 157.1752 154.94 0)
+			(at 133.0452 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3613,7 +3897,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 156.21 151.13 0)
+			(at 132.08 160.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3622,7 +3906,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 156.21 151.13 0)
+			(at 132.08 160.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3646,8 +3930,82 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector_Audio:NMJ4HFD2")
+		(at 248.92 88.9 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "bcada691-7bab-42f3-ad42-67a1e4fa227a")
+		(property "Reference" "J5"
+			(at 249.555 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "NMJ4HFD2"
+			(at 249.555 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_Audio:Jack_6.35mm_Neutrik_NMJ4HFD2_Horizontal"
+			(at 248.92 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.neutrik.com/en/product/nmj4hfd2"
+			(at 248.92 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "M Series, 6.35mm (1/4in) mono jack, switched, with full threaded nose and straight PCB pins"
+			(at 248.92 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "TN"
+			(uuid "249453b7-f339-4430-a80d-140e07428f01")
+		)
+		(pin "S"
+			(uuid "67874885-152a-49c5-9316-971783dba841")
+		)
+		(pin "T"
+			(uuid "f96f1b34-8dc8-4d93-a530-ad77f65007f5")
+		)
+		(pin "SN"
+			(uuid "60e54d84-b975-4fce-bd64-3952143981f9")
+		)
+		(instances
+			(project "Hardware"
+				(path "/e827c80a-ca8d-4d24-8db6-878b575a1aed/ae68f18c-05a9-496e-90b3-166bfef37cf7"
+					(reference "J5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
-		(at 66.04 161.29 0)
+		(at 41.91 170.18 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3656,7 +4014,7 @@
 		(fields_autoplaced yes)
 		(uuid "c1ca1cc9-87ae-4310-a371-8581f05afd26")
 		(property "Reference" "C1"
-			(at 69.85 160.0199 0)
+			(at 45.72 168.9099 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3665,7 +4023,7 @@
 			)
 		)
 		(property "Value" "0.1uF"
-			(at 69.85 162.5599 0)
+			(at 45.72 171.4499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3674,7 +4032,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 67.0052 165.1 0)
+			(at 42.8752 173.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3683,7 +4041,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 66.04 161.29 0)
+			(at 41.91 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3692,7 +4050,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 66.04 161.29 0)
+			(at 41.91 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3717,7 +4075,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 105.41 134.62 90)
+		(at 81.28 143.51 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3726,7 +4084,7 @@
 		(fields_autoplaced yes)
 		(uuid "dd8a92a6-3288-40ac-a713-09a041551918")
 		(property "Reference" "R3"
-			(at 105.41 128.27 90)
+			(at 81.28 137.16 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3734,7 +4092,7 @@
 			)
 		)
 		(property "Value" "220"
-			(at 105.41 130.81 90)
+			(at 81.28 139.7 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3742,7 +4100,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 105.41 136.398 90)
+			(at 81.28 145.288 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3751,7 +4109,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 105.41 134.62 0)
+			(at 81.28 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3760,7 +4118,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 105.41 134.62 0)
+			(at 81.28 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3785,7 +4143,7 @@
 	)
 	(symbol
 		(lib_id "Device:FerriteBead")
-		(at 88.9 134.62 270)
+		(at 64.77 143.51 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3794,7 +4152,7 @@
 		(fields_autoplaced yes)
 		(uuid "f5d3f0ee-8e0b-44fc-ad3f-5d54aa51b443")
 		(property "Reference" "FB1"
-			(at 88.9508 127 90)
+			(at 64.8208 135.89 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3802,7 +4160,7 @@
 			)
 		)
 		(property "Value" "1k 100MHz"
-			(at 88.9508 129.54 90)
+			(at 64.8208 138.43 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3810,7 +4168,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 88.9 132.842 90)
+			(at 64.77 141.732 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3819,7 +4177,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 88.9 134.62 0)
+			(at 64.77 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3828,7 +4186,7 @@
 			)
 		)
 		(property "Description" "Ferrite bead"
-			(at 88.9 134.62 0)
+			(at 64.77 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3853,7 +4211,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 77.47 161.29 0)
+		(at 53.34 170.18 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3862,7 +4220,7 @@
 		(fields_autoplaced yes)
 		(uuid "f67851fe-e26e-4130-a730-4c3fa54b6e01")
 		(property "Reference" "C2"
-			(at 81.28 160.0199 0)
+			(at 57.15 168.9099 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3871,7 +4229,7 @@
 			)
 		)
 		(property "Value" "0.1uF"
-			(at 81.28 162.5599 0)
+			(at 57.15 171.4499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3880,7 +4238,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 78.4352 165.1 0)
+			(at 54.3052 173.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3889,7 +4247,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 77.47 161.29 0)
+			(at 53.34 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3898,7 +4256,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 77.47 161.29 0)
+			(at 53.34 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
