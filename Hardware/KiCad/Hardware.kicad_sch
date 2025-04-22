@@ -12,8 +12,28 @@
 		(comment 1 "Tim Wannet")
 	)
 	(lib_symbols)
+	(wire
+		(pts
+			(xy 67.31 101.6) (xy 88.9 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "62a4abf8-3a9c-44b8-9feb-1203b4961837")
+	)
+	(wire
+		(pts
+			(xy 67.31 110.49) (xy 88.9 110.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e23c4523-b31f-4943-b844-7045fcc482c8")
+	)
 	(sheet
-		(at 124.46 80.01)
+		(at 127 76.2)
 		(size 38.1 38.1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -29,7 +49,7 @@
 		)
 		(uuid "80744173-9491-4551-a74b-98f5922bdb3a")
 		(property "Sheetname" "Microcontroller"
-			(at 124.46 79.2984 0)
+			(at 127 75.4884 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -38,7 +58,7 @@
 			)
 		)
 		(property "Sheetfile" "MCU.kicad_sch"
-			(at 124.46 118.6946 0)
+			(at 127 114.8846 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -56,8 +76,8 @@
 		)
 	)
 	(sheet
-		(at 81.28 27.94)
-		(size 97.79 16.51)
+		(at 24.765 76.2)
+		(size 42.545 38.1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -72,7 +92,7 @@
 		)
 		(uuid "ae68f18c-05a9-496e-90b3-166bfef37cf7")
 		(property "Sheetname" "Inputs and outputs"
-			(at 81.28 27.2284 0)
+			(at 24.765 75.4884 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -81,7 +101,7 @@
 			)
 		)
 		(property "Sheetfile" "I_O.kicad_sch"
-			(at 81.28 45.0346 0)
+			(at 24.765 114.8846 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -90,33 +110,33 @@
 			)
 		)
 		(pin "Midi_RX" output
-			(at 132.08 44.45 270)
+			(at 67.31 80.645 0)
 			(uuid "7c67cf83-0611-4688-ae4b-b926bb87b9a3")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(pin "Modulator_Cold" output
-			(at 110.49 44.45 270)
+			(at 67.31 110.49 0)
 			(uuid "da72e2d4-721c-4d28-b6a7-5eb7773a915c")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(pin "Modulator_Hot" output
-			(at 100.33 44.45 270)
+			(at 67.31 101.6 0)
 			(uuid "1b2c5736-38f8-468d-917c-43aa9d26528e")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(instances
@@ -128,8 +148,8 @@
 		)
 	)
 	(sheet
-		(at 88.9 101.6)
-		(size 16.51 15.24)
+		(at 25.4 165.1)
+		(size 25.4 25.4)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -144,7 +164,7 @@
 		)
 		(uuid "ea9bf73e-a18e-4434-8c74-6fad8c6cf4b3")
 		(property "Sheetname" "Power Supply"
-			(at 88.9 100.8884 0)
+			(at 25.4 164.3884 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -153,7 +173,7 @@
 			)
 		)
 		(property "Sheetfile" "PSU.kicad_sch"
-			(at 88.9 117.4246 0)
+			(at 25.4 191.0846 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -171,7 +191,7 @@
 		)
 	)
 	(sheet
-		(at 88.9 63.5)
+		(at 88.9 96.52)
 		(size 16.51 17.78)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -187,7 +207,7 @@
 		)
 		(uuid "f759df24-a40e-4928-b060-ce3f4ace9ae8")
 		(property "Sheetname" "Mic PreAmp"
-			(at 88.9 62.7884 0)
+			(at 88.9 95.8084 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -196,7 +216,7 @@
 			)
 		)
 		(property "Sheetfile" "PreAmp.kicad_sch"
-			(at 88.9 81.8646 0)
+			(at 88.9 114.8846 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -205,9 +225,9 @@
 				(hide yes)
 			)
 		)
-		(pin "Pin_1" input
-			(at 88.9 67.31 180)
-			(uuid "2ea52174-d063-4800-be01-944370ad78f2")
+		(pin "Hot" input
+			(at 88.9 101.6 180)
+			(uuid "18c28ec3-6b9f-42a9-a22c-cd57e5c4c083")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -215,19 +235,9 @@
 				(justify left)
 			)
 		)
-		(pin "Pin_2" input
-			(at 88.9 72.39 180)
-			(uuid "d788ca27-a20b-415d-93cc-360f49179b98")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "Pin_3" input
-			(at 88.9 77.47 180)
-			(uuid "dd4215e1-8d76-4ed3-8f76-02ff808b3bd2")
+		(pin "Cold" input
+			(at 88.9 110.49 180)
+			(uuid "e9067622-4d92-46e8-bc66-4930df735578")
 			(effects
 				(font
 					(size 1.27 1.27)

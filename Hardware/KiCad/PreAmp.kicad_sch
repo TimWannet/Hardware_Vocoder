@@ -1,7 +1,7 @@
 (kicad_sch
-	(version 20231120)
+	(version 20250114)
 	(generator "eeschema")
-	(generator_version "8.0")
+	(generator_version "9.0")
 	(uuid "74b078a6-d996-4783-b400-e44b472ec4b1")
 	(paper "A4")
 	(title_block
@@ -197,18 +197,6 @@
 			(symbol "OPA1656ID_1_0"
 				(polyline
 					(pts
-						(xy -2.54 -5.08) (xy 7.62 0)
-					)
-					(stroke
-						(width 0.4064)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
 						(xy -2.54 5.08) (xy -2.54 -5.08)
 					)
 					(stroke
@@ -221,7 +209,19 @@
 				)
 				(polyline
 					(pts
-						(xy -1.905 -2.54) (xy -0.635 -2.54)
+						(xy -2.54 -5.08) (xy 7.62 0)
+					)
+					(stroke
+						(width 0.4064)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.905 2.54) (xy -0.635 2.54)
 					)
 					(stroke
 						(width 0.1524)
@@ -233,7 +233,7 @@
 				)
 				(polyline
 					(pts
-						(xy -1.905 2.54) (xy -0.635 2.54)
+						(xy -1.905 -2.54) (xy -0.635 -2.54)
 					)
 					(stroke
 						(width 0.1524)
@@ -285,24 +285,6 @@
 						(justify left bottom)
 					)
 				)
-				(pin output line
-					(at 12.7 0 180)
-					(length 5.08)
-					(name "~"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-				)
 				(pin input line
 					(at -7.62 2.54 0)
 					(length 5.08)
@@ -340,24 +322,6 @@
 					)
 				)
 				(pin power_in line
-					(at 2.54 -7.62 90)
-					(length 5.08)
-					(name "~"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-				)
-				(pin power_in line
 					(at 2.54 7.62 270)
 					(length 5.08)
 					(name "~"
@@ -375,20 +339,44 @@
 						)
 					)
 				)
-			)
-			(symbol "OPA1656ID_2_0"
-				(polyline
-					(pts
-						(xy -2.54 -5.08) (xy 7.62 0)
+				(pin power_in line
+					(at 2.54 -7.62 90)
+					(length 5.08)
+					(name "~"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
 					)
-					(stroke
-						(width 0.4064)
-						(type default)
-					)
-					(fill
-						(type none)
+					(number "4"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
 					)
 				)
+				(pin output line
+					(at 12.7 0 180)
+					(length 5.08)
+					(name "~"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+			)
+			(symbol "OPA1656ID_2_0"
 				(polyline
 					(pts
 						(xy -2.54 5.08) (xy -2.54 -5.08)
@@ -403,7 +391,19 @@
 				)
 				(polyline
 					(pts
-						(xy -1.905 -2.54) (xy -0.635 -2.54)
+						(xy -2.54 -5.08) (xy 7.62 0)
+					)
+					(stroke
+						(width 0.4064)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.905 2.54) (xy -0.635 2.54)
 					)
 					(stroke
 						(width 0.1524)
@@ -415,7 +415,7 @@
 				)
 				(polyline
 					(pts
-						(xy -1.905 2.54) (xy -0.635 2.54)
+						(xy -1.905 -2.54) (xy -0.635 -2.54)
 					)
 					(stroke
 						(width 0.1524)
@@ -450,24 +450,6 @@
 					)
 				)
 				(pin input line
-					(at -7.62 -2.54 0)
-					(length 5.08)
-					(name "~"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.016 1.016)
-							)
-						)
-					)
-				)
-				(pin input line
 					(at -7.62 2.54 0)
 					(length 5.08)
 					(name "~"
@@ -478,6 +460,24 @@
 						)
 					)
 					(number "6"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -7.62 -2.54 0)
+					(length 5.08)
+					(name "~"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "5"
 						(effects
 							(font
 								(size 1.016 1.016)
@@ -504,7 +504,30 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
+	)
+	(hierarchical_label "Hot"
+		(shape input)
+		(at 66.04 91.44 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "d7936692-c1cf-452e-9edc-985cd026068f")
+	)
+	(hierarchical_label "Cold"
+		(shape input)
+		(at 66.04 99.06 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "ef69207d-74b2-41a2-810e-399e82479a08")
 	)
 	(symbol
 		(lib_id "OPA1656ID:OPA1656ID")
