@@ -1,11 +1,13 @@
 LTspice 24.1.6 for Windows
 Circuit: X:\Documents\GitHub\Hardware_Vocoder\Hardware\Simulation\Ina217\Ina217 Mic.net
-Start Time: Tue May  6 11:56:55 2025
+Start Time: Tue May  6 17:13:14 2025
 solver = Normal
 Maximum thread count: 20
 tnom = 27
 temp = 27
 method = trap
+C1: Increased Cpar to 4.7e-11
+C2: Increased Cpar to 4.7e-11
 Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
 Starting Gmin stepping
 Gmin = 10
@@ -16,20 +18,44 @@ Gmin = 0.00132923
 Gmin = 0.000142725
 Gmin = 1.5325e-05
 Gmin = 1.6455e-06
-Gmin = 1.76685e-07
-Gmin = 1.89714e-08
-Gmin = 2.03704e-09
-Gmin = 2.18725e-10
-Gmin = 2.34854e-11
-Gmin = 2.52173e-12
-Gmin = 2.70769e-13
+vernier = 0.5
+vernier = 0.25
+vernier = 0.125
+vernier = 0.0625
+vernier = 0.0833333
+Gmin = 1.86461e-06
+vernier = 0.111111
+Gmin = 1.46662e-06
+vernier = 0.148148
+vernier = 0.197531
+Gmin = 9.92775e-07
+vernier = 0.0987653
+vernier = 0.0493827
+vernier = 0.0246913
+vernier = 0.0123457
+Gmin = 9.43145e-07
+vernier = 0.00617283
+vernier = 0.00308642
+vernier = 0.00154321
+Gmin = 9.4024e-07
+vernier = 0.000771604
+vernier = 0.000578703
+vernier = 0.000434027
 Gmin = 0
-Gmin stepping succeeded in finding the operating point.
+Gmin stepping failed
 
-Total elapsed time: 0.100 seconds.
+Starting source stepping with srcstepmethod=0
+Source Step = 3.0303%
+Source Step = 33.3333%
+Source Step = 63.6364%
+Source Step = 93.9394%
+Source stepping succeeded in finding the operating point.
+
+Total elapsed time: 0.221 seconds.
 
 Files loaded:
 X:\Documents\GitHub\Hardware_Vocoder\Hardware\Simulation\Ina217\Ina217 Mic.net
 C:\users\steamuser\AppData\Local\LTspice\lib\cmp\standard.dio
 X:\Documents\GitHub\Hardware_Vocoder\Hardware\Simulation\Ina217\INA217.txt
+X:\Documents\GitHub\Hardware_Vocoder\Hardware\Simulation\Ina217\OPA137.lib
 
