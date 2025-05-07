@@ -2242,12 +2242,6 @@
 		(uuid "50175d2f-508c-4636-8efe-d6d38b244b63")
 	)
 	(junction
-		(at 213.36 127)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "503205cd-e73b-4758-8e2b-132d6fcac74f")
-	)
-	(junction
 		(at 146.05 127)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2270,6 +2264,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "6f530720-245b-41fd-8f5c-8b3d459993ac")
+	)
+	(junction
+		(at 210.82 104.14)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "786d49ba-d63a-4220-b2ba-08ea2711260e")
 	)
 	(junction
 		(at 119.38 88.9)
@@ -2347,13 +2347,13 @@
 	)
 	(wire
 		(pts
-			(xy 146.05 127) (xy 213.36 127)
+			(xy 146.05 91.44) (xy 146.05 74.93)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "036be81c-3845-4b53-9763-bb7042776257")
+		(uuid "08de7843-9232-4f0e-abae-74f8a8725621")
 	)
 	(wire
 		(pts
@@ -2437,7 +2437,7 @@
 	)
 	(wire
 		(pts
-			(xy 218.44 96.52) (xy 218.44 111.76)
+			(xy 218.44 96.52) (xy 218.44 110.49)
 		)
 		(stroke
 			(width 0)
@@ -2504,6 +2504,16 @@
 			(type default)
 		)
 		(uuid "4285dd1e-95b1-4631-a4de-655a26876080")
+	)
+	(wire
+		(pts
+			(xy 149.86 91.44) (xy 146.05 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "45e8ac13-3684-4a2b-979a-eb43d173767f")
 	)
 	(wire
 		(pts
@@ -2717,6 +2727,16 @@
 	)
 	(wire
 		(pts
+			(xy 214.63 74.93) (xy 214.63 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7e70ebc8-6001-46e7-a7fd-d7501ceaf63d")
+	)
+	(wire
+		(pts
 			(xy 90.17 107.95) (xy 90.17 104.14)
 		)
 		(stroke
@@ -2737,6 +2757,16 @@
 	)
 	(wire
 		(pts
+			(xy 210.82 91.44) (xy 214.63 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "829f5c08-ea05-40f5-9f1c-787a6908ad4b")
+	)
+	(wire
+		(pts
 			(xy 160.02 36.83) (xy 148.59 36.83)
 		)
 		(stroke
@@ -2747,7 +2777,7 @@
 	)
 	(wire
 		(pts
-			(xy 218.44 96.52) (xy 222.25 96.52)
+			(xy 218.44 96.52) (xy 226.06 96.52)
 		)
 		(stroke
 			(width 0)
@@ -2777,6 +2807,16 @@
 	)
 	(wire
 		(pts
+			(xy 222.25 106.68) (xy 222.25 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8d7051c8-f4f1-43da-8460-95a370f4b6c8")
+	)
+	(wire
+		(pts
 			(xy 160.02 41.91) (xy 160.02 36.83)
 		)
 		(stroke
@@ -2797,7 +2837,7 @@
 	)
 	(wire
 		(pts
-			(xy 210.82 104.14) (xy 213.36 104.14)
+			(xy 222.25 106.68) (xy 226.06 106.68)
 		)
 		(stroke
 			(width 0)
@@ -2827,13 +2867,23 @@
 	)
 	(wire
 		(pts
-			(xy 213.36 127) (xy 218.44 127)
+			(xy 146.05 127) (xy 218.44 127)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "97e60bf9-53fe-4e4e-88e3-9e015669ad09")
+	)
+	(wire
+		(pts
+			(xy 208.28 104.14) (xy 210.82 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "980640bb-d5f3-468f-8714-f74f6649d442")
 	)
 	(wire
 		(pts
@@ -2904,16 +2954,6 @@
 			(type default)
 		)
 		(uuid "ac0d201f-c6fc-4c2b-ab7c-f532cb350670")
-	)
-	(wire
-		(pts
-			(xy 213.36 104.14) (xy 213.36 127)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ad1408eb-e5db-4abc-b564-568deb7361ce")
 	)
 	(wire
 		(pts
@@ -3027,7 +3067,7 @@
 	)
 	(wire
 		(pts
-			(xy 218.44 119.38) (xy 218.44 127)
+			(xy 218.44 118.11) (xy 218.44 127)
 		)
 		(stroke
 			(width 0)
@@ -3167,6 +3207,16 @@
 	)
 	(wire
 		(pts
+			(xy 210.82 101.6) (xy 226.06 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f297d7ea-5aab-4ef9-a9de-c4c58b27ad4c")
+	)
+	(wire
+		(pts
 			(xy 201.93 41.91) (xy 201.93 43.18)
 		)
 		(stroke
@@ -3207,6 +3257,16 @@
 	)
 	(wire
 		(pts
+			(xy 222.25 104.14) (xy 210.82 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fc3fefb4-54a9-4d47-9089-ac03c3c45967")
+	)
+	(wire
+		(pts
 			(xy 204.47 35.56) (xy 204.47 34.29)
 		)
 		(stroke
@@ -3233,6 +3293,50 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "Out"
+		(shape output)
+		(at 226.06 101.6 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "125accb2-1946-45c5-8732-d4da6a89ce49")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 232.2504 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "1.6V"
+		(shape input)
+		(at 226.06 106.68 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "1453e2f4-c0f7-4f50-b271-79782a081a41")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 233.1576 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 				(hide yes)
 			)
 		)
@@ -3458,7 +3562,7 @@
 		)
 	)
 	(global_label "1.6V"
-		(shape input)
+		(shape output)
 		(at 104.14 166.37 0)
 		(fields_autoplaced yes)
 		(effects
@@ -3547,7 +3651,7 @@
 	)
 	(global_label "6V"
 		(shape input)
-		(at 222.25 96.52 0)
+		(at 226.06 96.52 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3557,7 +3661,7 @@
 		)
 		(uuid "e36d6fec-24c1-4516-8f85-d9b7fd34b040")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 227.5333 96.52 0)
+			(at 231.3433 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3960,7 +4064,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 218.44 115.57 0)
+		(at 218.44 114.3 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3969,7 +4073,7 @@
 		(fields_autoplaced yes)
 		(uuid "32c6c19e-8788-42eb-a635-7fd9f798a5fd")
 		(property "Reference" "C4"
-			(at 222.25 114.2999 0)
+			(at 222.25 113.0299 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3978,7 +4082,7 @@
 			)
 		)
 		(property "Value" "C"
-			(at 222.25 116.8399 0)
+			(at 222.25 115.5699 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3987,7 +4091,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 219.4052 119.38 0)
+			(at 219.4052 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3996,7 +4100,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 218.44 115.57 0)
+			(at 218.44 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4005,7 +4109,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 218.44 115.57 0)
+			(at 218.44 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
