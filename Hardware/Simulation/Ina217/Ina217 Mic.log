@@ -1,6 +1,6 @@
 LTspice 24.1.6 for Windows
 Circuit: X:\Documents\GitHub\Hardware_Vocoder\Hardware\Simulation\Ina217\Ina217 Mic.net
-Start Time: Tue May  6 18:12:10 2025
+Start Time: Wed May  7 13:03:40 2025
 solver = Normal
 Maximum thread count: 20
 tnom = 27
@@ -63,7 +63,7 @@ Source Step = 63.6364%
 Source Step = 93.9394%
 Source stepping succeeded in finding the operating point.
 
-Total elapsed time: 0.401 seconds.
+Total elapsed time: 0.493 seconds.
 
 Files loaded:
 X:\Documents\GitHub\Hardware_Vocoder\Hardware\Simulation\Ina217\Ina217 Mic.net
