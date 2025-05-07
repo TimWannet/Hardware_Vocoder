@@ -59,3 +59,4 @@ Software/.vscode/extensions.json
 Software/.vscode/launch.json
 *.plt
 Hardware/Simulation/PreAmp.log
+/Hardware/Datasheets
