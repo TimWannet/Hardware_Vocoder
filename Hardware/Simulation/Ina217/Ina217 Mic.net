@@ -19,14 +19,14 @@ R3 N006 0 1Meg
 R4 N005 N007 27
 R5 N001 N012 33K
 R6 N012 0 12K
-X§U2 N012 N010 N001 0 N010 OPA137
+X§U2 N012 N010 N001 0 N010 TLV2371
 .model D D
 .lib C:\users\steamuser\AppData\Local\LTspice\lib\cmp\standard.dio
 .tran {50/fs}
 .param fs=4kHz
 .incl INA217.txt
 * XLR_1
-.lib OPA137.lib
+.lib tlv2371.lib
 .lib INA217.txt
 .backanno
 .end
