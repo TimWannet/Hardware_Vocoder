@@ -12,26 +12,6 @@
 		(comment 1 "Tim Wannet")
 	)
 	(lib_symbols)
-	(wire
-		(pts
-			(xy 67.31 101.6) (xy 88.9 101.6)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "62a4abf8-3a9c-44b8-9feb-1203b4961837")
-	)
-	(wire
-		(pts
-			(xy 67.31 110.49) (xy 88.9 110.49)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e23c4523-b31f-4943-b844-7045fcc482c8")
-	)
 	(sheet
 		(at 127 76.2)
 		(size 38.1 38.1)
@@ -68,7 +48,7 @@
 			)
 		)
 		(instances
-			(project "Hardware"
+			(project "Main_Board"
 				(path "/e827c80a-ca8d-4d24-8db6-878b575a1aed"
 					(page "3")
 				)
@@ -140,7 +120,7 @@
 			)
 		)
 		(instances
-			(project "Hardware"
+			(project "Main_Board"
 				(path "/e827c80a-ca8d-4d24-8db6-878b575a1aed"
 					(page "5")
 				)
@@ -183,7 +163,7 @@
 			)
 		)
 		(instances
-			(project "Hardware"
+			(project "Main_Board"
 				(path "/e827c80a-ca8d-4d24-8db6-878b575a1aed"
 					(page "2")
 				)
@@ -191,7 +171,7 @@
 		)
 	)
 	(sheet
-		(at 88.9 96.52)
+		(at 50.165 40.64)
 		(size 16.51 17.78)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -207,7 +187,7 @@
 		)
 		(uuid "f759df24-a40e-4928-b060-ce3f4ace9ae8")
 		(property "Sheetname" "Mic PreAmp"
-			(at 88.9 95.8084 0)
+			(at 50.165 39.9284 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -216,7 +196,7 @@
 			)
 		)
 		(property "Sheetfile" "PreAmp.kicad_sch"
-			(at 88.9 114.8846 0)
+			(at 50.165 59.0046 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -225,28 +205,8 @@
 				(hide yes)
 			)
 		)
-		(pin "Hot" input
-			(at 88.9 101.6 180)
-			(uuid "18c28ec3-6b9f-42a9-a22c-cd57e5c4c083")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "Cold" input
-			(at 88.9 110.49 180)
-			(uuid "e9067622-4d92-46e8-bc66-4930df735578")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
 		(instances
-			(project "Hardware"
+			(project "Main_Board"
 				(path "/e827c80a-ca8d-4d24-8db6-878b575a1aed"
 					(page "4")
 				)
