@@ -680,6 +680,239 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Connector_Audio:XLR3"
+			(pin_names
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 8.89 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "XLR3"
+				(at 0 6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "XLR Connector, Male or Female, 3 Pins"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "xlr connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Jack*XLR*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "XLR3_0_1"
+				(polyline
+					(pts
+						(xy -5.08 0) (xy -4.572 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center -3.556 0)
+					(radius 1.016)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 0 0)
+					(radius 5.08)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(circle
+					(center 0 -3.556)
+					(radius 1.016)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -5.08) (xy 0 -4.572)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 3.556 0)
+					(radius 1.016)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.08 0) (xy 4.572 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(text "1"
+					(at -3.556 1.778 0)
+					(effects
+						(font
+							(size 1.016 1.016)
+							(bold yes)
+						)
+					)
+				)
+				(text "3"
+					(at 0 -1.778 0)
+					(effects
+						(font
+							(size 1.016 1.016)
+							(bold yes)
+						)
+					)
+				)
+				(text "2"
+					(at 3.556 1.778 0)
+					(effects
+						(font
+							(size 1.016 1.016)
+							(bold yes)
+						)
+					)
+				)
+				(pin passive line
+					(at -7.62 0 0)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -7.62 90)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 7.62 0 180)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "INA217:INA217AIDWR"
 			(pin_names
 				(offset 0.254)
@@ -1427,8 +1660,8 @@
 		)
 	)
 	(rectangle
-		(start 238.76 25.4)
-		(end 273.05 50.8)
+		(start 239.395 25.4)
+		(end 273.685 54.61)
 		(stroke
 			(width 0)
 			(type dash)
@@ -1440,7 +1673,7 @@
 	)
 	(rectangle
 		(start 139.7 25.4)
-		(end 177.8 50.8)
+		(end 177.8 54.61)
 		(stroke
 			(width 0)
 			(type dash)
@@ -1451,8 +1684,8 @@
 		(uuid b2d5fbb1-553b-42b8-b9b4-c228e95a101c)
 	)
 	(rectangle
-		(start 186.69 25.4)
-		(end 229.87 50.8)
+		(start 185.42 25.4)
+		(end 231.775 54.61)
 		(stroke
 			(width 0)
 			(type dash)
@@ -1461,6 +1694,28 @@
 			(type none)
 		)
 		(uuid e44b43eb-ff6f-4c91-9578-c2f4796f9499)
+	)
+	(rectangle
+		(start 85.725 25.4)
+		(end 131.445 54.61)
+		(stroke
+			(width 0)
+			(type dash)
+		)
+		(fill
+			(type none)
+		)
+		(uuid e5a33a14-e770-49f3-ad3b-0c70d40f88e6)
+	)
+	(text "XLR Input\n"
+		(exclude_from_sim no)
+		(at 107.95 24.13 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "18163d88-462c-444d-8525-8beb36b3fea5")
 	)
 	(text "Kicad Power"
 		(exclude_from_sim no)
@@ -1511,35 +1766,35 @@
 		(uuid "c7dba0d5-4280-4db9-b71a-1f977c9593ec")
 	)
 	(no_connect
-		(at 144.78 111.76)
+		(at 200.66 109.22)
 		(uuid "02409fba-c426-47bc-8c2a-baecadcdc1c0")
 	)
 	(no_connect
-		(at 144.78 104.14)
+		(at 200.66 101.6)
 		(uuid "222de427-dd37-41b4-87c2-cf44844b8fa0")
 	)
 	(no_connect
-		(at 83.82 106.68)
+		(at 139.7 104.14)
 		(uuid "286b816b-7116-4f33-989e-8fe251f9e204")
 	)
 	(no_connect
-		(at 83.82 99.06)
+		(at 139.7 96.52)
 		(uuid "3a09af76-8241-4863-b0cb-830f6fa7bf3b")
 	)
 	(no_connect
-		(at 83.82 111.76)
+		(at 139.7 109.22)
 		(uuid "926f88f6-cc31-4b72-8454-b7a049540d5b")
 	)
 	(no_connect
-		(at 83.82 93.98)
+		(at 139.7 91.44)
 		(uuid "b55aa2ef-eff8-4d16-83d5-601fa1b53c38")
 	)
 	(no_connect
-		(at 144.78 93.98)
+		(at 200.66 91.44)
 		(uuid "dc616bae-2d5e-4d3d-af49-ecb61bea449b")
 	)
 	(no_connect
-		(at 144.78 99.06)
+		(at 200.66 96.52)
 		(uuid "f66a8e31-8067-41cc-8323-8294192b402c")
 	)
 	(wire
@@ -1624,6 +1879,16 @@
 	)
 	(wire
 		(pts
+			(xy 95.25 36.83) (xy 100.33 36.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5f65860f-7212-4375-b43d-79c188a3d951")
+	)
+	(wire
+		(pts
 			(xy 195.58 35.56) (xy 204.47 35.56)
 		)
 		(stroke
@@ -1671,6 +1936,16 @@
 			(type default)
 		)
 		(uuid "785276fc-8197-4747-9b6a-291aed249252")
+	)
+	(wire
+		(pts
+			(xy 107.95 44.45) (xy 107.95 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7a8ec1d9-275b-4213-af7d-539f85a5963d")
 	)
 	(wire
 		(pts
@@ -1724,6 +1999,16 @@
 	)
 	(wire
 		(pts
+			(xy 107.95 49.53) (xy 110.49 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a494d97f-fe32-4d42-8c18-e6e8ec9cb063")
+	)
+	(wire
+		(pts
 			(xy 250.19 45.72) (xy 262.89 45.72)
 		)
 		(stroke
@@ -1731,6 +2016,16 @@
 			(type default)
 		)
 		(uuid "cb6da8a5-21d0-4c62-92c2-eaa4f52a561d")
+	)
+	(wire
+		(pts
+			(xy 115.57 36.83) (xy 120.65 36.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d182315a-fcdf-4e37-8aff-6df06e67400a")
 	)
 	(wire
 		(pts
@@ -1773,7 +2068,7 @@
 		(uuid "ff69973e-26ec-42ac-be93-0fad940e2b54")
 	)
 	(global_label "GND"
-		(shape input)
+		(shape bidirectional)
 		(at 148.59 36.83 180)
 		(fields_autoplaced yes)
 		(effects
@@ -1784,7 +2079,7 @@
 		)
 		(uuid "010de771-3dd0-4822-b576-f4fefdafa469")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 141.7343 36.83 0)
+			(at 140.623 36.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1794,8 +2089,30 @@
 			)
 		)
 	)
-	(global_label "6V"
+	(global_label "Cold"
 		(shape output)
+		(at 110.49 49.53 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "20bf39a5-b4e6-40f9-abed-8d15116eb081")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 117.7084 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "6V"
+		(shape input)
 		(at 262.89 45.72 0)
 		(fields_autoplaced yes)
 		(effects
@@ -1817,7 +2134,7 @@
 		)
 	)
 	(global_label "6V"
-		(shape input)
+		(shape output)
 		(at 195.58 39.37 180)
 		(fields_autoplaced yes)
 		(effects
@@ -1829,6 +2146,72 @@
 		(uuid "56f47a71-997f-4d3a-9c1a-08c8e9e501ce")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 190.2967 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "Hot"
+		(shape input)
+		(at 43.18 96.52 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "5878b535-b794-4f73-be75-a4c2451554d0")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 36.9896 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "Hot"
+		(shape output)
+		(at 120.65 36.83 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "5cf7777a-e88a-403c-ab61-d30a2be473e3")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 126.8404 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "GND"
+		(shape bidirectional)
+		(at 95.25 36.83 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "5d974f01-7395-4b81-a2f8-db736ed2b07f")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 87.283 36.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1860,8 +2243,30 @@
 			)
 		)
 	)
-	(global_label "-6V"
+	(global_label "Cold"
 		(shape input)
+		(at 45.72 104.14 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "7b62e4d2-75a7-4054-a871-19d86e058c69")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 38.5016 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "-6V"
+		(shape output)
 		(at 195.58 43.18 180)
 		(fields_autoplaced yes)
 		(effects
@@ -1884,7 +2289,7 @@
 	)
 	(global_label "-6V"
 		(shape input)
-		(at 76.2 109.22 180)
+		(at 132.08 106.68 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1894,7 +2299,7 @@
 		)
 		(uuid "d9b12a46-e724-4c34-896c-7d7a696516f5")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 69.3443 109.22 0)
+			(at 125.2243 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1906,7 +2311,7 @@
 	)
 	(global_label "6V"
 		(shape input)
-		(at 152.4 101.6 0)
+		(at 208.28 99.06 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1916,7 +2321,7 @@
 		)
 		(uuid "e36d6fec-24c1-4516-8f85-d9b7fd34b040")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 157.6833 101.6 0)
+			(at 213.5633 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1927,7 +2332,7 @@
 		)
 	)
 	(global_label "-6V"
-		(shape output)
+		(shape input)
 		(at 262.89 39.37 0)
 		(fields_autoplaced yes)
 		(effects
@@ -1949,7 +2354,7 @@
 		)
 	)
 	(global_label "GND"
-		(shape output)
+		(shape bidirectional)
 		(at 262.89 33.02 0)
 		(fields_autoplaced yes)
 		(effects
@@ -1960,7 +2365,7 @@
 		)
 		(uuid "f090f1ca-6b53-44fd-9ee3-6aa5f1b31a2d")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 269.7457 33.02 0)
+			(at 270.857 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1971,7 +2376,7 @@
 		)
 	)
 	(global_label "GND"
-		(shape input)
+		(shape bidirectional)
 		(at 195.58 35.56 180)
 		(fields_autoplaced yes)
 		(effects
@@ -1982,7 +2387,7 @@
 		)
 		(uuid "fb9c68f3-d849-4f16-ba16-1f22079c5949")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 188.7243 35.56 0)
+			(at 187.613 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2066,7 +2471,7 @@
 	)
 	(symbol
 		(lib_id "INA217:INA217AIDWR")
-		(at 83.82 93.98 0)
+		(at 139.7 91.44 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2075,7 +2480,7 @@
 		(fields_autoplaced yes)
 		(uuid "8f58f6ff-cbde-45f6-908f-8f10098b9d80")
 		(property "Reference" "U2"
-			(at 114.3 83.82 0)
+			(at 170.18 81.28 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -2083,7 +2488,7 @@
 			)
 		)
 		(property "Value" "INA217AIDWR"
-			(at 114.3 86.36 0)
+			(at 170.18 83.82 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -2091,7 +2496,7 @@
 			)
 		)
 		(property "Footprint" "INA217:DW16"
-			(at 83.82 93.98 0)
+			(at 139.7 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2101,7 +2506,7 @@
 			)
 		)
 		(property "Datasheet" "INA217AIDWR"
-			(at 83.82 93.98 0)
+			(at 139.7 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2111,7 +2516,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 83.82 93.98 0)
+			(at 139.7 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2178,7 +2583,7 @@
 	)
 	(symbol
 		(lib_id "Amplifier_Operational:TLV2371DBV")
-		(at 195.58 123.19 0)
+		(at 219.71 140.97 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -2187,7 +2592,7 @@
 		(dnp no)
 		(uuid "a04cd4c7-6723-4ee5-b08d-215924370fb7")
 		(property "Reference" "U1"
-			(at 189.23 116.078 0)
+			(at 213.36 133.858 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2195,7 +2600,7 @@
 			)
 		)
 		(property "Value" "TLV2371DBV"
-			(at 189.23 118.618 0)
+			(at 213.36 136.398 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2203,7 +2608,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
-			(at 198.12 128.27 0)
+			(at 222.25 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2213,7 +2618,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/tlv2375.pdf"
-			(at 195.58 118.11 0)
+			(at 219.71 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2222,7 +2627,7 @@
 			)
 		)
 		(property "Description" "Rail-to-Rail Input/Output Operational Amplifier, SOT-23-5"
-			(at 195.58 123.19 0)
+			(at 219.71 140.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2249,6 +2654,76 @@
 			(project ""
 				(path "/c83f892f-6017-40cb-88c0-c4e7a35464f0"
 					(reference "U1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Audio:XLR3")
+		(at 107.95 36.83 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a8d670fc-27bf-4a62-bb9c-6a578172e0c3")
+		(property "Reference" "J3"
+			(at 107.95 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "XLR3"
+			(at 107.95 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_Audio:Jack_XLR_Neutrik_NC3FAAV-0_Vertical"
+			(at 107.95 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 107.95 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "XLR Connector, Male or Female, 3 Pins"
+			(at 107.95 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "7e72428d-98cd-4c61-b7bc-81bf8bedcb23")
+		)
+		(pin "2"
+			(uuid "c0300ab3-afeb-4917-a033-cbae9a8a43b2")
+		)
+		(pin "1"
+			(uuid "0918fe9d-57d9-4d18-972a-59e3b6292926")
+		)
+		(instances
+			(project ""
+				(path "/c83f892f-6017-40cb-88c0-c4e7a35464f0"
+					(reference "J3")
 					(unit 1)
 				)
 			)
