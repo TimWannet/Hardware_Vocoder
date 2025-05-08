@@ -2833,17 +2833,6 @@
 			(layer "F.Fab")
 			(uuid "38f27888-b6cd-4bc4-910e-a7c8daad1dc7")
 		)
-		(fp_text user "K"
-			(at 0 -1.3 180)
-			(layer "F.SilkS")
-			(uuid "117caa54-dd9a-4f6a-bc54-78b670290dc7")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(fp_text user "${REFERENCE}"
 			(at 4.11 0 90)
 			(layer "F.Fab")
@@ -3205,17 +3194,6 @@
 			)
 			(layer "F.Fab")
 			(uuid "490189c5-faad-4219-a9d9-c2aa602a0164")
-		)
-		(fp_text user "K"
-			(at -0.1 1.3 180)
-			(layer "F.SilkS")
-			(uuid "0329c522-d457-4037-9bbc-6108a810cb8c")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
 		)
 		(fp_text user "K"
 			(at 0 -1.8 90)
