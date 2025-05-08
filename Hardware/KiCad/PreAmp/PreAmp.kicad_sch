@@ -2439,8 +2439,8 @@
 		(uuid b4e403d5-176c-432f-a58e-77abfbfb95f9)
 	)
 	(rectangle
-		(start 33.655 84.455)
-		(end 62.865 115.57)
+		(start 23.495 76.2)
+		(end 64.135 117.475)
 		(stroke
 			(width 0)
 			(type dot)
@@ -2511,7 +2511,7 @@
 		(uuid ea00c9ef-6891-42ec-9250-865df8ea245a)
 	)
 	(rectangle
-		(start 31.115 62.23)
+		(start 21.59 62.23)
 		(end 260.35 139.065)
 		(stroke
 			(width 0)
@@ -2628,7 +2628,7 @@
 	)
 	(text "Keep the length of the input \nas short as possible!!!"
 		(exclude_from_sim no)
-		(at 34.29 88.646 0)
+		(at 30.988 80.772 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2955,7 +2955,7 @@
 	)
 	(wire
 		(pts
-			(xy 49.53 95.25) (xy 71.12 95.25)
+			(xy 52.07 95.25) (xy 71.12 95.25)
 		)
 		(stroke
 			(width 0)
@@ -3255,6 +3255,16 @@
 	)
 	(wire
 		(pts
+			(xy 44.45 110.49) (xy 71.12 110.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "57e12d63-1b94-47e4-bd39-f0de4d6af2be")
+	)
+	(wire
+		(pts
 			(xy 151.13 40.64) (xy 148.59 40.64)
 		)
 		(stroke
@@ -3265,7 +3275,7 @@
 	)
 	(wire
 		(pts
-			(xy 72.39 35.56) (xy 77.47 35.56)
+			(xy 31.75 95.25) (xy 36.83 95.25)
 		)
 		(stroke
 			(width 0)
@@ -3635,6 +3645,16 @@
 	)
 	(wire
 		(pts
+			(xy 44.45 110.49) (xy 44.45 102.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a7a55aed-1022-4111-9e1d-bea4a257b150")
+	)
+	(wire
+		(pts
 			(xy 234.95 102.87) (xy 242.57 102.87)
 		)
 		(stroke
@@ -3995,16 +4015,6 @@
 	)
 	(wire
 		(pts
-			(xy 49.53 110.49) (xy 71.12 110.49)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fa115191-cd83-4b35-ae22-2494bd09fd03")
-	)
-	(wire
-		(pts
 			(xy 154.94 38.1) (xy 151.13 38.1)
 		)
 		(stroke
@@ -4022,6 +4032,46 @@
 			(type default)
 		)
 		(uuid "fc3fefb4-54a9-4d47-9089-ac03c3c45967")
+	)
+	(label "Input-"
+		(at 55.88 110.49 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "151897bf-b0f4-4a73-998e-1f3ce5b0e439")
+	)
+	(label "Input+"
+		(at 55.88 95.25 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "44138ffe-21af-4907-b77c-a87a2e906ace")
+	)
+	(label "In-"
+		(at 85.09 110.49 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "be9cd1ec-b35e-4916-83c7-470555a9c83c")
+	)
+	(label "In+"
+		(at 85.09 95.25 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c22ec117-4b6e-48f7-b3f4-88b52ea96119")
 	)
 	(global_label "Out"
 		(shape output)
@@ -4067,7 +4117,7 @@
 			)
 		)
 	)
-	(global_label "Cold"
+	(global_label "Input-"
 		(shape output)
 		(at 87.63 48.26 0)
 		(fields_autoplaced yes)
@@ -4079,7 +4129,7 @@
 		)
 		(uuid "20bf39a5-b4e6-40f9-abed-8d15116eb081")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 94.8484 48.26 0)
+			(at 96.9651 48.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4177,29 +4227,7 @@
 			)
 		)
 	)
-	(global_label "Hot"
-		(shape input)
-		(at 49.53 95.25 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "5878b535-b794-4f73-be75-a4c2451554d0")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 43.3396 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "Hot"
+	(global_label "Input+"
 		(shape output)
 		(at 97.79 35.56 0)
 		(fields_autoplaced yes)
@@ -4211,7 +4239,7 @@
 		)
 		(uuid "5cf7777a-e88a-403c-ab61-d30a2be473e3")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 103.9804 35.56 0)
+			(at 107.1251 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4223,7 +4251,7 @@
 	)
 	(global_label "GND"
 		(shape bidirectional)
-		(at 72.39 35.56 180)
+		(at 31.75 95.25 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4233,7 +4261,7 @@
 		)
 		(uuid "5d974f01-7395-4b81-a2f8-db736ed2b07f")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 64.423 35.56 0)
+			(at 23.783 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4256,28 +4284,6 @@
 		(uuid "5e2c5ebb-7e88-495e-ad01-0b8aab393829")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 128.4296 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "Cold"
-		(shape input)
-		(at 49.53 110.49 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "7b62e4d2-75a7-4054-a871-19d86e058c69")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 42.3116 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5848,7 +5854,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Audio:XLR3")
-		(at 85.09 35.56 0)
+		(at 44.45 95.25 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5856,7 +5862,7 @@
 		(dnp no)
 		(uuid "a8d670fc-27bf-4a62-bb9c-6a578172e0c3")
 		(property "Reference" "J1"
-			(at 85.09 26.67 0)
+			(at 44.45 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5864,7 +5870,7 @@
 			)
 		)
 		(property "Value" "XLR3"
-			(at 85.09 29.21 0)
+			(at 44.45 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5872,7 +5878,7 @@
 			)
 		)
 		(property "Footprint" "Connector_Audio:Jack_XLR_Neutrik_NC3FAAV-0_Vertical"
-			(at 85.09 35.56 0)
+			(at 44.45 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5881,7 +5887,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 85.09 35.56 0)
+			(at 44.45 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5890,7 +5896,7 @@
 			)
 		)
 		(property "Description" "XLR Connector, Male or Female, 3 Pins"
-			(at 85.09 35.56 0)
+			(at 44.45 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5908,7 +5914,7 @@
 			(uuid "0918fe9d-57d9-4d18-972a-59e3b6292926")
 		)
 		(instances
-			(project ""
+			(project "PreAmp"
 				(path "/c83f892f-6017-40cb-88c0-c4e7a35464f0"
 					(reference "J1")
 					(unit 1)
