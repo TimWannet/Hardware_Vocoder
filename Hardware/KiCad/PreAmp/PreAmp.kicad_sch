@@ -2014,6 +2014,113 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Mechanical:MountingHole_Pad"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom no)
+			(on_board yes)
+			(property "Reference" "H"
+				(at 0 6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "MountingHole_Pad"
+				(at 0 4.445 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Mounting Hole with connection"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "mounting hole"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "MountingHole*Pad*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "MountingHole_Pad_0_1"
+				(circle
+					(center 0 1.27)
+					(radius 1.27)
+					(stroke
+						(width 1.27)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "MountingHole_Pad_1_1"
+				(pin input line
+					(at 0 -2.54 90)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "power:+6V"
 			(power)
 			(pin_numbers
@@ -2355,6 +2462,18 @@
 		(uuid 0c3a8ee0-3d25-4292-abd9-3425b7d93c1c)
 	)
 	(rectangle
+		(start 61.595 24.13)
+		(end 107.95 53.34)
+		(stroke
+			(width 0)
+			(type dash)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 2137d73a-52ca-4c6b-a32c-cc3d7409404b)
+	)
+	(rectangle
 		(start 66.04 84.455)
 		(end 83.185 115.57)
 		(stroke
@@ -2439,6 +2558,18 @@
 		(uuid b53f1a17-6a82-41f5-ba00-e9f262520da6)
 	)
 	(rectangle
+		(start 69.85 19.05)
+		(end 99.695 24.13)
+		(stroke
+			(width 0)
+			(type dash)
+		)
+		(fill
+			(type none)
+		)
+		(uuid b740534d-2746-45cb-80b6-c9ccedb9c37a)
+	)
+	(rectangle
 		(start 136.525 57.15)
 		(end 158.115 62.23)
 		(stroke
@@ -2520,6 +2651,16 @@
 			(justify left)
 		)
 		(uuid "18620bbc-333b-407d-85a4-94e17beacb47")
+	)
+	(text "Standoff holes"
+		(exclude_from_sim no)
+		(at 84.582 22.098 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+			)
+		)
+		(uuid "213c3b6e-bdb6-49bf-8a33-739cad06215a")
 	)
 	(text "Extra notes:\n- Consider a driven, low-impedance guard ring around the critical traces. A guard ring can significantly\nreduce leakage currents from nearby traces that are at different potentials.\n- Place the external components as close to the device as possible.\n- To reduce parasitic coupling, run the input traces as far away from the supply or output traces as\npossible. If these traces cannot be kept separate, crossing the sensitive trace perpendicular is much\nbetter as opposed to in parallel with the noisy trace.\n- Separate grounding for analog and digital portions of circuitry.\n- SM-58 should have an impedance of 150R, \nif oscilation occurs: add extra inductor with resistor at the imput stage."
 		(exclude_from_sim no)
@@ -2698,10 +2839,22 @@
 		(uuid "6c02af97-76de-4472-a484-c216c2da627e")
 	)
 	(junction
+		(at 77.47 43.18)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "70ce9502-87d0-494c-a310-f7a459a8373f")
+	)
+	(junction
 		(at 234.95 110.49)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "786d49ba-d63a-4220-b2ba-08ea2711260e")
+	)
+	(junction
+		(at 83.82 43.18)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7ccff02d-73f6-455a-916b-7dc366de46f1")
 	)
 	(junction
 		(at 139.7 110.49)
@@ -2762,6 +2915,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e06d3f57-14e2-4b42-96ff-08d5fb6799a6")
+	)
+	(junction
+		(at 90.17 43.18)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e863edcc-0f62-4d31-8490-7f8b265034e9")
 	)
 	(junction
 		(at 69.85 187.96)
@@ -2868,6 +3027,16 @@
 			(type default)
 		)
 		(uuid "1268b293-9614-4f1f-9dde-2489b00b39f6")
+	)
+	(wire
+		(pts
+			(xy 96.52 43.18) (xy 90.17 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1316db21-17be-4194-a615-dc145f914864")
 	)
 	(wire
 		(pts
@@ -3201,6 +3370,16 @@
 	)
 	(wire
 		(pts
+			(xy 90.17 43.18) (xy 83.82 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "59f51b48-053a-4738-be52-4b87f6a09969")
+	)
+	(wire
+		(pts
 			(xy 151.13 40.64) (xy 148.59 40.64)
 		)
 		(stroke
@@ -3461,6 +3640,16 @@
 	)
 	(wire
 		(pts
+			(xy 90.17 39.37) (xy 90.17 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8d8cb188-37d4-4e25-9fbf-e9183082af48")
+	)
+	(wire
+		(pts
 			(xy 69.85 156.21) (xy 90.17 156.21)
 		)
 		(stroke
@@ -3661,6 +3850,16 @@
 	)
 	(wire
 		(pts
+			(xy 77.47 43.18) (xy 72.39 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b5c4a838-d380-4f70-a27a-4c55fe258b70")
+	)
+	(wire
+		(pts
 			(xy 69.85 172.72) (xy 69.85 176.53)
 		)
 		(stroke
@@ -3738,6 +3937,16 @@
 			(type default)
 		)
 		(uuid "ccbed6b9-d03c-4225-aa11-2014edb452f4")
+	)
+	(wire
+		(pts
+			(xy 83.82 43.18) (xy 77.47 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cfd4bbf0-419e-4653-a0a2-276982b4cb62")
 	)
 	(wire
 		(pts
@@ -3911,6 +4120,16 @@
 	)
 	(wire
 		(pts
+			(xy 96.52 39.37) (xy 96.52 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fc179fb7-2c50-4e5b-ba70-30ad87cbe98b")
+	)
+	(wire
+		(pts
 			(xy 246.38 110.49) (xy 234.95 110.49)
 		)
 		(stroke
@@ -3918,6 +4137,26 @@
 			(type default)
 		)
 		(uuid "fc3fefb4-54a9-4d47-9089-ac03c3c45967")
+	)
+	(wire
+		(pts
+			(xy 77.47 39.37) (xy 77.47 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fe4ff20e-73c5-4998-bd35-59d3f5be0f23")
+	)
+	(wire
+		(pts
+			(xy 83.82 39.37) (xy 83.82 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fe5dafd2-3f07-4429-995d-b0f8fc429e24")
 	)
 	(wire
 		(pts
@@ -4156,6 +4395,28 @@
 		(uuid "5e2c5ebb-7e88-495e-ad01-0b8aab393829")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 128.4296 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "GND"
+		(shape bidirectional)
+		(at 72.39 43.18 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "85932934-0da9-401f-a85a-bfb373f4901e")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 64.423 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4756,6 +5017,73 @@
 		)
 	)
 	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 96.52 36.83 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "210c189e-ebb1-427e-a824-1b250d908f81")
+		(property "Reference" "H4"
+			(at 95.25 32.512 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole_Pad"
+			(at 99.06 36.8299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_DIN965_Pad_TopBottom"
+			(at 96.52 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 96.52 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 96.52 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4f74a344-6598-4d67-a239-dad4fcddbb29")
+		)
+		(instances
+			(project "PreAmp"
+				(path "/c83f892f-6017-40cb-88c0-c4e7a35464f0"
+					(reference "H4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 171.45 125.73 0)
 		(unit 1)
@@ -5087,6 +5415,73 @@
 			(project "PreAmp"
 				(path "/c83f892f-6017-40cb-88c0-c4e7a35464f0"
 					(reference "TP3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 90.17 36.83 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "6335e25e-b654-4f23-9465-553dc781c407")
+		(property "Reference" "H3"
+			(at 88.9 32.512 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole_Pad"
+			(at 92.71 36.8299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_DIN965_Pad_TopBottom"
+			(at 90.17 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 90.17 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 90.17 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a7cfa886-9bd4-4f16-a3ab-2bce7ffe0780")
+		)
+		(instances
+			(project "PreAmp"
+				(path "/c83f892f-6017-40cb-88c0-c4e7a35464f0"
+					(reference "H3")
 					(unit 1)
 				)
 			)
@@ -5508,6 +5903,73 @@
 			(project ""
 				(path "/c83f892f-6017-40cb-88c0-c4e7a35464f0"
 					(reference "U2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 77.47 36.83 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "9332bc85-791e-491b-8282-c45dfe614f8f")
+		(property "Reference" "H1"
+			(at 76.2 32.512 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole_Pad"
+			(at 80.01 36.8299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_DIN965_Pad_TopBottom"
+			(at 77.47 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 77.47 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 77.47 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2aaa6d4f-3c12-4d4a-b5d7-b2147b905c95")
+		)
+		(instances
+			(project ""
+				(path "/c83f892f-6017-40cb-88c0-c4e7a35464f0"
+					(reference "H1")
 					(unit 1)
 				)
 			)
@@ -6315,6 +6777,73 @@
 			(project ""
 				(path "/c83f892f-6017-40cb-88c0-c4e7a35464f0"
 					(reference "JP1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 83.82 36.83 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "ef4e43be-787a-42a1-8e6f-c014818a1b58")
+		(property "Reference" "H2"
+			(at 82.55 32.512 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole_Pad"
+			(at 86.36 36.8299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_DIN965_Pad_TopBottom"
+			(at 83.82 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 83.82 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 83.82 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4e5671f9-e3ac-4650-b458-1a235ba92e55")
+		)
+		(instances
+			(project "PreAmp"
+				(path "/c83f892f-6017-40cb-88c0-c4e7a35464f0"
+					(reference "H2")
 					(unit 1)
 				)
 			)

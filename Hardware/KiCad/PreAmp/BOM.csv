@@ -1,0 +1,14 @@
+"Id";"Designator";"Footprint";"Quantity";"Designation";"Supplier and ref";
+1;"R4,R3";"C_0805_2012Metric";2;"2.2K";;;
+2;"TP1,TP2,TP3";"TestPoint_Pad_D2.0mm";3;"TestPoint";;;
+3;"RV1";"Potentiometer_Alpha_RD901F-40-00D_Single_Vertical";1;"R_Potentiometer";;;
+4;"R5";"C_0805_2012Metric";1;"27R";;;
+5;"J1";"Jack_XLR_Neutrik_NC3FAAV-0_Vertical";1;"XLR3";;;
+6;"C4,C3";"C_0805_2012Metric";2;"0.1uF";;;
+7;"R2";"C_0805_2012Metric";1;"12K";;;
+8;"D4,D2,D1,D3";"D_DO-35_SOD27_P7.62mm_Horizontal";4;"1N4148W";;;
+9;"U1";"SOT-23-5";1;"TLV2371DBV";;;
+10;"R1";"C_0805_2012Metric";1;"33K";;;
+11;"U2";"DW16";1;"INA217AIDWR";;;
+12;"C2,C1";"C_0805_2012Metric";2;"47uF";;;
+13;"J2";"PinHeader_1x05_P2.54mm_Vertical";1;"Conn_01x05_Pin";;;
