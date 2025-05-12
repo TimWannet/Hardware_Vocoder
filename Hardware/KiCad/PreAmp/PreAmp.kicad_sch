@@ -4722,6 +4722,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC PN" "C17633"
+			(at 69.85 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "b7578e21-748c-4f66-b8ea-420cb3adf03f")
 		)
@@ -4743,9 +4752,9 @@
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "0482f5f7-d032-4ca5-943c-7f091b36cb9a")
 		(property "Reference" "RV1"
 			(at 208.28 74.676 90)
@@ -4789,6 +4798,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "LCSC PN" ""
+			(at 208.28 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -4863,6 +4880,14 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC PN" ""
+			(at 147.32 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "4bd7fa0a-7939-49f4-8ccc-87820b78c231")
 		)
@@ -4932,6 +4957,14 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC PN" ""
+			(at 147.32 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "172d441b-8e52-427b-a345-a9833b6d7f48")
 		)
@@ -4993,6 +5026,15 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 129.54 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC PN" "C17594"
 			(at 129.54 121.92 0)
 			(effects
 				(font
@@ -5071,6 +5113,14 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC PN" ""
+			(at 96.52 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "4f74a344-6598-4d67-a239-dad4fcddbb29")
 		)
@@ -5110,7 +5160,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_Tantalum_SMD:CP_EIA-3216-18_Kemet-A"
 			(at 172.4152 129.54 0)
 			(effects
 				(font
@@ -5128,7 +5178,16 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Ceramic bypass capacitor"
+		(property "Description" "Ceramic bypass capacitor, https://jlcpcb.com/partdetail/-08055C104KAZ2A/C6641151"
+			(at 171.45 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC PN" "C7173"
 			(at 171.45 125.73 0)
 			(effects
 				(font
@@ -5206,6 +5265,14 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC PN" ""
+			(at 110.49 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "48f3ccf6-f14e-4d42-954e-cd9f81a92226")
 		)
@@ -5272,6 +5339,14 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC PN" ""
+			(at 147.32 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "b2251b39-076c-43a3-bea6-488da2d5d07a")
 		)
@@ -5279,75 +5354,6 @@
 			(project "PreAmp"
 				(path "/c83f892f-6017-40cb-88c0-c4e7a35464f0"
 					(reference "TP2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 242.57 125.73 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "32c6c19e-8788-42eb-a635-7fd9f798a5fd")
-		(property "Reference" "C4"
-			(at 245.872 124.4599 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "0.1uF"
-			(at 245.872 126.9999 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 243.5352 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 242.57 125.73 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Ceramic bypass capacitor"
-			(at 242.57 125.73 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "7aa24946-eb39-4375-91ce-5550e2bfcc08")
-		)
-		(pin "1"
-			(uuid "69f73087-12c3-4b51-89a2-7e7f2d46225a")
-		)
-		(instances
-			(project "PreAmp"
-				(path "/c83f892f-6017-40cb-88c0-c4e7a35464f0"
-					(reference "C4")
 					(unit 1)
 				)
 			)
@@ -5406,6 +5412,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "LCSC PN" ""
+			(at 140.97 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -5475,6 +5489,14 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC PN" ""
+			(at 90.17 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "a7cfa886-9bd4-4f16-a3ab-2bce7ffe0780")
 		)
@@ -5492,9 +5514,9 @@
 		(at 90.17 87.63 270)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "714a7a8e-1299-43a7-a338-058ca58c4e3f")
 		(property "Reference" "D1"
 			(at 92.202 86.3599 90)
@@ -5557,6 +5579,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "LCSC PN" ""
+			(at 90.17 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -5626,6 +5656,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC PN" "C17594"
+			(at 220.98 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "4330bb0a-370c-4d26-83d6-bee7aa41c202")
 		)
@@ -5646,9 +5685,9 @@
 		(at 90.17 102.87 270)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "7da1d82c-f182-40fd-a86a-4046ddc06953")
 		(property "Reference" "D2"
 			(at 92.202 101.5999 90)
@@ -5711,6 +5750,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "LCSC PN" ""
+			(at 90.17 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -5782,6 +5829,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC PN" "C2907225"
+			(at 69.85 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "8332effd-7db9-477a-b679-f47f3c580dc2")
 		)
@@ -5842,13 +5898,21 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "https://jlcpcb.com/partdetail/TexasInstruments-INA217AIDWR/C1849416"
 			(at 173.99 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "LCSC PN" "C1849416"
+			(at 173.99 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "13"
@@ -5963,6 +6027,14 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC PN" ""
+			(at 77.47 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "2aaa6d4f-3c12-4d4a-b5d7-b2147b905c95")
 		)
@@ -5970,6 +6042,84 @@
 			(project ""
 				(path "/c83f892f-6017-40cb-88c0-c4e7a35464f0"
 					(reference "H1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 242.57 125.73 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "98298d5e-263d-45e2-97f8-430b5622e923")
+		(property "Reference" "C4"
+			(at 245.364 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "0.1uF"
+			(at 245.364 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_Tantalum_SMD:CP_EIA-3216-18_Kemet-A"
+			(at 243.5352 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 242.57 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Ceramic bypass capacitor, https://jlcpcb.com/partdetail/-08055C104KAZ2A/C6641151"
+			(at 242.57 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC PN" "C7173"
+			(at 242.57 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "7d8cbd25-024c-42a4-8108-a0e5e3eddd64")
+		)
+		(pin "1"
+			(uuid "308dc119-329c-406e-bee4-9c9d9606f260")
+		)
+		(instances
+			(project "PreAmp"
+				(path "/c83f892f-6017-40cb-88c0-c4e7a35464f0"
+					(reference "C4")
 					(unit 1)
 				)
 			)
@@ -6027,6 +6177,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "LCSC PN" ""
+			(at 147.32 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -6088,13 +6246,21 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Rail-to-Rail Input/Output Operational Amplifier, SOT-23-5"
+		(property "Description" "Rail-to-Rail Input/Output Operational Amplifier, SOT-23-5, https://jlcpcb.com/partdetail/TexasInstruments-TLV2371IDBVR/C55940"
 			(at 92.71 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "LCSC PN" "C55940"
+			(at 92.71 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "3"
@@ -6126,9 +6292,9 @@
 		(at 44.45 95.25 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "a8d670fc-27bf-4a62-bb9c-6a578172e0c3")
 		(property "Reference" "J1"
 			(at 44.45 86.36 0)
@@ -6173,6 +6339,14 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC PN" ""
+			(at 44.45 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "3"
 			(uuid "7e72428d-98cd-4c61-b7bc-81bf8bedcb23")
 		)
@@ -6196,9 +6370,9 @@
 		(at 106.68 118.11 270)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "b1504d3c-82bd-4ab7-8cd0-d373b499fe07")
 		(property "Reference" "D4"
 			(at 108.712 116.8399 90)
@@ -6261,6 +6435,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "LCSC PN" ""
+			(at 106.68 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -6437,7 +6619,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 			(at 78.74 109.5248 0)
 			(effects
 				(font
@@ -6456,6 +6638,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 74.93 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC PN" "C76659"
 			(at 74.93 110.49 0)
 			(effects
 				(font
@@ -6533,6 +6724,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC PN" "C17594"
+			(at 120.65 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "330a9279-f0c7-4dce-b6cf-0e4ca81851b0")
 		)
@@ -6553,9 +6753,9 @@
 		(at 156.21 38.1 180)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "d6316832-16fa-4622-be68-8e9621eca4be")
 		(property "Reference" "J2"
 			(at 157.226 38.354 0)
@@ -6602,6 +6802,14 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC PN" ""
+			(at 156.21 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "b44ae1b8-eef0-402d-892a-1fa338131276")
 		)
@@ -6631,9 +6839,9 @@
 		(at 106.68 102.87 270)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "dba7e0d9-7248-4510-abcd-44d53d23f58b")
 		(property "Reference" "D3"
 			(at 108.712 101.5999 90)
@@ -6696,6 +6904,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "LCSC PN" ""
+			(at 106.68 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -6767,6 +6983,14 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC PN" ""
+			(at 193.04 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "b4f3e8ae-7ff1-4d6c-bc4a-c9e4d6044e45")
 		)
@@ -6835,6 +7059,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "LCSC PN" ""
+			(at 83.82 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -6970,6 +7202,14 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC PN" ""
+			(at 147.32 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "09f2e9f9-0e98-4255-a714-b360946609f5")
 		)
@@ -7010,7 +7250,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 			(at 78.74 94.2848 0)
 			(effects
 				(font
@@ -7029,6 +7269,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 74.93 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC PN" "C76659"
 			(at 74.93 95.25 0)
 			(effects
 				(font
