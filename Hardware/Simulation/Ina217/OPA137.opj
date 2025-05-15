@@ -1,0 +1,93 @@
+(ExpressProject "OPA137"
+  (ProjectVersion "19981106")
+  (ProjectType "Analog or A/D Mixed Mode")
+  (Folder "Design Resources"
+    (Folder "Library"
+      (File "opa137.olb"
+        (Type "Schematic Library")))
+    (NoModify)
+    (File "opa137.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (PSPICE_Regenerate_Netlist_Flag "FALSE"))
+  (Folder "Outputs")
+  (Folder "PSpice Resources"
+    (Folder "Simulation Profiles"
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\opa137-pspicefiles\schematic1\dc.sim"
+        (DisplayName "SCHEMATIC1-dc")
+        (Type "PSpice Profile"))
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\opa137-pspicefiles\schematic1\ac.sim"
+        (DisplayName "SCHEMATIC1-ac")
+        (Type "PSpice Profile"))
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\opa137-pspicefiles\schematic1\tran.sim"
+        (DisplayName "SCHEMATIC1-tran")
+        (Type "PSpice Profile"))
+      (ActiveProfile ".\opa137-pspicefiles\schematic1\dc.sim"))
+    (Folder "Stimulus Files"
+      (Sort User))
+    (Folder "Include Files"
+      (Sort User))
+    (Folder "Model Libraries"
+      (Sort User)
+      (File ".\opa137.lib"
+        (Type "PSpiceLibrary")
+        (DisplayName ".\opa137.lib"))))
+  (DefaultLibraryBrowseDirectory "library\PSpice")
+  (PartMRUSelector
+    (OPA137
+      (FullPartName "OPA137.Normal")
+      (LibraryName
+         "C:\ELABTRANS_WS\ELABTRANS_DS\PART_NUMBERS\OPA137\RELEASE_SANKALP\PSPICE\OPA137_PSPICE_AIO\OPA137.OLB")
+      (DeviceIndex "0"))
+    (VSRC
+      (FullPartName "VSRC.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_16.0\TOOLS\CAPTURE\LIBRARY\PSPICE\SOURCE.OLB")
+      (DeviceIndex "0"))
+    (LastUsedLibraryBrowseDirectory "C:\Cadence\SPB_16.0\tools\capture\library")
+    (MPSSessionName "x0140172")
+    (GlobalState
+      (FileView
+        (Path "Design Resources")
+        (Path "Design Resources"
+           "C:\ELABTRANS_WS\ELABTRANS_DS\PART_NUMBERS\OPA137\RELEASE_SANKALP\PSPICE\OPA137_PSPICE_AIO\opa137.dsn")
+        (Path "Design Resources"
+           "C:\ELABTRANS_WS\ELABTRANS_DS\PART_NUMBERS\OPA137\RELEASE_SANKALP\PSPICE\OPA137_PSPICE_AIO\opa137.dsn"
+           "SCHEMATIC1")
+        (Path "Design Resources"
+           "C:\ELABTRANS_WS\ELABTRANS_DS\PART_NUMBERS\OPA137\RELEASE_SANKALP\PSPICE\OPA137_PSPICE_AIO\opa137.dsn"
+           "Design Cache")
+        (Path "Design Resources" "Library")
+        (Path "Design Resources" "Library"
+           "C:\ELABTRANS_WS\ELABTRANS_DS\PART_NUMBERS\OPA137\RELEASE_SANKALP\PSPICE\OPA137_PSPICE_AIO\opa137.olb")
+        (Select "Design Resources"
+           "C:\ELABTRANS_WS\ELABTRANS_DS\PART_NUMBERS\OPA137\RELEASE_SANKALP\PSPICE\OPA137_PSPICE_AIO\opa137.dsn"
+           "SCHEMATIC1" "PAGE1"))
+      (HierarchyView)
+      (Doc
+        (Type "COrCapturePMDoc")
+        (Frame
+          (Placement "44 2 3 -1 -1 -4 -23 0 200 0 566"))
+        (Tab 0))))
+  (MPSSessionName "x0140172")
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources"
+         "C:\ELABTRANS_WS\ELABTRANS_DS\Part_Numbers\OPA137\Release_Sankalp\PSPICE\OPA137_PSPICE_AIO\opa137.dsn")
+      (Path "Design Resources"
+         "C:\ELABTRANS_WS\ELABTRANS_DS\Part_Numbers\OPA137\Release_Sankalp\PSPICE\OPA137_PSPICE_AIO\opa137.dsn"
+         "SCHEMATIC1")
+      (Select "Design Resources"
+         "C:\ELABTRANS_WS\ELABTRANS_DS\Part_Numbers\OPA137\Release_Sankalp\PSPICE\OPA137_PSPICE_AIO\opa137.dsn"
+         "SCHEMATIC1" "PAGE1"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -4 -23 0 200 0 572"))
+      (Tab 0))))

@@ -1,0 +1,222 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "e827c80a-ca8d-4d24-8db6-878b575a1aed")
+	(paper "A4")
+	(title_block
+		(title "Vocoder PCB")
+		(date "2025-04-03")
+		(rev "0.1")
+		(company "Sounds Like Tim")
+		(comment 1 "Tim Wannet")
+	)
+	(lib_symbols)
+	(sheet
+		(at 127 76.2)
+		(size 38.1 38.1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "80744173-9491-4551-a74b-98f5922bdb3a")
+		(property "Sheetname" "Microcontroller"
+			(at 127 75.4884 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "MCU.kicad_sch"
+			(at 127 114.8846 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "Main_Board"
+				(path "/e827c80a-ca8d-4d24-8db6-878b575a1aed"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 24.765 76.2)
+		(size 42.545 38.1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "ae68f18c-05a9-496e-90b3-166bfef37cf7")
+		(property "Sheetname" "Inputs and outputs"
+			(at 24.765 75.4884 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "I_O.kicad_sch"
+			(at 24.765 114.8846 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "Midi_RX" output
+			(at 67.31 80.645 0)
+			(uuid "7c67cf83-0611-4688-ae4b-b926bb87b9a3")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "Modulator_Cold" output
+			(at 67.31 110.49 0)
+			(uuid "da72e2d4-721c-4d28-b6a7-5eb7773a915c")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "Modulator_Hot" output
+			(at 67.31 101.6 0)
+			(uuid "1b2c5736-38f8-468d-917c-43aa9d26528e")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(instances
+			(project "Main_Board"
+				(path "/e827c80a-ca8d-4d24-8db6-878b575a1aed"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 25.4 165.1)
+		(size 25.4 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "ea9bf73e-a18e-4434-8c74-6fad8c6cf4b3")
+		(property "Sheetname" "Power Supply"
+			(at 25.4 164.3884 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "PSU.kicad_sch"
+			(at 25.4 191.0846 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "Main_Board"
+				(path "/e827c80a-ca8d-4d24-8db6-878b575a1aed"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 50.165 40.64)
+		(size 16.51 17.78)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "f759df24-a40e-4928-b060-ce3f4ace9ae8")
+		(property "Sheetname" "Mic PreAmp"
+			(at 50.165 39.9284 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "PreAmp.kicad_sch"
+			(at 50.165 59.0046 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "Main_Board"
+				(path "/e827c80a-ca8d-4d24-8db6-878b575a1aed"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

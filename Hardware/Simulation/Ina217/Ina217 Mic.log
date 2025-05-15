@@ -1,0 +1,73 @@
+LTspice 24.1.6 for Windows
+Circuit: X:\Documents\GitHub\Hardware_Vocoder\Hardware\Simulation\Ina217\Ina217 Mic.net
+Start Time: Wed May  7 13:03:40 2025
+solver = Normal
+Maximum thread count: 20
+tnom = 27
+temp = 27
+method = trap
+C1: Increased Cpar to 4.7e-11
+C2: Increased Cpar to 4.7e-11
+Instance "u2:M2": Length shorter than recommended for a level 1 MOSFET.
+Instance "u2:M3": Length shorter than recommended for a level 1 MOSFET.
+Instance "u2:M1": Length shorter than recommended for a level 1 MOSFET.
+Instance "u2:M8": Length shorter than recommended for a level 1 MOSFET.
+Instance "u2:M4": Length shorter than recommended for a level 1 MOSFET.
+Instance "u2:M5": Length shorter than recommended for a level 1 MOSFET.
+Instance "u2:M19": Length shorter than recommended for a level 1 MOSFET.
+Instance "u2:M23": Length shorter than recommended for a level 1 MOSFET.
+Instance "u2:M53": Length shorter than recommended for a level 1 MOSFET.
+Instance "u2:M51": Length shorter than recommended for a level 1 MOSFET.
+Instance "u2:M52": Length shorter than recommended for a level 1 MOSFET.
+Instance "u2:M54": Length shorter than recommended for a level 1 MOSFET.
+Instance "u2:M55": Length shorter than recommended for a level 1 MOSFET.
+Instance "u2:M48": Length shorter than recommended for a level 1 MOSFET.
+Instance "u2:M43": Length shorter than recommended for a level 1 MOSFET.
+Instance "u2:M44": Length shorter than recommended for a level 1 MOSFET.
+Instance "u2:M49": Length shorter than recommended for a level 1 MOSFET.
+Instance "u2:M50": Length shorter than recommended for a level 1 MOSFET.
+Instance "u2:M45": Length shorter than recommended for a level 1 MOSFET.
+Instance "u2:M46": Length shorter than recommended for a level 1 MOSFET.
+Instance "u2:M41": Length shorter than recommended for a level 1 MOSFET.
+Instance "u2:M42": Length shorter than recommended for a level 1 MOSFET.
+Early termination of direct N-R iteration.
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+vernier = 0.5
+Gmin = 1.67772
+vernier = 0.25
+vernier = 0.125
+vernier = 0.0625
+Gmin = 1.34011
+vernier = 0.03125
+vernier = 0.0416667
+vernier = 0.0208333
+Gmin = 1.29558
+vernier = 0.0104167
+vernier = 0.00520833
+Gmin = 1.27552
+vernier = 0.00260417
+vernier = 0.00130208
+vernier = 0.000651042
+Gmin = 1.272
+vernier = 0.000868055
+vernier = 0.000434028
+Gmin = 0
+Gmin stepping failed
+
+Starting source stepping with srcstepmethod=0
+Source Step = 3.0303%
+Source Step = 33.3333%
+Source Step = 63.6364%
+Source Step = 93.9394%
+Source stepping succeeded in finding the operating point.
+
+Total elapsed time: 0.493 seconds.
+
+Files loaded:
+X:\Documents\GitHub\Hardware_Vocoder\Hardware\Simulation\Ina217\Ina217 Mic.net
+C:\users\steamuser\AppData\Local\LTspice\lib\cmp\standard.dio
+X:\Documents\GitHub\Hardware_Vocoder\Hardware\Simulation\Ina217\INA217.txt
+X:\Documents\GitHub\Hardware_Vocoder\Hardware\Simulation\Ina217\tlv2371.lib
+

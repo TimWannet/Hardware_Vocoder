@@ -1,0 +1,16 @@
+LTspice 24.1.6 for Windows
+Circuit: X:\Documents\GitHub\Hardware_Vocoder\Hardware\Simulation\PreAmpV2.net
+Start Time: Fri Apr 18 13:04:14 2025
+solver = Normal
+Maximum thread count: 20
+tnom = 27
+temp = 27
+method = trap
+Direct Newton iteration for .op point succeeded.
+Total elapsed time: 0.435 seconds.
+
+Files loaded:
+X:\Documents\GitHub\Hardware_Vocoder\Hardware\Simulation\PreAmpV2.net
+C:\users\steamuser\AppData\Local\LTspice\lib\cmp\standard.dio
+X:\Documents\GitHub\Hardware_Vocoder\Hardware\Simulation\opa1656.lib
+
