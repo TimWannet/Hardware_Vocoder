@@ -6,7 +6,7 @@
  * It includes classes for processing audio data from the carrier input, modulator input, and playback output.
  * 
  * @author Tim Wannet
- * @date 26-03-2025
+ * @date 20-05-2025
  * @version 0.01
  */
 

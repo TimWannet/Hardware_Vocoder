@@ -29,6 +29,8 @@
 #include <DSP/fft_utils.h>
 #include <DSP/audio_stream_classes.h>
 
+#include <UI/screen_base.h>
+
 // defines/constants
 const int FFT_SIZE = 2048; // Buffer size (Change this value as needed: 128, 256, 512, 1024, etc.)
 
