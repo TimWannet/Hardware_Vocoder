@@ -12,7 +12,8 @@
 
 #include "screen_main_menu.h"
 
-void ScreenMainMenu::draw(Adafruit_ST7735& tft) {
+void ScreenMainMenu::draw(Adafruit_ST7735& tft) 
+{
     tft.fillScreen(ST77XX_BLACK);
     tft.setTextColor(ST77XX_WHITE);
     tft.setTextSize(1);
@@ -22,7 +23,8 @@ void ScreenMainMenu::draw(Adafruit_ST7735& tft) {
     tft.println("2. Settings");
 }
 
-void ScreenMainMenu::handleInput(int input) {
+void ScreenMainMenu::handleInput(int input) 
+{
     //empty
     // Handle input events here
 }
