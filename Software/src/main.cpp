@@ -29,10 +29,18 @@
 #include <DSP/fft_utils.h>
 #include <DSP/audio_stream_classes.h>
 
-#include <UI/screen_base.h>
+// #include <SPI.h>
+// #include <UI/screen_base.h>
+#include <UI/screen_manager.h>
+#include <UI/screen_main_menu.h>
 
 // defines/constants
+#define TFT_RST   28
+#define TFT_DC    29
+#define TFT_CS    30
+
 const int FFT_SIZE = 2048; // Buffer size (Change this value as needed: 128, 256, 512, 1024, etc.)
+const arm_cfft_instance_f32* fftConfig;
 
 // Audio Library objects
 AudioInputI2S         i2sInput;  // I2S input from Audio Shield
@@ -59,7 +67,10 @@ volatile bool carrierBufferFull = false;
 volatile bool modulatorBufferFull = false;
 volatile bool playbackReady = false;
 
-const arm_cfft_instance_f32* fftConfig;
+// Adafruit_ST7735 tft(TFT_CS, TFT_DC, TFT_RST);
+Adafruit_ST7735 tft = Adafruit_ST7735(&SPI1, TFT_CS, TFT_DC, TFT_RST);
+ScreenManager* screenManager;
+ScreenMainMenu mainMenu;
 
 // Audio Library objects/patch connections
 CarrierBufferProcessor  carrierProcessor;
@@ -91,8 +102,15 @@ void setup()
         return;
     }
     
-
     Serial.println("Setup complete");
+
+    // Initialize the TFT display
+    tft.initR(INITR_BLACKTAB);
+    tft.setRotation(1);
+    tft.fillScreen(ST77XX_BLACK);
+
+    screenManager = new ScreenManager(tft);
+    screenManager->setScreen(&mainMenu);
 }
 
 /*
