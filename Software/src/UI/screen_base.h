@@ -12,6 +12,9 @@
  * @version 0.01
 */
 
+#ifndef SCREEN_BASE_H
+#define SCREEN_BASE_H
+
 #include <Adafruit_GFX.h>
 #include <Adafruit_ST7735.h>
 
@@ -23,3 +26,5 @@ class ScreenBase
         virtual void handleInput(int input) {};
         virtual ~ScreenBase() {}
 };
+
+#endif // SCREEN_BASE_H
