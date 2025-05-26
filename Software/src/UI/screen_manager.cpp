@@ -20,14 +20,16 @@ void ScreenManager::setScreen(ScreenBase* screen)
     if (currentScreen) 
     {
         currentScreen->draw(tft);
+        redraw = true;
     }
 }
 
 void ScreenManager::draw() 
 {
-    if (currentScreen) 
+    if (currentScreen && currentScreen->getRedrawRequest()) 
     {
         currentScreen->draw(tft);
+        currentScreen->clearRedrawRequest();
     }
 }
 
@@ -39,10 +41,15 @@ void ScreenManager::update()
     }
 }
 
-void ScreenManager::handleInput(int input) 
+void ScreenManager::handleInput(InputEvent input)
 {
     if (currentScreen)
     {
         currentScreen->handleInput(input);
     }
+}
+
+bool ScreenManager::needsRedraw() 
+{
+    return redraw;
 }

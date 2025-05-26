@@ -12,7 +12,11 @@
  * @version 0.01
  */
 
+#ifndef SCREEN_MANAGER_H
+#define SCREEN_MANAGER_H
+
 #include "screen_base.h"
+#include "UI/input_manager.h"
 
 class ScreenManager 
 {
@@ -21,9 +25,13 @@ class ScreenManager
         void setScreen(ScreenBase* screen);
         void draw();
         void update();
-        void handleInput(int input);
+        void handleInput(InputEvent input);
+        bool needsRedraw();
 
     private:
         Adafruit_ST7735& tft;
         ScreenBase* currentScreen;
+        bool redraw = true; 
 };
+
+#endif // SCREEN_MANAGER_H
