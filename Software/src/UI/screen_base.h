@@ -15,16 +15,24 @@
 #ifndef SCREEN_BASE_H
 #define SCREEN_BASE_H
 
-#include <Adafruit_GFX.h>
-#include <Adafruit_ST7735.h>
+#include "Adafruit_GFX.h"
+#include "Adafruit_ST7735.h"
+#include "UI/input_manager.h"
 
 class ScreenBase 
 {
     public:
         virtual void draw(Adafruit_ST7735& tft) = 0;
         virtual void update(Adafruit_ST7735& tft) {};
-        virtual void handleInput(int input) {};
+        virtual void handleInput(InputEvent input) {};
         virtual ~ScreenBase() {}
+
+        bool getRedrawRequest() const { return redrawRequested; }
+        void clearRedrawRequest() { redrawRequested = false; }
+        void requestRedraw() { redrawRequested = true; }
+
+    protected:
+        bool redrawRequested = true;
 };
 
 #endif // SCREEN_BASE_H
