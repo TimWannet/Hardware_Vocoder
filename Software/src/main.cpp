@@ -25,21 +25,23 @@
  * @version 0.02
  */
 
-#include <DSP/utils.h>
-#include <DSP/fft_utils.h>
-#include <DSP/audio_stream_classes.h>
+#include "DSP/utils.h"
+#include "DSP/fft_utils.h"
+#include "DSP/audio_stream_classes.h"
 
-// #include <SPI.h>
-// #include <UI/screen_base.h>
-#include <UI/screen_manager.h>
-#include <UI/screen_main_menu.h>
+#include "UI/input_manager.h"
+#include "UI/screen_manager.h"
+#include "UI/screen_main_menu.h"
 
 // defines/constants
 #define TFT_RST   28
 #define TFT_DC    29
 #define TFT_CS    30
+#define ENCODER_BUTTON 33
+#define ENCODER_PIN_A 34
+#define ENCODER_PIN_B 35
 
-const int FFT_SIZE = 2048; // Buffer size (Change this value as needed: 128, 256, 512, 1024, etc.)
+const int FFT_SIZE = 1024; // Buffer size (Change this value as needed: 128, 256, 512, 1024, 2048, etc.)
 const arm_cfft_instance_f32* fftConfig;
 
 // Audio Library objects
@@ -71,6 +73,7 @@ volatile bool playbackReady = false;
 Adafruit_ST7735 tft = Adafruit_ST7735(&SPI1, TFT_CS, TFT_DC, TFT_RST);
 ScreenManager* screenManager;
 ScreenMainMenu mainMenu;
+InputManager inputManager(ENCODER_PIN_A, ENCODER_PIN_B, ENCODER_BUTTON);
 
 // Audio Library objects/patch connections
 CarrierBufferProcessor  carrierProcessor;
@@ -102,15 +105,25 @@ void setup()
         return;
     }
     
-    Serial.println("Setup complete");
+    
+
+    inputManager.begin();
+
+    // Connect input events to screen manager
+    inputManager.onInput([](InputEvent event) {
+        screenManager->handleInput(event);
+    });
 
     // Initialize the TFT display
     tft.initR(INITR_BLACKTAB);
+    tft.setSPISpeed(24000000); // 24MHz
     tft.setRotation(1);
     tft.fillScreen(ST77XX_BLACK);
 
     screenManager = new ScreenManager(tft);
     screenManager->setScreen(&mainMenu);
+
+    Serial.println("Setup complete");
 }
 
 /*
@@ -121,6 +134,11 @@ void setup()
 */
 void loop() 
 {
+    inputManager.update();  // Reads encoder, may set needsRedraw flag
+    screenManager->update(); // Optional if doing per-screen updates
+
+    screenManager->draw();  // Only draw when something changed
+
     if (carrierBufferFull == true && modulatorBufferFull == true)
     {
         for (int i = 0; i < FFT_SIZE; i++) 
