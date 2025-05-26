@@ -13,10 +13,22 @@
 */
 
 #include "screen_base.h"
+#include "UI/input_manager.h"
+#include "UI/screen_manager.h"
 
 class ScreenMainMenu : public ScreenBase 
 {
     public:
         void draw(Adafruit_ST7735& tft) override;
-        void handleInput(int input) override;
+        void handleInput(InputEvent input) override;
+        
+
+    private:
+        ScreenManager* screenManager;
+        int selectedIndex = 0;
+        int lastSelectedIndex = -1;
+        int buttonState = 0;
+        bool needsRedraw = true;
+        static constexpr const char* menuItems[2] = {"1. Start", "2. Settings"};
+        static constexpr int itemCount = sizeof(menuItems) / sizeof(menuItems[0]);
 };
