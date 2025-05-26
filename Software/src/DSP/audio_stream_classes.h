@@ -10,10 +10,13 @@
  * @version 0.01
  */
 
+#ifndef AUDIO_STREAM_CLASSES_H
+#define AUDIO_STREAM_CLASSES_H
+
 // Headers
-#include <Audio.h>
-#include <Wire.h>
-#include <SPI.h>
+#include "Audio.h"
+#include "Wire.h"
+#include "SPI.h"
 
 // External variables
 extern const int FFT_SIZE;
@@ -79,3 +82,5 @@ public:
     //override base::update()
     void update() override;
 };
+
+#endif // AUDIO_STREAM_CLASSES_H
