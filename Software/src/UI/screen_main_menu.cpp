@@ -14,17 +14,62 @@
 
 void ScreenMainMenu::draw(Adafruit_ST7735& tft) 
 {
+    if (selectedIndex == lastSelectedIndex)
+        return;
+
     tft.fillScreen(ST77XX_BLACK);
-    tft.setTextColor(ST77XX_WHITE);
     tft.setTextSize(1);
-    tft.setCursor(0, 0);
-    tft.println("Main Menu");
-    tft.println("1. Start");
-    tft.println("2. Settings");
+
+    // Clamp selectedIndex
+    if (selectedIndex < 0) selectedIndex = 0;
+    if (selectedIndex >= itemCount) selectedIndex = itemCount - 1;
+
+    for (int i = 0; i < itemCount; i++) {
+        if (i == selectedIndex) {
+            tft.setTextColor(ST77XX_BLACK, ST77XX_WHITE);
+        } else {
+            tft.setTextColor(ST77XX_WHITE, ST77XX_BLACK);
+        }
+        tft.setCursor(0, i * 10 + 10);
+        tft.println(menuItems[i]);
+    }
+
+    lastSelectedIndex = selectedIndex;
 }
 
-void ScreenMainMenu::handleInput(int input) 
+void ScreenMainMenu::handleInput(InputEvent input) 
 {
-    //empty
-    // Handle input events here
+    bool stateChanged = false;
+
+    switch (input) 
+    {
+        case InputEvent::Left:
+            if (selectedIndex >= 0) 
+            {
+                selectedIndex--;
+                stateChanged = true;
+            }
+            if (selectedIndex < 0)
+                selectedIndex = itemCount;
+            break;
+
+        case InputEvent::Right:
+            if (selectedIndex < itemCount)
+            {
+                selectedIndex++;
+                stateChanged = true;
+            }
+            if (selectedIndex >= itemCount)
+                selectedIndex = 0;
+            break;
+
+        case InputEvent::Select:
+            buttonState = 1;
+            stateChanged = true;
+            break;
+    }
+
+    if (stateChanged) {
+        requestRedraw();  // <- This tells the screenManager to redraw this screen
+    }
 }
