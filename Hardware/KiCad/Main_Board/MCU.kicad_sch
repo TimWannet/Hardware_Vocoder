@@ -10,6 +10,113 @@
 		(company "Sounds Like Tim")
 	)
 	(lib_symbols
+		(symbol "Connector:TestPoint"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.762)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "TP"
+				(at 0 6.858 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TestPoint"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 5.08 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 5.08 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "test point"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "test point tp"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Pin* Test*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "TestPoint_0_1"
+				(circle
+					(center 0 3.302)
+					(radius 0.762)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "TestPoint_1_1"
+				(pin passive line
+					(at 0 0 90)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "SparkFun Connector:Conn_01x24_FPC_0.5mm-BottomContact"
 			(pin_names
 				(offset 1.016)
@@ -2422,6 +2529,16 @@
 	)
 	(wire
 		(pts
+			(xy 106.68 143.51) (xy 109.22 143.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8bdd7374-a8a4-4900-81f7-489e55630ecd")
+	)
+	(wire
+		(pts
 			(xy 194.31 74.93) (xy 200.66 74.93)
 		)
 		(stroke
@@ -2439,6 +2556,16 @@
 			(type default)
 		)
 		(uuid "9150ce17-844d-4cd4-8523-ac272d76e80c")
+	)
+	(wire
+		(pts
+			(xy 106.68 139.7) (xy 109.22 139.7)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9246bed3-3289-412b-9bde-eef6665d91c2")
 	)
 	(wire
 		(pts
@@ -2758,6 +2885,17 @@
 		)
 		(uuid "05f613f0-5d00-44da-95d5-19aa4251118d")
 	)
+	(hierarchical_label "D+"
+		(shape input)
+		(at 106.68 139.7 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "0a47c634-4a11-4a82-86ca-25d9533b34fc")
+	)
 	(hierarchical_label "3.3V"
 		(shape output)
 		(at 106.68 105.41 180)
@@ -2900,6 +3038,17 @@
 			(justify right)
 		)
 		(uuid "46dbf448-5c00-4c82-aa87-2ba466cb2486")
+	)
+	(hierarchical_label "D+"
+		(shape input)
+		(at 106.68 143.51 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "53a0b331-7bc9-4c45-8017-ed463edef802")
 	)
 	(hierarchical_label "1"
 		(shape output)
@@ -3517,6 +3666,140 @@
 			(project ""
 				(path "/e827c80a-ca8d-4d24-8db6-878b575a1aed/80744173-9491-4551-a74b-98f5922bdb3a"
 					(reference "J1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 109.22 143.51 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5d2c8bee-dbc9-43ab-87e9-595264df2294")
+		(property "Reference" "TP(D-)"
+			(at 114.046 143.51 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint"
+			(at 111.2521 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Sparkfun connector:TestPoint-1.25mm"
+			(at 109.22 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 109.22 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 109.22 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "bb7bd3ea-43b8-482a-9aac-acf80dbaed57")
+		)
+		(instances
+			(project "Main_Board"
+				(path "/e827c80a-ca8d-4d24-8db6-878b575a1aed/80744173-9491-4551-a74b-98f5922bdb3a"
+					(reference "TP(D-)")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 109.22 139.7 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "71895ad8-bb88-487f-9817-5999190b4850")
+		(property "Reference" "TP(D+)"
+			(at 114.046 139.7 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint"
+			(at 111.2521 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Sparkfun connector:TestPoint-1.25mm"
+			(at 109.22 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 109.22 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 109.22 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f7e6010e-e426-4ae7-b73c-de341637f3e2")
+		)
+		(instances
+			(project ""
+				(path "/e827c80a-ca8d-4d24-8db6-878b575a1aed/80744173-9491-4551-a74b-98f5922bdb3a"
+					(reference "TP(D+)")
 					(unit 1)
 				)
 			)
