@@ -10,239 +10,6 @@
 		(company "Sounds Like Tim")
 	)
 	(lib_symbols
-		(symbol "Connector_Audio:NC3FAAH-0"
-			(pin_names
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "J"
-				(at 0 8.89 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "NC3FAAH-0"
-				(at 0 6.35 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Connector_Audio:Jack_XLR_Neutrik_NC3FAAH-0_Horizontal"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "https://www.neutrik.com/en/product/nc3faah-0"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "AA Series, 3 pole female XLR receptacle, grounding: without ground/shell contact, horizontal PCB mount, retention spring instead of latch"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "xlr connector neutrik"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "Jack*XLR*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "NC3FAAH-0_0_1"
-				(polyline
-					(pts
-						(xy -5.08 0) (xy -4.572 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center -3.556 0)
-					(radius 1.016)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 0 0)
-					(radius 5.08)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(circle
-					(center 0 -3.556)
-					(radius 1.016)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -5.08) (xy 0 -4.572)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 3.556 0)
-					(radius 1.016)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 5.08 0) (xy 4.572 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(text "1"
-					(at -3.556 1.778 0)
-					(effects
-						(font
-							(size 1.016 1.016)
-							(bold yes)
-						)
-					)
-				)
-				(text "3"
-					(at 0 -1.778 0)
-					(effects
-						(font
-							(size 1.016 1.016)
-							(bold yes)
-						)
-					)
-				)
-				(text "2"
-					(at 3.556 1.778 0)
-					(effects
-						(font
-							(size 1.016 1.016)
-							(bold yes)
-						)
-					)
-				)
-				(pin passive line
-					(at -7.62 0 0)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -7.62 90)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 7.62 0 180)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Connector_Audio:NMJ4HFD2"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -2176,18 +1943,6 @@
 		(uuid 84b3056a-ae6d-4b10-a4ec-d7a3083967fa)
 	)
 	(rectangle
-		(start 22.86 21.59)
-		(end 55.88 29.21)
-		(stroke
-			(width 0)
-			(type dash)
-		)
-		(fill
-			(type none)
-		)
-		(uuid bfaaa920-4c4b-494e-87f0-7579cc1cac66)
-	)
-	(rectangle
 		(start 22.86 68.58)
 		(end 52.07 76.2)
 		(stroke
@@ -2198,18 +1953,6 @@
 			(type none)
 		)
 		(uuid c95cc0d8-972b-44a3-a7c3-406015090777)
-	)
-	(rectangle
-		(start 22.86 29.21)
-		(end 74.93 58.42)
-		(stroke
-			(width 0)
-			(type dash)
-		)
-		(fill
-			(type none)
-		)
-		(uuid f745931c-7504-4ace-8944-dd9fd89a87fc)
 	)
 	(rectangle
 		(start 22.86 132.08)
@@ -2449,16 +2192,6 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 54.61) (xy 45.72 49.53)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "43232432-5858-4334-824a-75ceeb4b2590")
-	)
-	(wire
-		(pts
 			(xy 102.87 148.59) (xy 106.68 148.59)
 		)
 		(stroke
@@ -2526,16 +2259,6 @@
 			(type default)
 		)
 		(uuid "7c4327f2-b545-4a3a-bfbd-2dc326446fa9")
-	)
-	(wire
-		(pts
-			(xy 46.99 54.61) (xy 45.72 54.61)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "874b86ac-a7cb-4cd3-a335-c9dd6f6b918a")
 	)
 	(wire
 		(pts
@@ -2659,16 +2382,6 @@
 	)
 	(wire
 		(pts
-			(xy 53.34 41.91) (xy 58.42 41.91)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cffb7479-e1ae-4a57-b6e9-6fa59d554ed3")
-	)
-	(wire
-		(pts
 			(xy 128.27 151.13) (xy 132.08 151.13)
 		)
 		(stroke
@@ -2739,16 +2452,6 @@
 	)
 	(wire
 		(pts
-			(xy 33.02 41.91) (xy 38.1 41.91)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f2b99f43-9228-4076-9f3c-8f0b0bb0cdd8")
-	)
-	(wire
-		(pts
 			(xy 152.4 168.91) (xy 142.24 168.91)
 		)
 		(stroke
@@ -2797,16 +2500,6 @@
 		)
 		(uuid "5bf21de9-9862-45b7-864e-d7a6b3e37a81")
 	)
-	(label "Modulator Input"
-		(at 24.13 27.94 0)
-		(effects
-			(font
-				(size 2.54 2.54)
-			)
-			(justify left bottom)
-		)
-		(uuid "8d134c73-22bb-46f3-b026-b94b705ba2b6")
-	)
 	(label "Midi"
 		(at 25.4 130.81 0)
 		(effects
@@ -2850,28 +2543,6 @@
 		(uuid "0210d93e-0b62-478b-9131-1c9bf82e3e72")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 53.34 183.3857 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "GND"
-		(shape input)
-		(at 33.02 41.91 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "2f4d0b25-a123-49a6-96ca-75a175088339")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 26.1643 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2947,17 +2618,6 @@
 			)
 		)
 	)
-	(hierarchical_label "Modulator_Cold"
-		(shape output)
-		(at 46.99 54.61 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "3c07a76f-990c-4cda-9df5-81f3602de0e2")
-	)
 	(hierarchical_label "Midi_RX"
 		(shape output)
 		(at 152.4 151.13 0)
@@ -2968,17 +2628,6 @@
 			(justify left)
 		)
 		(uuid "a1c184ce-0db5-46f2-9d25-a1e763303304")
-	)
-	(hierarchical_label "Modulator_Hot"
-		(shape output)
-		(at 58.42 41.91 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "cbba599c-2b81-445e-8f48-da8c44d05b49")
 	)
 	(symbol
 		(lib_id "Midi_connector:57PC5F")
@@ -3783,77 +3432,6 @@
 			(project "Hardware"
 				(path "/e827c80a-ca8d-4d24-8db6-878b575a1aed/ae68f18c-05a9-496e-90b3-166bfef37cf7"
 					(reference "C4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Audio:NC3FAAH-0")
-		(at 45.72 41.91 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "98101b32-81ee-4896-96a0-864473319c58")
-		(property "Reference" "J1"
-			(at 45.72 31.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "NC3FAAH-0"
-			(at 45.72 34.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_Audio:Jack_XLR_Neutrik_NC3FAAH-0_Horizontal"
-			(at 45.72 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.neutrik.com/en/product/nc3faah-0"
-			(at 45.72 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "AA Series, 3 pole female XLR receptacle, grounding: without ground/shell contact, horizontal PCB mount, retention spring instead of latch"
-			(at 45.72 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "3"
-			(uuid "e1a49842-caa6-4d3c-9336-391379c9b58a")
-		)
-		(pin "2"
-			(uuid "e3e15523-847d-458f-a5d0-a8f4f2437eca")
-		)
-		(pin "1"
-			(uuid "ad248c9d-1222-434d-a655-0b12cc1c5254")
-		)
-		(instances
-			(project ""
-				(path "/e827c80a-ca8d-4d24-8db6-878b575a1aed/ae68f18c-05a9-496e-90b3-166bfef37cf7"
-					(reference "J1")
 					(unit 1)
 				)
 			)
