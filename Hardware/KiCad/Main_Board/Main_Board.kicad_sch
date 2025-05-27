@@ -99,26 +99,6 @@
 				(justify right)
 			)
 		)
-		(pin "Modulator_Cold" output
-			(at 67.31 110.49 0)
-			(uuid "da72e2d4-721c-4d28-b6a7-5eb7773a915c")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "Modulator_Hot" output
-			(at 67.31 101.6 0)
-			(uuid "1b2c5736-38f8-468d-917c-43aa9d26528e")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
 		(instances
 			(project "Main_Board"
 				(path "/e827c80a-ca8d-4d24-8db6-878b575a1aed"
@@ -162,6 +142,36 @@
 				(hide yes)
 			)
 		)
+		(pin "D-" output
+			(at 50.8 172.72 0)
+			(uuid "9519b541-dd72-4cf7-88c6-e6538b4865b6")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "D+" output
+			(at 50.8 168.91 0)
+			(uuid "9691f3b2-da6c-410d-b2b5-af29f4cd31af")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "EN" input
+			(at 50.8 184.15 0)
+			(uuid "31eb187f-9fe1-4dbe-b2ce-98c90e5b743e")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
 		(instances
 			(project "Main_Board"
 				(path "/e827c80a-ca8d-4d24-8db6-878b575a1aed"
@@ -203,6 +213,16 @@
 				)
 				(justify left top)
 				(hide yes)
+			)
+		)
+		(pin "MIC_OUT" output
+			(at 66.675 52.07 0)
+			(uuid "91fa2c6f-81db-4ad5-a764-97da1fd80a4b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 			)
 		)
 		(instances
