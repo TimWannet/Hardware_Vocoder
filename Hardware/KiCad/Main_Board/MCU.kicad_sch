@@ -2797,6 +2797,28 @@
 		)
 		(uuid "fb4a885c-0f4d-4fa2-9d39-c30cc391ae6c")
 	)
+	(global_label "3.3V"
+		(shape output)
+		(at 106.68 105.41 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "3a7210be-f06e-484e-8131-b4db867b8cd2")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 99.5824 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "GND"
 		(shape bidirectional)
 		(at 106.68 69.85 180)
@@ -2895,17 +2917,6 @@
 			(justify right)
 		)
 		(uuid "0a47c634-4a11-4a82-86ca-25d9533b34fc")
-	)
-	(hierarchical_label "3.3V"
-		(shape output)
-		(at 106.68 105.41 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "0dc448a4-b769-4a7e-89fd-7d77e36750bd")
 	)
 	(hierarchical_label "40"
 		(shape output)
@@ -3039,7 +3050,7 @@
 		)
 		(uuid "46dbf448-5c00-4c82-aa87-2ba466cb2486")
 	)
-	(hierarchical_label "D+"
+	(hierarchical_label "D-"
 		(shape input)
 		(at 106.68 143.51 180)
 		(effects
@@ -3535,7 +3546,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "332d64c7-4679-416d-a271-de0e22eadcd9")
-		(property "Reference" "J1"
+		(property "Reference" "J?"
 			(at 190.5 67.056 0)
 			(effects
 				(font
@@ -3662,6 +3673,14 @@
 		(pin "7"
 			(uuid "c7e55063-8294-4ef8-a68a-7b5df691679b")
 		)
+		(instances
+			(project "Main_Board"
+				(path "/e827c80a-ca8d-4d24-8db6-878b575a1aed/80744173-9491-4551-a74b-98f5922bdb3a"
+					(reference "J?")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
@@ -3739,7 +3758,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "71895ad8-bb88-487f-9817-5999190b4850")
-		(property "Reference" "TP(D+)"
+		(property "Reference" "TP(D+)?"
 			(at 114.046 139.7 90)
 			(effects
 				(font
@@ -3788,6 +3807,14 @@
 		(pin "1"
 			(uuid "dcb253bd-1862-4ea5-ac58-3b3ba11cfbef")
 		)
+		(instances
+			(project "Main_Board"
+				(path "/e827c80a-ca8d-4d24-8db6-878b575a1aed/80744173-9491-4551-a74b-98f5922bdb3a"
+					(reference "TP(D+)?")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "Teensy:Teensy4.1")
@@ -3799,7 +3826,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "fa36b452-ea8b-43f7-856f-cdd3405b2403")
-		(property "Reference" "U2"
+		(property "Reference" "U?"
 			(at 152.4 58.42 0)
 			(effects
 				(font
@@ -4042,6 +4069,14 @@
 		)
 		(pin "66"
 			(uuid "67c4ce21-10b6-494d-b045-b6247aa62770")
+		)
+		(instances
+			(project "Main_Board"
+				(path "/e827c80a-ca8d-4d24-8db6-878b575a1aed/80744173-9491-4551-a74b-98f5922bdb3a"
+					(reference "U?")
+					(unit 1)
+				)
+			)
 		)
 	)
 )

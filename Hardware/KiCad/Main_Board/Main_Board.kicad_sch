@@ -108,7 +108,7 @@
 		)
 	)
 	(sheet
-		(at 25.4 165.1)
+		(at 41.275 131.445)
 		(size 25.4 25.4)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -124,7 +124,7 @@
 		)
 		(uuid "ea9bf73e-a18e-4434-8c74-6fad8c6cf4b3")
 		(property "Sheetname" "Power Supply"
-			(at 25.4 164.3884 0)
+			(at 41.275 130.7334 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -133,7 +133,7 @@
 			)
 		)
 		(property "Sheetfile" "PSU.kicad_sch"
-			(at 25.4 191.0846 0)
+			(at 41.275 157.4296 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -143,7 +143,7 @@
 			)
 		)
 		(pin "D-" output
-			(at 50.8 172.72 0)
+			(at 66.675 139.065 0)
 			(uuid "9519b541-dd72-4cf7-88c6-e6538b4865b6")
 			(effects
 				(font
@@ -153,7 +153,7 @@
 			)
 		)
 		(pin "D+" output
-			(at 50.8 168.91 0)
+			(at 66.675 135.255 0)
 			(uuid "9691f3b2-da6c-410d-b2b5-af29f4cd31af")
 			(effects
 				(font
@@ -163,7 +163,7 @@
 			)
 		)
 		(pin "EN" input
-			(at 50.8 184.15 0)
+			(at 66.675 150.495 0)
 			(uuid "31eb187f-9fe1-4dbe-b2ce-98c90e5b743e")
 			(effects
 				(font
@@ -229,6 +229,129 @@
 			(project "Main_Board"
 				(path "/e827c80a-ca8d-4d24-8db6-878b575a1aed"
 					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 205.105 82.55)
+		(size 20.32 27.94)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "fa44341a-e352-4ad3-a612-019061b8cf67")
+		(property "Sheetname" "Interface"
+			(at 205.105 81.8384 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Interface.kicad_sch"
+			(at 205.105 111.0746 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(pin "CS" input
+			(at 205.105 95.885 180)
+			(uuid "a4d46aac-b366-4936-b33f-7d40dbe4a36c")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "SDA" input
+			(at 205.105 88.265 180)
+			(uuid "85970703-912f-4caf-a65e-90f628989779")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "PinA" output
+			(at 205.105 100.965 180)
+			(uuid "ed9db1d6-8c06-4cd4-aadf-4ce5f1e45873")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "ENC_BTN" output
+			(at 205.105 107.315 180)
+			(uuid "4bbd738b-b76f-43d4-bc7e-1167a8b805ff")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "DC" input
+			(at 205.105 93.345 180)
+			(uuid "cf8005c5-fc5d-4fcf-85ca-02b7e544c268")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "SCL" input
+			(at 205.105 85.725 180)
+			(uuid "b2ffb569-772c-4a4f-9436-e0e4d8ca3119")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "PinB" output
+			(at 205.105 103.505 180)
+			(uuid "1dec5a66-511c-4908-a6ad-b3e8bcdb49b8")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "RST" input
+			(at 205.105 90.805 180)
+			(uuid "bb1e6d95-af72-4683-afbc-dd327e54aca0")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "Main_Board"
+				(path "/e827c80a-ca8d-4d24-8db6-878b575a1aed"
+					(page "6")
 				)
 			)
 		)
