@@ -2355,11 +2355,23 @@
 		)
 	)
 	(rectangle
-		(start 22.86 76.2)
-		(end 86.36 114.3)
+		(start 88.9 24.13)
+		(end 118.745 31.75)
 		(stroke
 			(width 0)
 			(type dash)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 2a042976-3867-41f9-b8af-9bae98487b22)
+	)
+	(rectangle
+		(start 26.67 45.72)
+		(end 55.245 85.09)
+		(stroke
+			(width 0)
+			(type dot)
 		)
 		(fill
 			(type none)
@@ -2367,8 +2379,20 @@
 		(uuid 39d14c20-c4f1-4e3f-a40f-2acdeba7f204)
 	)
 	(rectangle
-		(start 150.495 45.72)
-		(end 261.62 114.3)
+		(start 164.465 49.53)
+		(end 193.04 91.44)
+		(stroke
+			(width 0)
+			(type dot)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 3f5c9543-a2c6-4040-974f-3c7e4c98b051)
+	)
+	(rectangle
+		(start 19.05 31.75)
+		(end 198.12 118.745)
 		(stroke
 			(width 0)
 			(type dash)
@@ -2376,7 +2400,7 @@
 		(fill
 			(type none)
 		)
-		(uuid 3f5c9543-a2c6-4040-974f-3c7e4c98b051)
+		(uuid 4ccf61f3-fdfa-450f-aeb6-ce18080d8b09)
 	)
 	(rectangle
 		(start 22.86 124.46)
@@ -2389,30 +2413,6 @@
 			(type none)
 		)
 		(uuid 5f572c1a-62fd-4a2d-8d39-cba8ba39441b)
-	)
-	(rectangle
-		(start 191.77 38.1)
-		(end 221.615 45.72)
-		(stroke
-			(width 0)
-			(type dash)
-		)
-		(fill
-			(type none)
-		)
-		(uuid 84b3056a-ae6d-4b10-a4ec-d7a3083967fa)
-	)
-	(rectangle
-		(start 22.86 68.58)
-		(end 52.07 76.2)
-		(stroke
-			(width 0)
-			(type dash)
-		)
-		(fill
-			(type none)
-		)
-		(uuid c95cc0d8-972b-44a3-a7c3-406015090777)
 	)
 	(rectangle
 		(start 22.86 132.08)
@@ -2483,10 +2483,6 @@
 	(no_connect
 		(at 40.64 148.59)
 		(uuid "3c678848-fc9d-43e7-b6b7-7c348c45413c")
-	)
-	(no_connect
-		(at 121.92 148.59)
-		(uuid "7082e515-07f5-472a-9e00-e7a3ef1bfe96")
 	)
 	(no_connect
 		(at 40.64 143.51)
@@ -2921,27 +2917,37 @@
 		(uuid "fc884356-09e5-452d-a722-d490073f3d5a")
 	)
 	(label "Right"
-		(at 255.27 106.68 0)
+		(at 190.5 81.28 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
 		(uuid "03886298-0ea4-43cb-a83c-85a7c59ab73f")
 	)
 	(label "Left"
-		(at 255.27 87.63 0)
+		(at 189.23 62.23 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
 		(uuid "0db5cbad-f186-418e-b14d-6458c98bff82")
 	)
+	(label "Main Out"
+		(at 95.25 30.48 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+			)
+			(justify left bottom)
+		)
+		(uuid "377659a9-e1e8-4bce-b0cb-9084e3618b3d")
+	)
 	(label "Right"
-		(at 22.86 106.68 0)
+		(at 29.21 76.2 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2951,10 +2957,11 @@
 		(uuid "3a4de039-561e-409e-b82a-c04e9f0ffe84")
 	)
 	(label "Carrier Input"
-		(at 25.4 74.93 0)
+		(at 31.75 44.45 0)
 		(effects
 			(font
-				(size 2.54 2.54)
+				(face "KiCad Font")
+				(size 1.778 1.778)
 			)
 			(justify left bottom)
 		)
@@ -2971,17 +2978,17 @@
 		(uuid "9e057837-1406-42b5-8941-4892732c53ac")
 	)
 	(label "Main Out"
-		(at 198.12 44.45 0)
+		(at 185.42 48.26 180)
 		(effects
 			(font
-				(size 2.54 2.54)
+				(size 1.778 1.778)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
 		(uuid "de750c82-2329-412d-84ab-c113b380cec4")
 	)
 	(label "Left"
-		(at 22.86 87.63 0)
+		(at 30.48 58.42 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3008,28 +3015,6 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "5V"
-		(shape input)
-		(at 152.4 135.89 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "5e80a369-7a70-4fd6-9204-a28b1f2bad86")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 157.6833 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
 				(hide yes)
 			)
 		)
@@ -3074,6 +3059,28 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "+5V"
+		(shape input)
+		(at 152.4 135.89 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "ebbc8e34-b2ed-4a19-ab5d-ec3594548594")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 159.2557 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 				(hide yes)
 			)
 		)
@@ -3383,7 +3390,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Audio:NMJ4HFD2")
-		(at 34.29 106.68 0)
+		(at 38.1 77.47 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3391,7 +3398,7 @@
 		(dnp no)
 		(uuid "34a6187f-d70f-478d-83d4-dddb720826ea")
 		(property "Reference" "J3"
-			(at 33.655 95.25 0)
+			(at 38.1 66.548 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3399,7 +3406,7 @@
 			)
 		)
 		(property "Value" "NMJ4HFD2"
-			(at 33.655 97.79 0)
+			(at 38.1 69.088 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3407,7 +3414,7 @@
 			)
 		)
 		(property "Footprint" "Connector_Audio:Jack_6.35mm_Neutrik_NMJ4HFD2_Horizontal"
-			(at 34.29 101.6 0)
+			(at 38.1 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3416,7 +3423,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.neutrik.com/en/product/nmj4hfd2"
-			(at 34.29 101.6 0)
+			(at 38.1 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3425,7 +3432,7 @@
 			)
 		)
 		(property "Description" "M Series, 6.35mm (1/4in) mono jack, switched, with full threaded nose and straight PCB pins"
-			(at 34.29 106.68 0)
+			(at 38.1 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3456,7 +3463,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Audio:NMJ4HFD2")
-		(at 34.29 87.63 0)
+		(at 38.1 59.69 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3464,7 +3471,7 @@
 		(dnp no)
 		(uuid "45a9e869-4338-4203-9a12-b97061939d61")
 		(property "Reference" "J2"
-			(at 33.655 76.2 0)
+			(at 38.735 49.022 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3472,7 +3479,7 @@
 			)
 		)
 		(property "Value" "NMJ4HFD2"
-			(at 33.655 78.74 0)
+			(at 38.1 51.308 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3480,7 +3487,7 @@
 			)
 		)
 		(property "Footprint" "Connector_Audio:Jack_6.35mm_Neutrik_NMJ4HFD2_Horizontal"
-			(at 34.29 82.55 0)
+			(at 38.1 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3489,7 +3496,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.neutrik.com/en/product/nmj4hfd2"
-			(at 34.29 82.55 0)
+			(at 38.1 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3498,7 +3505,7 @@
 			)
 		)
 		(property "Description" "M Series, 6.35mm (1/4in) mono jack, switched, with full threaded nose and straight PCB pins"
-			(at 34.29 87.63 0)
+			(at 38.1 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3755,7 +3762,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Audio:NMJ4HFD2")
-		(at 248.92 107.95 0)
+		(at 181.61 83.82 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3764,7 +3771,7 @@
 		(dnp no)
 		(uuid "8e555c18-1463-401d-91b9-f652c0525ed3")
 		(property "Reference" "J6"
-			(at 249.555 96.52 0)
+			(at 181.61 72.898 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3772,7 +3779,7 @@
 			)
 		)
 		(property "Value" "NMJ4HFD2"
-			(at 249.555 99.06 0)
+			(at 181.61 75.438 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3780,7 +3787,7 @@
 			)
 		)
 		(property "Footprint" "Connector_Audio:Jack_6.35mm_Neutrik_NMJ4HFD2_Horizontal"
-			(at 248.92 102.87 0)
+			(at 181.61 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3789,7 +3796,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.neutrik.com/en/product/nmj4hfd2"
-			(at 248.92 102.87 0)
+			(at 181.61 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3798,7 +3805,7 @@
 			)
 		)
 		(property "Description" "M Series, 6.35mm (1/4in) mono jack, switched, with full threaded nose and straight PCB pins"
-			(at 248.92 107.95 0)
+			(at 181.61 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3969,7 +3976,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Audio:NMJ4HFD2")
-		(at 248.92 88.9 0)
+		(at 181.61 64.77 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3978,7 +3985,7 @@
 		(dnp no)
 		(uuid "bcada691-7bab-42f3-ad42-67a1e4fa227a")
 		(property "Reference" "J5"
-			(at 249.555 77.47 0)
+			(at 181.61 53.848 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3986,7 +3993,7 @@
 			)
 		)
 		(property "Value" "NMJ4HFD2"
-			(at 249.555 80.01 0)
+			(at 181.61 56.388 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3994,7 +4001,7 @@
 			)
 		)
 		(property "Footprint" "Connector_Audio:Jack_6.35mm_Neutrik_NMJ4HFD2_Horizontal"
-			(at 248.92 83.82 0)
+			(at 181.61 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4003,7 +4010,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.neutrik.com/en/product/nmj4hfd2"
-			(at 248.92 83.82 0)
+			(at 181.61 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4012,7 +4019,7 @@
 			)
 		)
 		(property "Description" "M Series, 6.35mm (1/4in) mono jack, switched, with full threaded nose and straight PCB pins"
-			(at 248.92 88.9 0)
+			(at 181.61 64.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4319,7 +4326,7 @@
 	)
 	(symbol
 		(lib_id "Audio:SGTL5000XNLA3")
-		(at 175.26 78.74 0)
+		(at 113.03 71.12 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4327,7 +4334,7 @@
 		(dnp no)
 		(uuid "fa3e81c8-beb8-4aed-9370-f5735b6dbaf7")
 		(property "Reference" "U2"
-			(at 178.308 105.918 0)
+			(at 116.078 98.298 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4336,7 +4343,7 @@
 			)
 		)
 		(property "Value" "SGTL5000XNLA3"
-			(at 177.8 107.696 0)
+			(at 115.57 100.076 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4345,7 +4352,7 @@
 			)
 		)
 		(property "Footprint" "Package_DFN_QFN:QFN-20-1EP_3x3mm_P0.4mm_EP1.65x1.65mm"
-			(at 175.26 78.74 0)
+			(at 113.03 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4354,7 +4361,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.nxp.com/docs/en/data-sheet/SGTL5000.pdf"
-			(at 175.26 78.74 0)
+			(at 113.03 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4363,7 +4370,7 @@
 			)
 		)
 		(property "Description" "Low Power Stereo Codec with Headphone Amp, QFN-20"
-			(at 175.26 78.74 0)
+			(at 113.03 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
