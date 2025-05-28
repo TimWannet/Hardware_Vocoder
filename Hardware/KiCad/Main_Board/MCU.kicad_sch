@@ -2885,7 +2885,7 @@
 			)
 		)
 	)
-	(hierarchical_label "33"
+	(hierarchical_label "33(PinA)"
 		(shape output)
 		(at 200.66 128.27 0)
 		(effects
@@ -3006,7 +3006,7 @@
 		)
 		(uuid "3d006a8c-b540-49de-ae5c-2899a0cb12aa")
 	)
-	(hierarchical_label "26"
+	(hierarchical_label "26(SDA)"
 		(shape output)
 		(at 106.68 113.03 180)
 		(effects
@@ -3083,7 +3083,7 @@
 		)
 		(uuid "6a898e04-262b-431a-92e2-34d72922677d")
 	)
-	(hierarchical_label "29"
+	(hierarchical_label "29(DC)"
 		(shape output)
 		(at 106.68 120.65 180)
 		(effects
@@ -3160,7 +3160,7 @@
 		)
 		(uuid "724a0413-447b-4e91-8f6b-e40b6bd915cb")
 	)
-	(hierarchical_label "35"
+	(hierarchical_label "35(ENC_BTN)"
 		(shape output)
 		(at 200.66 123.19 0)
 		(effects
@@ -3226,7 +3226,7 @@
 		)
 		(uuid "91160a15-cd10-4a83-9636-5639f7362b95")
 	)
-	(hierarchical_label "27"
+	(hierarchical_label "27(SCL)"
 		(shape output)
 		(at 106.68 115.57 180)
 		(effects
@@ -3303,7 +3303,7 @@
 		)
 		(uuid "be4af6cb-b333-4fe4-a054-6df02a5be634")
 	)
-	(hierarchical_label "30"
+	(hierarchical_label "30(CS)"
 		(shape output)
 		(at 106.68 123.19 180)
 		(effects
@@ -3358,7 +3358,7 @@
 		)
 		(uuid "f509ed2e-ebd6-4689-bf8a-0b3ae2282480")
 	)
-	(hierarchical_label "28"
+	(hierarchical_label "28(RST)"
 		(shape output)
 		(at 106.68 118.11 180)
 		(effects
@@ -3369,7 +3369,7 @@
 		)
 		(uuid "f6339dfe-c8d0-428e-a3b1-7e9e47cd626b")
 	)
-	(hierarchical_label "34"
+	(hierarchical_label "34(PinB)"
 		(shape output)
 		(at 200.66 125.73 0)
 		(effects
