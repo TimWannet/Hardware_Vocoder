@@ -98,9 +98,9 @@ void inverseFFT(float *buffer, float *carrierMagnitude, float *carrierPhase, flo
         float normalizedCarrier = carrierMagnitude[i] /  32768.0f;
         float fftMagnitude = normalizedCarrier * pow(normalizedMod, 0.5f) * 32768.0f; // Scale back
 
-        buffer[2 * i] = fftMagnitude * cosf(carrierPhase[i]);
-        buffer[2 * i + 1] = fftMagnitude * sinf(carrierPhase[i]);
-    }
+        buffer[2 * i] = fftMagnitude * cosf(carrierPhase[i]); // Real part
+        buffer[2 * i + 1] = fftMagnitude * sinf(carrierPhase[i]); // Imaginary part
+    } 
 
     // Perform Inverse FFT
     arm_cfft_f32(fftConfig, buffer, 1, 1);
