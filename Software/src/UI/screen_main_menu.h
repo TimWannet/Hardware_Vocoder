@@ -19,7 +19,7 @@
 class ScreenMainMenu : public ScreenBase 
 {
     public:
-        void draw(Adafruit_ST7735& tft) override;
+        void draw(ILI9488& tft) override;
         void handleInput(InputEvent input) override;
         
 

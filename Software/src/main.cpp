@@ -37,11 +37,15 @@
 #define TFT_RST   28
 #define TFT_DC    29
 #define TFT_CS    30
-#define ENCODER_BUTTON 33
-#define ENCODER_PIN_A 34
-#define ENCODER_PIN_B 35
+#define TFT_BLK   31  
+#define TFT_MOSI  26
+#define TFT_CLK   27
+#define ENCODER_BUTTON 35
+#define ENCODER_PIN_A 33
+#define ENCODER_PIN_B 34
+// #define SPI_CLOCK 24000000
 
-const int FFT_SIZE = 1024; // Buffer size (Change this value as needed: 128, 256, 512, 1024, 2048, etc.)
+const int FFT_SIZE = 2048; // Buffer size (Change this value as needed: 128, 256, 512, 1024, 2048, etc.)
 const arm_cfft_instance_f32* fftConfig;
 
 // Audio Library objects
@@ -69,8 +73,12 @@ volatile bool carrierBufferFull = false;
 volatile bool modulatorBufferFull = false;
 volatile bool playbackReady = false;
 
+
+//Constructors
+ILI9488 tft = ILI9488(TFT_CS, TFT_DC, TFT_MOSI, TFT_CLK, TFT_RST, -1);
 // Adafruit_ST7735 tft(TFT_CS, TFT_DC, TFT_RST);
-Adafruit_ST7735 tft = Adafruit_ST7735(&SPI1, TFT_CS, TFT_DC, TFT_RST);
+// Adafruit_ST7735 tft = Adafruit_ST7735(&SPI1, TFT_CS, TFT_DC, TFT_RST);
+// ILI9488 tft = ILI9488(TFT_CS, TFT_DC, TFT_RST);
 ScreenManager* screenManager;
 ScreenMainMenu mainMenu;
 InputManager inputManager(ENCODER_PIN_A, ENCODER_PIN_B, ENCODER_BUTTON);
@@ -84,6 +92,7 @@ AudioConnection         patchCord2(analogInput, 0, modulatorProcessor, 0);
 AudioConnection         patchCord3(playbackProcessor, 0, i2sOutput, 0); // left channel
 AudioConnection         patchCord4(playbackProcessor, 0, i2sOutput, 1); // right channel
 
+ 
 /*
 * @brief Setup function
 *
@@ -96,7 +105,7 @@ void setup()
     AudioMemory(30);
     sgtl5000_1.enable();
     sgtl5000_1.inputSelect(AUDIO_INPUT_LINEIN);
-    sgtl5000_1.volume(1);
+    sgtl5000_1.volume(0.8);
 
     fftConfig = getFFTConfig(FFT_SIZE);
     if (!fftConfig)
@@ -114,16 +123,22 @@ void setup()
         screenManager->handleInput(event);
     });
 
+    pinMode(TFT_BLK, OUTPUT);
+    digitalWrite(TFT_BLK, LOW); 
+    delay(2000); 
+    digitalWrite(TFT_BLK, HIGH);  // Turn backlight ON
+
     // Initialize the TFT display
-    tft.initR(INITR_BLACKTAB);
-    tft.setSPISpeed(24000000); // 24MHz
-    tft.setRotation(1);
-    tft.fillScreen(ST77XX_BLACK);
+    tft.begin();
+    tft.setRotation(3);
+    tft.fillScreen(ILI9488_BLACK);
 
     screenManager = new ScreenManager(tft);
     screenManager->setScreen(&mainMenu);
 
     Serial.println("Setup complete");
+
+
 }
 
 /*
@@ -145,6 +160,7 @@ void loop()
         {
             modulatorBuffer[i] = highpass(modulatorBuffer[i]);
         }
+
         // Convert int16_t to float
         convertInt16ToFloat(carrierBuffer, carrierFloatBuffer);
         convertInt16ToFloat(modulatorBuffer, modulatorFloatBuffer);
@@ -156,9 +172,13 @@ void loop()
         
         convertFloatToInt16(fftBuffer, fftFloatBuffer);
         
+        // for (int i = 0; i < FFT_SIZE; i++) {
+        //     Serial.print(fftBuffer[i]);
+        //     Serial.print(i < FFT_SIZE - 1 ? ", " : "\n");
+        // }
+
         carrierBufferFull = false;
         modulatorBufferFull = false;
         playbackReady = true;
-        // Serial.println("Processing complete");
     }
 }

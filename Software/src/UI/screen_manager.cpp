@@ -12,7 +12,7 @@
 
 #include "screen_manager.h"
 
-ScreenManager::ScreenManager(Adafruit_ST7735& display) : tft(display), currentScreen(nullptr) {}
+ScreenManager::ScreenManager(ILI9488& display) : tft(display), currentScreen(nullptr) {}
 
 void ScreenManager::setScreen(ScreenBase* screen) 
 {

@@ -16,14 +16,18 @@
 #define SCREEN_BASE_H
 
 #include "Adafruit_GFX.h"
-#include "Adafruit_ST7735.h"
+// #include "Adafruit_ST7735.h"
+#include <ILI9488.h>
+// #include <TFT_eSPI.h>
+#include <SPI.h>
+
 #include "UI/input_manager.h"
 
 class ScreenBase 
 {
     public:
-        virtual void draw(Adafruit_ST7735& tft) = 0;
-        virtual void update(Adafruit_ST7735& tft) {};
+        virtual void draw(ILI9488& tft) = 0;
+        virtual void update(ILI9488& tft) {};
         virtual void handleInput(InputEvent input) {};
         virtual ~ScreenBase() {}
 

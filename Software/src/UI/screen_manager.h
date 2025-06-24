@@ -21,7 +21,7 @@
 class ScreenManager 
 {
     public:
-        ScreenManager(Adafruit_ST7735& display);
+        ScreenManager(ILI9488& display);
         void setScreen(ScreenBase* screen);
         void draw();
         void update();
@@ -29,7 +29,7 @@ class ScreenManager
         bool needsRedraw();
 
     private:
-        Adafruit_ST7735& tft;
+        ILI9488& tft;
         ScreenBase* currentScreen;
         bool redraw = true; 
 };

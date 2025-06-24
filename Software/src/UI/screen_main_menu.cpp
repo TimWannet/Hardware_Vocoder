@@ -12,12 +12,12 @@
 
 #include "screen_main_menu.h"
 
-void ScreenMainMenu::draw(Adafruit_ST7735& tft) 
+void ScreenMainMenu::draw(ILI9488& tft) 
 {
     if (selectedIndex == lastSelectedIndex)
         return;
 
-    tft.fillScreen(ST77XX_BLACK);
+    tft.fillScreen(ILI9488_BLACK);
     tft.setTextSize(1);
 
     // Clamp selectedIndex
@@ -26,9 +26,9 @@ void ScreenMainMenu::draw(Adafruit_ST7735& tft)
 
     for (int i = 0; i < itemCount; i++) {
         if (i == selectedIndex) {
-            tft.setTextColor(ST77XX_BLACK, ST77XX_WHITE);
+            tft.setTextColor(ILI9488_BLACK, ILI9488_WHITE);
         } else {
-            tft.setTextColor(ST77XX_WHITE, ST77XX_BLACK);
+            tft.setTextColor(ILI9488_WHITE, ILI9488_BLACK);
         }
         tft.setCursor(0, i * 10 + 10);
         tft.println(menuItems[i]);
