@@ -5,23 +5,23 @@
  * @details This file contains utility functions for converting data formats
  * 
  * @author Tim Wannet
- * @date 20-05-2025
+ * @date 26-03-2025
  * @version 0.01
  */
 
  // Headers
 #include "utils.h"
-#include <cmath>
+#include <random>
 
 /*
-// * @brief Convert int16_t to float function
-// *
-// * @param[in] inputBuffer    The input audio data buffer in int16_t format
-// * @param[out] outputBuffer  The output audio data buffer in float format
-// *
-// * @details This function converts the audio data from int16_t to float.
-// * The real part is the audio data and the imaginary part is set to 0.
-// */
+* @brief Convert int16_t to float function
+*
+* @param[in] inputBuffer    The input audio data buffer in int16_t format
+* @param[out] outputBuffer  The output audio data buffer in float format
+*
+* @details This function converts the audio data from int16_t to float.
+* The real part is the audio data and the imaginary part is set to 0.
+*/
 void convertInt16ToFloat(int16_t *inputBuffer, float *outputBuffer)
 {
     for (int i = 0; i < FFT_SIZE; i++)
@@ -44,6 +44,6 @@ void convertFloatToInt16(float *inputBuffer, int16_t *outputBuffer)
 {
     for (int i = 0; i < FFT_SIZE; i++)
     {
-        outputBuffer[i] = (int16_t)(inputBuffer[2 * i] / 16);
+        outputBuffer[i] = (int16_t)(inputBuffer[2 * i] / 4);
     }
 }

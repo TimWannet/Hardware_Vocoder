@@ -45,7 +45,7 @@
 #define ENCODER_PIN_B 34
 // #define SPI_CLOCK 24000000
 
-const int FFT_SIZE = 2048; // Buffer size (Change this value as needed: 128, 256, 512, 1024, 2048, etc.)
+const int FFT_SIZE = 1024; // Buffer size (Change this value as needed: 128, 256, 512, 1024, 2048, etc.)
 const arm_cfft_instance_f32* fftConfig;
 
 // Audio Library objects
@@ -76,9 +76,7 @@ volatile bool playbackReady = false;
 
 //Constructors
 ILI9488 tft = ILI9488(TFT_CS, TFT_DC, TFT_MOSI, TFT_CLK, TFT_RST, -1);
-// Adafruit_ST7735 tft(TFT_CS, TFT_DC, TFT_RST);
 // Adafruit_ST7735 tft = Adafruit_ST7735(&SPI1, TFT_CS, TFT_DC, TFT_RST);
-// ILI9488 tft = ILI9488(TFT_CS, TFT_DC, TFT_RST);
 ScreenManager* screenManager;
 ScreenMainMenu mainMenu;
 InputManager inputManager(ENCODER_PIN_A, ENCODER_PIN_B, ENCODER_BUTTON);
@@ -105,7 +103,7 @@ void setup()
     AudioMemory(30);
     sgtl5000_1.enable();
     sgtl5000_1.inputSelect(AUDIO_INPUT_LINEIN);
-    sgtl5000_1.volume(0.8);
+    sgtl5000_1.volume(0.7);
 
     fftConfig = getFFTConfig(FFT_SIZE);
     if (!fftConfig)
@@ -161,6 +159,8 @@ void loop()
             modulatorBuffer[i] = highpass(modulatorBuffer[i]);
         }
 
+        
+
         // Convert int16_t to float
         convertInt16ToFloat(carrierBuffer, carrierFloatBuffer);
         convertInt16ToFloat(modulatorBuffer, modulatorFloatBuffer);
@@ -171,11 +171,6 @@ void loop()
         inverseFFT(fftBuffer, carrierMagnitude, carrierPhase, modulatorMagnitude, modulatorPhase);
         
         convertFloatToInt16(fftBuffer, fftFloatBuffer);
-        
-        // for (int i = 0; i < FFT_SIZE; i++) {
-        //     Serial.print(fftBuffer[i]);
-        //     Serial.print(i < FFT_SIZE - 1 ? ", " : "\n");
-        // }
 
         carrierBufferFull = false;
         modulatorBufferFull = false;
