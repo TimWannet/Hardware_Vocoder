@@ -76,9 +76,7 @@ volatile bool playbackReady = false;
 
 //Constructors
 ILI9488 tft = ILI9488(TFT_CS, TFT_DC, TFT_MOSI, TFT_CLK, TFT_RST, -1);
-// Adafruit_ST7735 tft(TFT_CS, TFT_DC, TFT_RST);
 // Adafruit_ST7735 tft = Adafruit_ST7735(&SPI1, TFT_CS, TFT_DC, TFT_RST);
-// ILI9488 tft = ILI9488(TFT_CS, TFT_DC, TFT_RST);
 ScreenManager* screenManager;
 ScreenMainMenu mainMenu;
 InputManager inputManager(ENCODER_PIN_A, ENCODER_PIN_B, ENCODER_BUTTON);
@@ -171,11 +169,6 @@ void loop()
         inverseFFT(fftBuffer, carrierMagnitude, carrierPhase, modulatorMagnitude, modulatorPhase);
         
         convertFloatToInt16(fftBuffer, fftFloatBuffer);
-        
-        // for (int i = 0; i < FFT_SIZE; i++) {
-        //     Serial.print(fftBuffer[i]);
-        //     Serial.print(i < FFT_SIZE - 1 ? ", " : "\n");
-        // }
 
         carrierBufferFull = false;
         modulatorBufferFull = false;
