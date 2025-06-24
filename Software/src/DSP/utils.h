@@ -5,7 +5,7 @@
  * @details This file contains function declarations for converting data formats
  * 
  * @author Tim Wannet
- * @date 26-03-2025
+ * @date 20-05-2025
  * @version 0.01
  */
 

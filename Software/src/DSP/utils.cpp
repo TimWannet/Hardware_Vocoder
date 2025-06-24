@@ -5,12 +5,13 @@
  * @details This file contains utility functions for converting data formats
  * 
  * @author Tim Wannet
- * @date 26-03-2025
+ * @date 20-05-2025
  * @version 0.01
  */
 
  // Headers
 #include "utils.h"
+#include <cmath>
 
 /*
 // * @brief Convert int16_t to float function
@@ -43,6 +44,6 @@ void convertFloatToInt16(float *inputBuffer, int16_t *outputBuffer)
 {
     for (int i = 0; i < FFT_SIZE; i++)
     {
-        outputBuffer[i] = (int16_t)(inputBuffer[2 * i] / FFT_SIZE);
+        outputBuffer[i] = (int16_t)(inputBuffer[2 * i] / 16);
     }
 }

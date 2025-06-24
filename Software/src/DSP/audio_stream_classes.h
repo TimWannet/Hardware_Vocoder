@@ -6,14 +6,17 @@
  * It includes classes for processing audio data from the carrier input, modulator input, and playback output.
  * 
  * @author Tim Wannet
- * @date 26-03-2025
+ * @date 20-05-2025
  * @version 0.01
  */
 
+#ifndef AUDIO_STREAM_CLASSES_H
+#define AUDIO_STREAM_CLASSES_H
+
 // Headers
-#include <Audio.h>
-#include <Wire.h>
-#include <SPI.h>
+#include "Audio.h"
+#include "Wire.h"
+#include "SPI.h"
 
 // External variables
 extern const int FFT_SIZE;
@@ -79,3 +82,5 @@ public:
     //override base::update()
     void update() override;
 };
+
+#endif // AUDIO_STREAM_CLASSES_H
