@@ -45,7 +45,7 @@
 #define ENCODER_PIN_B 34
 // #define SPI_CLOCK 24000000
 
-const int FFT_SIZE = 2048; // Buffer size (Change this value as needed: 128, 256, 512, 1024, 2048, etc.)
+const int FFT_SIZE = 1024; // Buffer size (Change this value as needed: 128, 256, 512, 1024, 2048, etc.)
 const arm_cfft_instance_f32* fftConfig;
 
 // Audio Library objects
@@ -103,7 +103,7 @@ void setup()
     AudioMemory(30);
     sgtl5000_1.enable();
     sgtl5000_1.inputSelect(AUDIO_INPUT_LINEIN);
-    sgtl5000_1.volume(0.8);
+    sgtl5000_1.volume(0.7);
 
     fftConfig = getFFTConfig(FFT_SIZE);
     if (!fftConfig)
@@ -158,6 +158,8 @@ void loop()
         {
             modulatorBuffer[i] = highpass(modulatorBuffer[i]);
         }
+
+        
 
         // Convert int16_t to float
         convertInt16ToFloat(carrierBuffer, carrierFloatBuffer);

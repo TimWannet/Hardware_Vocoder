@@ -16,7 +16,7 @@
 
 // Variables
 const float sampleRate = 44100.0; // Sample rate in Hz
-const float cutoffFreq = 400.0; // Cutoff frequency for highpass filter
+const float cutoffFreq = 100.0; // Cutoff frequency for highpass filter
 
 float prev_input = 0.0;
 float prev_output = 0.0;
@@ -24,6 +24,10 @@ float RC = 1.0 / (2 * PI * cutoffFreq);  // e.g., 200 Hz
 float dt = 1.0 / sampleRate;
 float alpha = RC / (RC + dt);
 
+float noiseUnvoiced = static_cast<float>(rand()) / RAND_MAX - 0.5f; // -0.5 to +0.5
+float unvoicedNoiseStrength = 0.9f; // scale to taste
+float noiseVoiced = static_cast<float>(rand()) / RAND_MAX - 0.5f;
+float voicedNoiseStrength = 0.4f;
 /*
 * @brief Get FFT Configuration function
 *
@@ -78,6 +82,39 @@ void getMagnitudeAndPhase(float *buffer, float *magnitude, float *phase)
     // }
 }
 
+bool isUnvoiced(const float* magnitude) 
+{
+    constexpr float SAMPLE_RATE = 44100.0f;
+    constexpr int FFT_SIZE = 2048;
+    constexpr float BIN_WIDTH = SAMPLE_RATE / FFT_SIZE;
+
+    // Define band ranges (you can tune these further)
+    const int lowStart = (int)(80 / BIN_WIDTH);
+    const int lowEnd   = (int)(500 / BIN_WIDTH);
+
+    const int highStart = (int)(3000 / BIN_WIDTH);
+    const int highEnd   = (int)(8000 / BIN_WIDTH);
+
+    float lowEnergy = 0.0f;
+    float highEnergy = 0.0f;
+
+    for (int i = lowStart; i < lowEnd; i++) {
+        lowEnergy += magnitude[i];
+    }
+
+    for (int i = highStart; i < highEnd; i++) {
+        highEnergy += magnitude[i];
+    }
+
+    // Avoid divide-by-zero
+    if (lowEnergy < 1e-5f) lowEnergy = 1e-5f;
+
+    float ratio = highEnergy / lowEnergy;
+
+    // You can tune this threshold — try values between 3.0 and 6.0
+    return (ratio > 4.0f);
+}
+
 /*
 * @brief Inverse FFT function
 *
@@ -92,18 +129,45 @@ void getMagnitudeAndPhase(float *buffer, float *magnitude, float *phase)
 */
 void inverseFFT(float *buffer, float *carrierMagnitude, float *carrierPhase, float *modulatorMagnitude, float *modulatorPhase)
 {
-    for (int i = 0; i < FFT_SIZE; i++) 
+
+    float lowEnergy = 0.0f;
+    float highEnergy = 0.0f;
+
+    for (int i = 0; i < FFT_SIZE / 2; i++) {
+        if (i < FFT_SIZE / 16) { // Low frequencies (e.g. ~0–500Hz)
+            lowEnergy += modulatorMagnitude[i];
+        } else if (i > FFT_SIZE / 10) { // High frequencies (e.g. >1kHz)
+            highEnergy += modulatorMagnitude[i];
+        }
+    }
+
+    // bool isUnvoiced = (highEnergy > lowEnergy * 1.0f) && (highEnergy > 0.01f);
+    bool is_unvoiced = isUnvoiced(modulatorMagnitude);
+
+    if (is_unvoiced) 
     {
-        float normalizedMod = modulatorMagnitude[i] / 32768.0f;  // Assuming 16-bit range
-        float normalizedCarrier = carrierMagnitude[i] /  32768.0f;
-        float fftMagnitude = normalizedCarrier * pow(normalizedMod, 0.5f) * 32768.0f; // Scale back
+        for (int i = 0; i < FFT_SIZE / 2; i++) 
+        {
+            buffer[2 * i] = noiseUnvoiced * unvoicedNoiseStrength; // real
+            buffer[2 * i + 1] = noiseUnvoiced * unvoicedNoiseStrength; // imaginary
+        }
+    }
+    else
+    {
+        for (int i = 0; i < FFT_SIZE; i++) 
+        {
+            float normalizedMod = modulatorMagnitude[i] / 32768.0f;  // Assuming 16-bit range
+            float normalizedCarrier = carrierMagnitude[i] / 32768.0f;
+            float fftMagnitude = normalizedCarrier * pow(normalizedMod, 0.4f) * 30768.0f; // Scale back
+            fftMagnitude += noiseVoiced * voicedNoiseStrength * 30768.0f;; // Add noise to voiced signal 
 
-        buffer[2 * i] = fftMagnitude * cosf(carrierPhase[i]); // Real part
-        buffer[2 * i + 1] = fftMagnitude * sinf(carrierPhase[i]); // Imaginary part
-    } 
-
+            buffer[2 * i] = fftMagnitude * cosf(carrierPhase[i]); // Real part
+            buffer[2 * i + 1] = fftMagnitude * sinf(carrierPhase[i]); // Imaginary part
+        }
+    }
     // Perform Inverse FFT
     arm_cfft_f32(fftConfig, buffer, 1, 1);
+
 }
 
 /*
