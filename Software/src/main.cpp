@@ -105,10 +105,11 @@ void setup()
 {
     Serial.begin(115200);
 
-    AudioMemory(30);
+    AudioMemory(100);
     sgtl5000_1.enable();
     sgtl5000_1.inputSelect(AUDIO_INPUT_LINEIN);
-    sgtl5000_1.volume(0.7);
+    sgtl5000_1.volume(0.5);
+    sgtl5000_1.inputLevel(0.5); 
 
     fftConfig = getFFTConfig(FFT_SIZE);
     if (!fftConfig)

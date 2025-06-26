@@ -44,6 +44,6 @@ void convertFloatToInt16(float *inputBuffer, int16_t *outputBuffer)
 {
     for (int i = 0; i < FFT_SIZE; i++)
     {
-        outputBuffer[i] = (int16_t)(inputBuffer[2 * i] / 4);
+        outputBuffer[i] = (int16_t)(inputBuffer[2 * i] / 32);
     }
 }

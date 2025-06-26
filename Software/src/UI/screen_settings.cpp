@@ -54,59 +54,6 @@ void ScreenSettings::draw(ILI9488& tft)
 
 void ScreenSettings::handleInput(InputEvent input) 
 {
-    // bool stateChanged = false;
-
-    // switch (input) 
-    // {
-    //     case InputEvent::Left:
-    //         stateChanged = true;
-    //         if (selectedIndex >= 0)
-    //         {
-    //             selectedIndex--;    
-    //         }
-    //         if (selectedIndex < 0)
-    //             selectedIndex = itemCount;
-    //         break;
-
-    //     case InputEvent::Right:
-    //         stateChanged = true;
-    //         if (selectedIndex < itemCount)
-    //         {
-    //             selectedIndex++;
-    //         }
-    //         if (selectedIndex >= itemCount)
-    //             selectedIndex = 0;
-    //         break;
-
-    //     case InputEvent::Select:
-    //     stateChanged = true;     
-    //         switch(selectedIndex)
-    //         {                
-    //             case 0:
-    //                 voicedNoiseStrength += 0.1f;
-    //                 if (voicedNoiseStrength > 1.0f)
-    //                     voicedNoiseStrength = 0.0f;
-    //             break;
-                
-    //             case 1:
-    //                 unvoicedNoiseStrength += 0.1f;
-    //                 if (unvoicedNoiseStrength > 1.0f)
-    //                     unvoicedNoiseStrength = 0.0f;
-    //             break;
-
-    //             case 2:
-    //                     screenManager->setScreen(mainMenuScreen);
-    //                     selectedIndex = 0;  
-    //             break;
-    //         }
-    //         break;
-    // }
-
-    // if (stateChanged)
-    // {
-    //     requestRedraw();  // <- This tells the screenManager to redraw this screen
-    // }
-
      bool stateChanged = false;
 
     switch (input) 
@@ -118,7 +65,7 @@ void ScreenSettings::handleInput(InputEvent input)
             if (isEditing)
             {
                 // We are editing a value
-                float delta = (input == InputEvent::Right) ? 0.05f : -0.05f;
+                float delta = (input == InputEvent::Right) ? 0.1f : -0.1f;
 
                 switch (selectedIndex)
                 {
@@ -126,13 +73,13 @@ void ScreenSettings::handleInput(InputEvent input)
                     case 0:
                         voicedNoiseStrength += delta;
                         if (voicedNoiseStrength < 0.0f) voicedNoiseStrength = 0.0f;
-                        if (voicedNoiseStrength > 1.0f) voicedNoiseStrength = 1.0f;
+                        if (voicedNoiseStrength > 2.0f) voicedNoiseStrength = 2.0f;
                         
                         break;
                     case 1:
                         unvoicedNoiseStrength += delta;
                         if (unvoicedNoiseStrength < 0.0f) unvoicedNoiseStrength = 0.0f;
-                        if (unvoicedNoiseStrength > 1.0f) unvoicedNoiseStrength = 1.0f;
+                        if (unvoicedNoiseStrength > 2.0f) unvoicedNoiseStrength = 2.0f;
                         break;
                 }
             }
