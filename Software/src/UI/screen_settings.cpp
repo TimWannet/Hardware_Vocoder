@@ -1,26 +1,8 @@
-/**
- * @file screen_main_menu.cpp
- * @brief Main menu screen class
- * 
- * @details This file defines the ScreenMainMenu class, which is a subclass of ScreenBase.
- * It provides the implementation for drawing the main menu screen and handling input events.
- * 
- * @author Tim Wannet
- * @date 20-05-2025
- * @version 0.01
- */
-
-#include "screen_main_menu.h"
-
-ScreenMainMenu::ScreenMainMenu(ScreenManager* manager) : screenManager(manager) {}
-
-void ScreenMainMenu::setSettingsScreen(ScreenBase* screen) 
-{
-    settingsScreen = screen;
-}
 
 
-void ScreenMainMenu::draw(ILI9488& tft) 
+#include "screen_settings.h"
+
+void ScreenSettings::draw(ILI9488& tft) 
 {
     if (selectedIndex == lastSelectedIndex)
         return;
@@ -32,8 +14,10 @@ void ScreenMainMenu::draw(ILI9488& tft)
     if (selectedIndex < 0) selectedIndex = 0;
     if (selectedIndex >= itemCount) selectedIndex = itemCount - 1;
 
-    for (int i = 0; i < itemCount; i++) {
-        if (i == selectedIndex) {
+    for (int i = 0; i < itemCount; i++) 
+    {
+        if (i == selectedIndex) 
+        {
             tft.setTextColor(ILI9488_BLACK, ILI9488_WHITE);
         } else {
             tft.setTextColor(ILI9488_WHITE, ILI9488_BLACK);
@@ -45,7 +29,7 @@ void ScreenMainMenu::draw(ILI9488& tft)
     lastSelectedIndex = selectedIndex;
 }
 
-void ScreenMainMenu::handleInput(InputEvent input) 
+void ScreenSettings::handleInput(InputEvent input) 
 {
     bool stateChanged = false;
 
@@ -74,21 +58,10 @@ void ScreenMainMenu::handleInput(InputEvent input)
         case InputEvent::Select:
             buttonState = 1;
             stateChanged = true;
-            switch(selectedIndex)
-            {
-                case 0: 
-                    //something
-                    break;
-
-                case 1: 
-                    if (selectedIndex == 1 && settingsScreen)
-                        screenManager->setScreen(settingsScreen);
-                    break;
-            }
             break;
     }
 
-    if (stateChanged) 
+    if (stateChanged)
     {
         requestRedraw();  // <- This tells the screenManager to redraw this screen
     }

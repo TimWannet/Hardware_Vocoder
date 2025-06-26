@@ -12,32 +12,28 @@
  * @version 0.01
 */
 
-#ifndef SCREEN_MAIN_MENU_H
-#define SCREEN_MAIN_MENU_H
+#ifndef SCREEN_SETTINGS_H
+#define SCREEN_SETTINGS_H
 
 #include "screen_base.h"
 #include "UI/input_manager.h"
 #include "UI/screen_manager.h"
-#include "UI/screen_settings.h"
 
-class ScreenMainMenu : public ScreenBase 
+class ScreenSettings : public ScreenBase 
 {
     public:
-        ScreenMainMenu(ScreenManager* screenManager);        
+        ScreenSettings(ScreenManager &screenManager) : screenManager(&screenManager) {}
         void draw(ILI9488& tft) override;
         void handleInput(InputEvent input) override;
 
-        void setSettingsScreen(ScreenBase* screen);
     private:
-        
-        ScreenManager* screenManager = nullptr;
-        ScreenBase* settingsScreen = nullptr;
+        ScreenManager* screenManager;
         int selectedIndex = 0;
         int lastSelectedIndex = -1;
         int buttonState = 0;
         bool needsRedraw = true;
-        static constexpr const char* menuItems[2] = {"1. Start", "2. Settings"};
+        static constexpr const char* menuItems[2] = {"1. option 1", "2. Back"};
         static constexpr int itemCount = sizeof(menuItems) / sizeof(menuItems[0]);
 };
 
-#endif // SCREEN_MAIN_MENU_H
+#endif // SCREEN_SETTINGS_H

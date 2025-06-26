@@ -77,8 +77,13 @@ volatile bool playbackReady = false;
 //Constructors
 ILI9488 tft = ILI9488(TFT_CS, TFT_DC, TFT_MOSI, TFT_CLK, TFT_RST, -1);
 // Adafruit_ST7735 tft = Adafruit_ST7735(&SPI1, TFT_CS, TFT_DC, TFT_RST);
-ScreenManager* screenManager;
-ScreenMainMenu mainMenu;
+
+ScreenManager screenManager(tft);
+// ScreenManager* screenManager;
+// ScreenMainMenu mainMenu(*screenManager);
+ScreenMainMenu mainMenu(&screenManager);
+ScreenSettings settingsScreen(screenManager);
+
 InputManager inputManager(ENCODER_PIN_A, ENCODER_PIN_B, ENCODER_BUTTON);
 
 // Audio Library objects/patch connections
@@ -118,7 +123,7 @@ void setup()
 
     // Connect input events to screen manager
     inputManager.onInput([](InputEvent event) {
-        screenManager->handleInput(event);
+        screenManager.handleInput(event);
     });
 
     pinMode(TFT_BLK, OUTPUT);
@@ -131,12 +136,11 @@ void setup()
     tft.setRotation(3);
     tft.fillScreen(ILI9488_BLACK);
 
-    screenManager = new ScreenManager(tft);
-    screenManager->setScreen(&mainMenu);
+    mainMenu.setSettingsScreen(&settingsScreen);
+    
+    screenManager.setScreen(&mainMenu);
 
     Serial.println("Setup complete");
-
-
 }
 
 /*
@@ -145,12 +149,12 @@ void setup()
 * @details This function is the main loop of the program.
 * It checks if the buffer is full and processes the FFT when the buffer is full.
 */
-void loop() 
+void loop()
 {
     inputManager.update();  // Reads encoder, may set needsRedraw flag
-    screenManager->update(); // Optional if doing per-screen updates
+    screenManager.update(); // Optional if doing per-screen updates
 
-    screenManager->draw();  // Only draw when something changed
+    screenManager.draw();  // Only draw when something changed
 
     if (carrierBufferFull == true && modulatorBufferFull == true)
     {
@@ -158,8 +162,6 @@ void loop()
         {
             modulatorBuffer[i] = highpass(modulatorBuffer[i]);
         }
-
-        
 
         // Convert int16_t to float
         convertInt16ToFloat(carrierBuffer, carrierFloatBuffer);
