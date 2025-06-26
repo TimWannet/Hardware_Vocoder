@@ -22,12 +22,15 @@
 class ScreenSettings : public ScreenBase 
 {
     public:
-        ScreenSettings(ScreenManager &screenManager) : screenManager(&screenManager) {}
+        ScreenSettings(ScreenManager* screenManager);   
         void draw(ILI9488& tft) override;
         void handleInput(InputEvent input) override;
 
+        void setMainMenuScreen(ScreenBase* screen);
+        
     private:
-        ScreenManager* screenManager;
+        ScreenManager* screenManager = nullptr;
+        ScreenBase* mainMenuScreen = nullptr;
         int selectedIndex = 0;
         int lastSelectedIndex = -1;
         int buttonState = 0;

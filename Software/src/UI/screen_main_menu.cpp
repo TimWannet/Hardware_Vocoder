@@ -82,7 +82,10 @@ void ScreenMainMenu::handleInput(InputEvent input)
 
                 case 1: 
                     if (selectedIndex == 1 && settingsScreen)
+                    {    
                         screenManager->setScreen(settingsScreen);
+                        selectedIndex = 0;  // Reset to first item
+                    } 
                     break;
             }
             break;

@@ -2,6 +2,13 @@
 
 #include "screen_settings.h"
 
+ScreenSettings::ScreenSettings(ScreenManager* manager) : screenManager(manager) {}
+
+void ScreenSettings::setMainMenuScreen(ScreenBase* screen) 
+{
+    mainMenuScreen = screen;
+}
+
 void ScreenSettings::draw(ILI9488& tft) 
 {
     if (selectedIndex == lastSelectedIndex)
@@ -36,28 +43,43 @@ void ScreenSettings::handleInput(InputEvent input)
     switch (input) 
     {
         case InputEvent::Left:
-            if (selectedIndex >= 0) 
+            stateChanged = true;
+            if (selectedIndex >= 0)
             {
-                selectedIndex--;
-                stateChanged = true;
+                selectedIndex--;    
             }
             if (selectedIndex < 0)
                 selectedIndex = itemCount;
             break;
 
         case InputEvent::Right:
+            stateChanged = true;
             if (selectedIndex < itemCount)
             {
                 selectedIndex++;
-                stateChanged = true;
             }
             if (selectedIndex >= itemCount)
                 selectedIndex = 0;
             break;
 
         case InputEvent::Select:
-            buttonState = 1;
-            stateChanged = true;
+        stateChanged = true;     
+            switch(selectedIndex)
+            {
+                // buttonState = 1;
+                
+                case 0:
+                    // Handle option 1
+                    break;
+
+                case 1:
+                    if  (selectedIndex == 1)
+                    {
+                        screenManager->setScreen(mainMenuScreen);
+                        selectedIndex = 0;  
+                    }
+                    break;
+            }
             break;
     }
 

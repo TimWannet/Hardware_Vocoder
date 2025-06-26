@@ -82,7 +82,7 @@ ScreenManager screenManager(tft);
 // ScreenManager* screenManager;
 // ScreenMainMenu mainMenu(*screenManager);
 ScreenMainMenu mainMenu(&screenManager);
-ScreenSettings settingsScreen(screenManager);
+ScreenSettings settingsScreen(&screenManager);
 
 InputManager inputManager(ENCODER_PIN_A, ENCODER_PIN_B, ENCODER_BUTTON);
 
@@ -137,6 +137,7 @@ void setup()
     tft.fillScreen(ILI9488_BLACK);
 
     mainMenu.setSettingsScreen(&settingsScreen);
+    settingsScreen.setMainMenuScreen(&mainMenu);
     
     screenManager.setScreen(&mainMenu);
 
