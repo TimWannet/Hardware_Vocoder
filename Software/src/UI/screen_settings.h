@@ -16,8 +16,10 @@
 #define SCREEN_SETTINGS_H
 
 #include "screen_base.h"
-#include "UI/input_manager.h"
-#include "UI/screen_manager.h"
+#include "input_manager.h"
+#include "screen_manager.h"
+
+#include "DSP/fft_utils.h"
 
 class ScreenSettings : public ScreenBase 
 {
@@ -33,10 +35,11 @@ class ScreenSettings : public ScreenBase
         ScreenBase* mainMenuScreen = nullptr;
         int selectedIndex = 0;
         int lastSelectedIndex = -1;
-        int buttonState = 0;
+        bool isEditing = false;
         bool needsRedraw = true;
-        static constexpr const char* menuItems[2] = {"1. option 1", "2. Back"};
+        static constexpr const char* menuItems[3] = {"Voiced Noise: %.2f", "Unvoiced Noise: %.2f", "Back"};
         static constexpr int itemCount = sizeof(menuItems) / sizeof(menuItems[0]);
+
 };
 
 #endif // SCREEN_SETTINGS_H

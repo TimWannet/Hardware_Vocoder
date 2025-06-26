@@ -41,8 +41,8 @@
 #define TFT_MOSI  26
 #define TFT_CLK   27
 #define ENCODER_BUTTON 35
-#define ENCODER_PIN_A 33
-#define ENCODER_PIN_B 34
+#define ENCODER_PIN_A 34
+#define ENCODER_PIN_B 33
 // #define SPI_CLOCK 24000000
 
 const int FFT_SIZE = 1024; // Buffer size (Change this value as needed: 128, 256, 512, 1024, 2048, etc.)

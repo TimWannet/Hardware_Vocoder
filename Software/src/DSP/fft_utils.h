@@ -27,3 +27,6 @@ bool SilentFrame(int16_t *buffer, int size, int threshold);
 // External variables
 extern const arm_cfft_instance_f32* fftConfig;
 extern const int FFT_SIZE;
+
+extern float voicedNoiseStrength;
+extern float unvoicedNoiseStrength;
